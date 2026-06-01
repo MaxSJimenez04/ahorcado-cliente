@@ -1,0 +1,44 @@
+﻿<Page x:Class="ClienteAhorcado.vistas.wLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1250"
+      Title="wLogin">
+
+    <Grid Background="#F4F3F2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="0.65*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+<!--Botón con ícono-->
+        <Button Grid.Column="0" 
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left" 
+                Margin="20" Name="btnRegresar" 
+                Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+            <!--El Path apunta al nombre del icono en la hoja de estilos-->
+            <Path Data="{StaticResource IconoRegresar}"
+                  Fill="#F4F3F2"
+                  Width="50"
+                  Height="50"
+                  Stretch="Fill" 
+                  />
+            <!--El stretch="Fill" se debe poner para que se vea el ícono, pongan la altura y anchura para no se salga de los bordes-->
+        </Button>
+        <Grid Grid.Column="1" Margin="25,50" Background="#D5CFCF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.50*"/>
+                <RowDefinition Height="0.33*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"/>
+
+            
+        </Grid>
+    </Grid>
+</Page>
