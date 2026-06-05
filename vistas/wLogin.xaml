@@ -8,10 +8,10 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wLogin">
 
-    <Grid Background="#F4F3F2">
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.25*"/>
-            <ColumnDefinition Width="0.65*"/>
+            <ColumnDefinition Width="0.50*"/>
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
 <!--Botón con ícono-->
@@ -23,22 +23,50 @@
             <!--El Path apunta al nombre del icono en la hoja de estilos-->
             <Path Data="{StaticResource IconoRegresar}"
                   Fill="#F4F3F2"
-                  Width="50"
-                  Height="50"
+                  Width="30"
+                  Height="30"
                   Stretch="Fill" 
                   />
             <!--El stretch="Fill" se debe poner para que se vea el ícono, pongan la altura y anchura para no se salga de los bordes-->
         </Button>
-        <Grid Grid.Column="1" Margin="25,50" Background="#D5CFCF">
+        <Grid Grid.Column="1" Margin="25,50"  Background="#D5CFCF">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.25*"/>
                 <RowDefinition Height="0.50*"/>
                 <RowDefinition Height="0.33*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0"/>
+            <TextBlock Grid.Row="0" Text="Inicio Sesión" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Style="{StaticResource titulos}"/>
 
-            
+            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <TextBlock Text="Nombre de Usuario:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                <TextBox Name="txtNombreUsuario" Height="60" Width="360" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Contraseña:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                <Grid Width="360">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" HorizontalAlignment="Stretch"/>
+                    <TextBox Name="txtContraseniaVisible" Grid.Column="0" Height="60" Visibility="Collapsed" HorizontalAlignment="Stretch"/>
+
+                    <Button Name="btnMostrarContrasenia" Grid.Column="1" Width="60" Height="60"
+                            Style="{x:Null}" Background="#807D7D" BorderThickness="0" Cursor="Hand" Click="btnMostrarContrasenia_Click">
+                        <TextBlock Text="👁" FontSize="20"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Button Name="btnIniciarSesion" Margin="0,10" Content="Iniciar Sesión" Click="btnIniciarSesion_Click"/>
+
+                <Button Name="btnCrearCuenta" Style="{StaticResource BotonSecundario}" Margin="0,10" Content="Crear Cuenta" Click="btnCrearCuenta_Click"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

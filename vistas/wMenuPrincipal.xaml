@@ -1,0 +1,53 @@
+﻿<Page x:Class="ClienteAhorcado.vistas.wMenuPrincipal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1250"
+      Title="wMenuPrincipal">
+
+    <Grid Background="Transparent">
+
+        <Grid Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" 
+                    Content="Crear Partida" Click="btnCrearPartida_Click"/>
+
+            <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
+                    Content="Unirse a Partida" Click="btnUnirsePartida_Click"/>
+
+            <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" 
+                    Content="Mi Perfil" Click="btnMiPerfil_Click"/>
+
+            <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" 
+                    Content="Opciones" Click="btnOpciones_Click"/>
+
+            <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" 
+                    Content="Cerrar Sesión" Style="{StaticResource BotonSecundario}" Click="btnCerrarSesion_Click"/>
+
+            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" 
+                    Name="btnClasificacion" Click="btnClasificacion_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Path Data="{StaticResource IconoClasificacion}" 
+                          Fill="#F4F3F2" Width="28" Height="28" Stretch="Fill" Margin="0,0,15,0"/>
+                    <TextBlock Text="Clasificación" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+        </Grid>
+    </Grid>
+</Page>

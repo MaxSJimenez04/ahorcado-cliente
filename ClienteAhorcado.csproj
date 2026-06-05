@@ -55,11 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="vistas\wConfiguracion.xaml.cs">
+      <DependentUpon>wConfiguracion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\wInicio.xaml.cs">
       <DependentUpon>wInicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="vistas\wLogin.xaml.cs">
       <DependentUpon>wLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wMenuPrincipal.xaml.cs">
+      <DependentUpon>wMenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wRegistro.xaml.cs">
+      <DependentUpon>wRegistro.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -77,11 +86,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="vistas\wConfiguracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\wInicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vistas\wLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wMenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wRegistro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +194,9 @@
   <ItemGroup>
     <Folder Include="resources\componentes\" />
     <Folder Include="resources\imagenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\img\fondo_libreta.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

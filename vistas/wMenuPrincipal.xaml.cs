@@ -16,18 +16,28 @@ using System.Windows.Shapes;
 namespace ClienteAhorcado.vistas
 {
     /// <summary>
-    /// Lógica de interacción para wInicio.xaml
+    /// Lógica de interacción para wMenuPrincipal.xaml
     /// </summary>
-    public partial class wInicio : Page
+    public partial class wMenuPrincipal : Page
     {
-        public wInicio()
+        public wMenuPrincipal()
         {
             InitializeComponent();
         }
 
-        private void btnJugar_Click(object sender, RoutedEventArgs e)
+        private void btnCrearPartida_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new wLogin());
+
+        }
+
+        private void btnUnirsePartida_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMiPerfil_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnOpciones_Click(object sender, RoutedEventArgs e)
@@ -35,9 +45,14 @@ namespace ClienteAhorcado.vistas
             NavigationService.Navigate(new wConfiguracion());
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            NavigationService.Navigate(new wInicio());
+        }
+
+        private void btnClasificacion_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -16,21 +16,31 @@ using System.Windows.Shapes;
 namespace ClienteAhorcado.vistas
 {
     /// <summary>
-    /// Lógica de interacción para wLogin.xaml
+    /// Lógica de interacción para wRegistro.xaml
     /// </summary>
-    public partial class wLogin : Page
+    public partial class wRegistro : Page
     {
-        // Bandera para saber si la contraseña está visible u oculta
         private bool _contraseniaVisible = false;
 
-        public wLogin()
+        public wRegistro()
         {
             InitializeComponent();
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new wInicio());
+            VolverAtras();
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            // El botón cancelar hace exactamente lo mismo que regresar en este flujo
+            VolverAtras();
+        }
+
+        private void VolverAtras()
+        {
+            NavigationService.Navigate(new wLogin());
         }
 
         private void btnMostrarContrasenia_Click(object sender, RoutedEventArgs e)
@@ -39,45 +49,31 @@ namespace ClienteAhorcado.vistas
 
             if (_contraseniaVisible)
             {
-                // Mostrar la contraseña
                 txtContraseniaVisible.Text = pbContraseniaOculta.Password;
                 pbContraseniaOculta.Visibility = Visibility.Collapsed;
                 txtContraseniaVisible.Visibility = Visibility.Visible;
             }
             else
             {
-                // Ocultar la contraseña
                 pbContraseniaOculta.Password = txtContraseniaVisible.Text;
                 txtContraseniaVisible.Visibility = Visibility.Collapsed;
                 pbContraseniaOculta.Visibility = Visibility.Visible;
             }
         }
 
-        private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            string usuario = txtNombreUsuario.Text;
-
-            // Obtenemos la contraseña del control que esté activo en ese momento
+            // Validaciones y captura de datos para registrar al usuario
+            string nombreUsuario = txtNombreUsuario.Text;
+            string correo = txtCorreo.Text;
             string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
+            string fechaNacimiento = txtFechaNacimiento.Text;
+            string telefono = txtTelefono.Text;
 
-            // Validación básica para evitar campos vacíos
-            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasenia))
-            {
-                MessageBox.Show("Por favor, ingresa tu usuario y contraseña.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+            // TODO: Agregar lógica de creación de cuenta
+            MessageBox.Show("Registrando cuenta...", "Registro", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Aquí irá la lógica de validación contra tu base de datos local
-            // TODO: Implementar validación de credenciales
-
-            MessageBox.Show($"Intentando iniciar sesión con el usuario: {usuario}", "Prueba", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new wMenuPrincipal());
-        }
-
-        private void btnCrearCuenta_Click(object sender, RoutedEventArgs e)
-        {
-            // Navegar a la página de registro (cuando la crees)
-            NavigationService.Navigate(new wRegistro());
         }
     }
 }

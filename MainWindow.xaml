@@ -9,8 +9,18 @@
         ResizeMode="CanResize"
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen">
-    
-    <Grid Background="#F4F3F2">
+
+    <Grid>
+        <Grid.Background>
+            <VisualBrush TileMode="Tile" Viewport="0,0,1,270" ViewportUnits="Absolute">
+                <VisualBrush.Visual>
+                    <Grid Width="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth}" Height="270">
+                        <Image Source="resources/img/fondo_libreta.jpeg" Stretch="Fill" />
+                    </Grid>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
+
         <Frame Name="fmPantalla" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
