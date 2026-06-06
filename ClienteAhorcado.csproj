@@ -55,8 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="vistas\wClasificacion.xaml.cs">
+      <DependentUpon>wClasificacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\wConfiguracion.xaml.cs">
       <DependentUpon>wConfiguracion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wCrearPartida.xaml.cs">
+      <DependentUpon>wCrearPartida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wEditarPerfil.xaml.cs">
+      <DependentUpon>wEditarPerfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wEsperaJugador.xaml.cs">
+      <DependentUpon>wEsperaJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wEstadisticas.xaml.cs">
+      <DependentUpon>wEstadisticas.xaml</DependentUpon>
     </Compile>
     <Compile Include="vistas\wInicio.xaml.cs">
       <DependentUpon>wInicio.xaml</DependentUpon>
@@ -67,8 +82,17 @@
     <Compile Include="vistas\wMenuPrincipal.xaml.cs">
       <DependentUpon>wMenuPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vistas\wPartidaJugador.xaml.cs">
+      <DependentUpon>wPartidaJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wPerfil.xaml.cs">
+      <DependentUpon>wPerfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\wRegistro.xaml.cs">
       <DependentUpon>wRegistro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\wUnirsePartida.xaml.cs">
+      <DependentUpon>wUnirsePartida.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,7 +110,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="vistas\wClasificacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\wConfiguracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wCrearPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wEditarPerfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wEsperaJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wEstadisticas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,7 +146,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="vistas\wPartidaJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wPerfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\wRegistro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\wUnirsePartida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +253,29 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\img\fondo_libreta.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\img\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\img\correcto.png" />
+    <Resource Include="resources\img\enviar.png" />
+    <Resource Include="resources\img\incorrecto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\img\idea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\img\ahorcado\ahorcado_0.jpeg" />
+    <Resource Include="resources\img\ahorcado\ahorcado_1.jpeg" />
+    <Resource Include="resources\img\ahorcado\ahorcado_2.jpeg" />
+    <Resource Include="resources\img\ahorcado\ahorcado_3.jpeg" />
+    <Resource Include="resources\img\ahorcado\ahorcado_4.jpeg" />
+    <Resource Include="resources\img\ahorcado\ahorcado_5.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\img\actualizar.png" />
+    <Resource Include="resources\img\cargando.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

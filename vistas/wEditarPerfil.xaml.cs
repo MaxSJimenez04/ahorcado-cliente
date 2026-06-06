@@ -15,18 +15,29 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    public partial class wLogin : Page
+    public partial class wEditarPerfil : Page
     {
         private bool _contraseniaVisible = false;
 
-        public wLogin()
+        public wEditarPerfil()
         {
             InitializeComponent();
+            dpFechaNacimiento.SelectedDate = new System.DateTime(1998, 5, 12);
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new wInicio());
+            RegresarAPerfil();
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            RegresarAPerfil();
+        }
+
+        private void RegresarAPerfil()
+        {
+            NavigationService.Navigate(new wPerfil());
         }
 
         private void btnMostrarContrasenia_Click(object sender, RoutedEventArgs e)
@@ -47,25 +58,10 @@ namespace ClienteAhorcado.vistas
             }
         }
 
-        private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
+        private void btnGuardarCambios_Click(object sender, RoutedEventArgs e)
         {
-            string usuario = txtNombreUsuario.Text;
-
-            string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
-
-            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasenia))
-            {
-                MessageBox.Show("Por favor, ingresa tu usuario y contraseña.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            MessageBox.Show($"Inicio de sesión exitoso.", "Prueba", MessageBoxButton.OK, MessageBoxImage.Information);
-            NavigationService.Navigate(new wMenuPrincipal());
-        }
-
-        private void btnCrearCuenta_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new wRegistro());
+            MessageBox.Show("Cambios guardados con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+            RegresarAPerfil();
         }
     }
 }

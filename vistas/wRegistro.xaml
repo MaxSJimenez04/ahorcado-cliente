@@ -49,26 +49,57 @@
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
 
                     <TextBlock Text="Nombre de Usuario:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtNombreUsuario" Height="60"/>
+                        <TextBlock Text="Ej: JugadorPro123" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtNombreUsuario}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
 
                     <TextBlock Text="Correo Electrónico:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtCorreo" Height="60"/>
+                        <TextBlock Text="Ej: jugador@correo.com" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtCorreo}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
 
                     <TextBlock Text="Contraseña:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Width="Auto" HorizontalAlignment="Left">
+
+                    <Grid Margin="0,0,0,20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" HorizontalAlignment="Stretch"/>
+                        <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" Height="60" HorizontalAlignment="Stretch"/>
                         <TextBox Name="txtContraseniaVisible" Grid.Column="0" Height="60" Visibility="Collapsed" HorizontalAlignment="Stretch"/>
 
-                        <Button Name="btnMostrarContrasenia" Grid.Column="1" Width="60" Height="60" Margin="5,0,0,0"
-            Background="#807D7D" Cursor="Hand" Click="btnMostrarContrasenia_Click">
+                        <Button Name="btnMostrarContrasenia" Grid.Column="1" Width="60" Height="60" Margin="-8,0,0,0"
+                                Background="#807D7D" Cursor="Hand" Click="btnMostrarContrasenia_Click">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
-                                    <Border x:Name="Borde" Background="{TemplateBinding Background}" CornerRadius="8">
+                                    <Border x:Name="Borde" Background="{TemplateBinding Background}" CornerRadius="0,8,8,0">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                     <ControlTemplate.Triggers>
@@ -87,10 +118,25 @@
                 <StackPanel Grid.Column="1" Margin="45,0,60,0">
 
                     <TextBlock Text="Fecha de Nacimiento:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20"/>
+                    <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20"/>
 
                     <TextBlock Text="Teléfono:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtTelefono" Height="60"/>
+                        <TextBlock Text="Ej: 2281234567" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtTelefono}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
 
                 </StackPanel>
             </Grid>
@@ -101,6 +147,8 @@
                         Content="Cancelar" 
                         Style="{StaticResource BotonSecundario}" 
                         Margin="0,0,25,0" 
+                        Width="Auto"
+                        Padding="35,0"
                         Click="btnCancelar_Click"/>
 
                 <Button Name="btnRegistrar" 

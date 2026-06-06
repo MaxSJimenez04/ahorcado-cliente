@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    /// <summary>
-    /// Lógica de interacción para wMenuPrincipal.xaml
-    /// </summary>
     public partial class wMenuPrincipal : Page
     {
         public wMenuPrincipal()
@@ -27,17 +24,17 @@ namespace ClienteAhorcado.vistas
 
         private void btnCrearPartida_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new wCrearPartida());
         }
 
         private void btnUnirsePartida_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new wUnirsePartida());
         }
 
         private void btnMiPerfil_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new wPerfil());
         }
 
         private void btnOpciones_Click(object sender, RoutedEventArgs e)
@@ -47,12 +44,17 @@ namespace ClienteAhorcado.vistas
 
         private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
+            while (NavigationService.CanGoBack)
+            {
+                NavigationService.RemoveBackEntry();
+            }
+
             NavigationService.Navigate(new wInicio());
         }
 
         private void btnClasificacion_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new wClasificacion());
         }
     }
 }

@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    public partial class wConfiguracion : Page
+    public partial class wEstadisticas : Page
     {
-        public wConfiguracion()
+        public wEstadisticas()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace ClienteAhorcado.vistas
             }
             else
             {
-                NavigationService.Navigate(new wInicio());
+                NavigationService.Navigate(new wPerfil());
             }
         }
     }

@@ -44,7 +44,7 @@
 
                 <TextBlock Text="Idioma" Style="{StaticResource texto}" Margin="0,0,0,5"/>
 
-                <ComboBox Name="cbIdioma" SelectedIndex="0">
+                <ComboBox Name="cbIdioma" SelectedIndex="0" Style="{StaticResource ComboBoxOpciones}" Width="500">
                     <ComboBoxItem Content="Español"/>
                     <ComboBoxItem Content="Inglés"/>
                 </ComboBox>

@@ -10,7 +10,7 @@
 
     <Grid Background="Transparent">
 
-        <Grid Margin="50">
+        <Grid Margin="120, 50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.5*"/>

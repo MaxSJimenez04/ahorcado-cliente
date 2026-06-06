@@ -15,23 +15,26 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    public partial class wConfiguracion : Page
+    public partial class wPerfil : Page
     {
-        public wConfiguracion()
+        public wPerfil()
         {
             InitializeComponent();
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-            else
-            {
-                NavigationService.Navigate(new wInicio());
-            }
+            NavigationService.Navigate(new wMenuPrincipal());
+        }
+
+        private void btnEstadisticas_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new wEstadisticas());
+        }
+
+        private void btnEditarPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new wEditarPerfil());
         }
     }
 }

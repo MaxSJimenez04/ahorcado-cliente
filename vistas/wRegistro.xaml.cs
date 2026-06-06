@@ -12,12 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace ClienteAhorcado.vistas
 {
-    /// <summary>
-    /// Lógica de interacción para wRegistro.xaml
-    /// </summary>
     public partial class wRegistro : Page
     {
         private bool _contraseniaVisible = false;
@@ -34,7 +32,6 @@ namespace ClienteAhorcado.vistas
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            // El botón cancelar hace exactamente lo mismo que regresar en este flujo
             VolverAtras();
         }
 
@@ -63,17 +60,50 @@ namespace ClienteAhorcado.vistas
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            // Validaciones y captura de datos para registrar al usuario
             string nombreUsuario = txtNombreUsuario.Text;
             string correo = txtCorreo.Text;
             string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
-            string fechaNacimiento = txtFechaNacimiento.Text;
+            string fechaNacimiento = dpFechaNacimiento.Text;
             string telefono = txtTelefono.Text;
 
-            // TODO: Agregar lógica de creación de cuenta
+            if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(correo) ||
+                string.IsNullOrWhiteSpace(contrasenia) || string.IsNullOrWhiteSpace(fechaNacimiento) ||
+                string.IsNullOrWhiteSpace(telefono))
+            {
+                MessageBox.Show("Por favor, llena todos los campos para continuar.",
+                                "Datos incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!EsCorreoValido(correo))
+            {
+                MessageBox.Show("Por favor, ingresa un correo electrónico válido (ejemplo: usuario@correo.com).",
+                                "Correo inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!EsTelefonoValido(telefono))
+            {
+                MessageBox.Show("Por favor, ingresa un número de teléfono válido de 10 dígitos.",
+                                "Teléfono inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             MessageBox.Show("Registrando cuenta...", "Registro", MessageBoxButton.OK, MessageBoxImage.Information);
 
             NavigationService.Navigate(new wMenuPrincipal());
+        }
+
+        private bool EsCorreoValido(string correo)
+        {
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(correo, patron);
+        }
+
+        private bool EsTelefonoValido(string telefono)
+        {
+            string patron = @"^\d{10}$";
+            return Regex.IsMatch(telefono, patron);
         }
     }
 }

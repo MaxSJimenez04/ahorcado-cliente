@@ -1,0 +1,73 @@
+﻿<Page x:Class="ClienteAhorcado.vistas.wPerfil"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1250"
+      Title="wPerfil">
+
+    <Grid Background="Transparent">
+        <Grid Margin="50,25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.20*"/>
+                <RowDefinition Height="0.60*"/>
+                <RowDefinition Height="0.20*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+                    <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
+                </Button>
+
+                <TextBlock Grid.Column="1" Text="Mi Perfil" VerticalAlignment="Center" 
+                           HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
+            </Grid>
+
+            <Grid Grid.Row="1" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="60,0,45,0">
+                    <TextBlock Text="Nombre de Usuario:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="JugadorPro"/>
+
+                    <TextBlock Text="Correo Electrónico:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="jugadorpro@correo.com"/>
+
+                    <TextBlock Text="Contraseña:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <PasswordBox Name="pbContraseniaOculta" Height="60" Width="Auto" Margin="0,0,0,20" IsEnabled="False" Password="PasswordPrueba123"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="45,0,60,0">
+                    <TextBlock Text="Fecha de Nacimiento:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="12/05/1998"/>
+
+                    <TextBlock Text="Teléfono:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="2281234567"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" VerticalAlignment="Center" Margin="60,0">
+                <Button Name="btnEstadisticas" HorizontalAlignment="Left" Height="60" Padding="20,0" Click="btnEstadisticas_Click">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Path Data="{StaticResource IconoClasificacion}" Fill="#F4F3F2" Width="24" Height="24" Stretch="Fill" Margin="0,0,10,0"/>
+                        <TextBlock Text="Mis Estadísticas" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Name="btnEditarPerfil" HorizontalAlignment="Right" Content="Editar Perfil" Click="btnEditarPerfil_Click"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

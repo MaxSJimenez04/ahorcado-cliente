@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!--Íconos en SVG (Agregar si se ocupan más)-->
     <Geometry x:Key="IconoClasificacion">M140-180h187v-360H140v360Zm247 0h186v-600H387v600Zm246 0h187v-280H633v280ZM80-120v-480h247v-240h306v320h247v400H80Z</Geometry>
 
     <Geometry x:Key="IconoEnviar">M120-160v-640l760 320-760 320Zm60-93 544-227-544-230v168l242 62-242 60v167Zm0 0v-457 457Z</Geometry>
@@ -12,7 +11,6 @@
 
     <Geometry x:Key="IconoRegresar">m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z</Geometry>
     
-    <!--Estilo para el botón Regresar-->
     <Style x:Key="BotonRegresar" TargetType="Button">
         <Setter Property="Background" Value="#1E1E1E"/>
         <Setter Property="BorderThickness" Value="3"/>
@@ -20,13 +18,11 @@
         <Setter Property="Height" Value="80"/>
         <Setter Property="Width" Value="80"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <!--Aqui se selecciona la fuente que está en la carpeta de fonts, vamos a usar puro ELMS SANS-->
         <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
         <Setter Property="FontSize" Value="32"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <!--Esto es para que le ponga las esquinas redondeadas al botón-->
                     <Border x:Name="Borde"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -37,7 +33,6 @@
                                       Margin="{TemplateBinding Padding}"/>
                     </Border>
 
-                    <!--Para cambiar el color del botón cuando pase el mouse encima del botón-->
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Borde" Property="Background" Value="#807D7D"/>
@@ -49,7 +44,6 @@
         </Setter>
     </Style>
 
-    <!--Estilo para el botón primario-->
     <Style TargetType="Button">
         <Setter Property="Background" Value="#1E1E1E"/>
         <Setter Property="Foreground" Value="#F4F3F2"/>
@@ -58,13 +52,11 @@
         <Setter Property="Height" Value="60"/>
         <Setter Property="Width" Value="360"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <!--Aqui se selecciona la fuente que está en la carpeta de fonts, vamos a usar puro ELMS SANS-->
         <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
         <Setter Property="FontSize" Value="32"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <!--Esto es para que le ponga las esquinas redondeadas al botón-->
                     <Border x:Name="Borde"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -75,7 +67,6 @@
                                           Margin="{TemplateBinding Padding}"/>
                     </Border>
 
-                    <!--Para cambiar el color del botón cuando pase el mouse encima del botón-->
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Borde" Property="Background" Value="#807D7D"/>
@@ -87,7 +78,6 @@
         </Setter>
     </Style>
     
-    <!--Estilo del botón secundario-->
     <Style x:Key="BotonSecundario" TargetType="Button">
         <Setter Property="Background" Value="#F4F3F2"/>
         <Setter Property="Foreground" Value="#1E1E1E"/>
@@ -101,7 +91,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <!--Esto es para que le ponga las esquinas redondeadas al botón-->
                     <Border x:Name="Borde"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -112,11 +101,15 @@
                                   Margin="{TemplateBinding Padding}"/>
                     </Border>
 
-                    <!--Para cambiar el color del botón cuando pase el mouse encima del botón-->
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Borde" Property="Background" Value="DarkGray"/>
-                            <Setter Property="Foreground" Value="#F4F3F2"/> <!-- Para acceder a una propiedad del botón y no del borde solo se coloca como los otros setters-->
+                            <Setter TargetName="Borde" Property="Background" Value="#E0E0E0"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Borde" Property="Background" Value="#D9D9D9"/>
+                            <Setter Property="Foreground" Value="#A09D9D"/>
+                            <Setter TargetName="Borde" Property="BorderBrush" Value="#CFCFCF"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -124,7 +117,6 @@
         </Setter>
     </Style>
 
-    <!--Estilo para los campos de texto-->
     <Style TargetType="TextBox">
         <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="BorderBrush" Value="#807D7D"/>
@@ -133,16 +125,19 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Border x:Name="Borde"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="8">
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
                         <ScrollViewer x:Name="PART_ContentHost"
-                            VerticalAlignment="Center"
-                            Margin="5,0"/>
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"/>
                     </Border>
 
                     <ControlTemplate.Triggers>
@@ -155,7 +150,6 @@
         </Setter>
     </Style>
     
-    <!--Estilo para los textBlock de Texto Normal-->
     <Style x:Key="texto" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
         <Setter Property="FontWeight" Value="Light"/>
@@ -164,16 +158,14 @@
         <Setter Property="Foreground" Value="#1E1E1E"/>
     </Style>
     
-    <!--Estilo para teextBlock de Título-->
     <Style x:Key="titulos" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
         <Setter Property="FontWeight" Value="Light"/>
-        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="FontSize" Value="52"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Foreground" Value="#1E1E1E"/>
     </Style>
     
-    <!--Estilo para borde de Combobox-->
     <Style x:Key="bordeCB" TargetType="Border">
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Background" Value="#F4F3F2"/>
@@ -181,9 +173,6 @@
         <Setter Property="BorderThickness" Value="3"/>
     </Style>
 
-
-
-    <!--Estilo para los passwordBox-->
     <Style TargetType="PasswordBox">
         <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="BorderBrush" Value="#807D7D"/>
@@ -191,18 +180,21 @@
         <Setter Property="FontWeight" Value="Light"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Height" Value="60"/>
-        <Setter Property="Width" Value="360"/>
+        <Setter Property="Width" Value="Auto"/>
         <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="PasswordBox">
                     <Border x:Name="Borde"
-                     BorderBrush="{TemplateBinding BorderBrush}"
-                     BorderThickness="{TemplateBinding BorderThickness}"
-                     CornerRadius="8">
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
                         <ScrollViewer x:Name="PART_ContentHost"
-                                      VerticalAlignment="Center"
-                                      Margin="5,0"/>
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"/>
                     </Border>
 
                     <ControlTemplate.Triggers>
@@ -217,12 +209,68 @@
 
 
     <Style TargetType="ComboBox">
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="BorderBrush" Value="#807D7D"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Padding" Value="15,0,30,0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"/>
+
+                        <ToggleButton x:Name="toggleButton"
+                                      BorderBrush="{x:Null}" Background="Transparent"
+                                      IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <ToggleButton.Template>
+                                <ControlTemplate TargetType="ToggleButton">
+                                    <Border Background="Transparent">
+                                        <Path x:Name="arrow" Data="M0,0 L5,5 L10,0" Stroke="#807D7D" StrokeThickness="2" 
+                                              HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </ToggleButton.Template>
+                        </ToggleButton>
+
+                        <ContentPresenter x:Name="contentPresenter" IsHitTestVisible="False"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                        <Popup x:Name="PART_Popup" AllowsTransparency="True"
+                               IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                               Placement="Bottom" PopupAnimation="Slide">
+                            <Border x:Name="dropDownBorder" Background="#FFFFFF" BorderBrush="#807D7D"
+                                    BorderThickness="2" CornerRadius="8" Margin="0,5,0,0"
+                                    MaxHeight="200" MinWidth="{Binding ActualWidth, ElementName=border}">
+                                <ScrollViewer>
+                                    <ItemsPresenter/>
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ComboBoxOpciones" TargetType="ComboBox">
         <Setter Property="Background" Value="#E0E0E0"/>
         <Setter Property="Foreground" Value="#1E1E1E"/>
         <Setter Property="BorderBrush" Value="#1E1E1E"/>
         <Setter Property="BorderThickness" Value="3"/>
         <Setter Property="Height" Value="60"/>
-        <Setter Property="Width" Value="360"/>
         <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="DemiBold"/>
@@ -233,51 +281,35 @@
                 <ControlTemplate TargetType="ComboBox">
                     <Grid>
                         <Border x:Name="border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="12"/>
-                        <ToggleButton x:Name="toggleButton"
-                                  BorderBrush="{x:Null}"
-                                  Background="Transparent"
-                                  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                  HorizontalAlignment="Stretch"
-                                  VerticalAlignment="Stretch">
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="12"/>
+
+                        <ToggleButton x:Name="toggleButton" BorderBrush="{x:Null}" Background="Transparent"
+                                      IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <ToggleButton.Template>
                                 <ControlTemplate TargetType="ToggleButton">
                                     <Border Background="Transparent">
-                                        <Path x:Name="arrow" 
-                                          Data="M0,0 L6,6 L12,0" 
-                                          Stroke="{TemplateBinding Foreground}" 
-                                          StrokeThickness="3" 
-                                          HorizontalAlignment="Right" 
-                                          VerticalAlignment="Center" 
-                                          Margin="0,0,15,0"/>
+                                        <Path x:Name="arrow" Data="M0,0 L6,6 L12,0" Stroke="{TemplateBinding Foreground}" StrokeThickness="3" 
+                                              HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0"/>
                                     </Border>
                                 </ControlTemplate>
                             </ToggleButton.Template>
                         </ToggleButton>
 
-                        <ContentPresenter x:Name="contentPresenter"
-                                      IsHitTestVisible="False"
-                                      Margin="{TemplateBinding Padding}"
-                                      Content="{TemplateBinding SelectionBoxItem}"
-                                      VerticalAlignment="Center"
-                                      HorizontalAlignment="Left"/>
+                        <ContentPresenter x:Name="contentPresenter" IsHitTestVisible="False"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-                        <Popup x:Name="PART_Popup"
-                           AllowsTransparency="True"
-                           IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                           Placement="Bottom"
-                           PopupAnimation="Slide">
-                            <Border x:Name="dropDownBorder"
-                                Background="#F4F3F2"
-                                BorderBrush="#1E1E1E"
-                                BorderThickness="3"
-                                CornerRadius="8"
-                                Margin="0,5,0,0"
-                                MaxHeight="200"
-                                MinWidth="{Binding ActualWidth, ElementName=border}">
+                        <Popup x:Name="PART_Popup" AllowsTransparency="True"
+                               IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                               Placement="Bottom" PopupAnimation="Slide">
+                            <Border x:Name="dropDownBorder" Background="#F4F3F2" BorderBrush="#1E1E1E"
+                                    BorderThickness="3" CornerRadius="8" Margin="0,5,0,0"
+                                    MaxHeight="200" MinWidth="{Binding ActualWidth, ElementName=border}">
                                 <ScrollViewer>
                                     <ItemsPresenter/>
                                 </ScrollViewer>
@@ -306,6 +338,88 @@
                             <Setter TargetName="ItemBorder" Property="Background" Value="#D6D6D6"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EstiloChatTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="BorderBrush" Value="#807D7D"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ScrollViewer x:Name="PART_ContentHost" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="BorderBrush" Value="#807D7D"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="FontFamily" Value="/resources/fonts/Elms_Sans/#Elms Sans"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DatePicker">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="8">
+
+                        <Grid x:Name="PART_Root" 
+                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" 
+                                           HorizontalContentAlignment="Stretch" 
+                                           VerticalContentAlignment="Center" 
+                                           Padding="5,0" 
+                                           Background="Transparent" 
+                                           BorderThickness="0" 
+                                           FontFamily="{TemplateBinding FontFamily}" 
+                                           FontSize="{TemplateBinding FontSize}"
+                                           Foreground="{TemplateBinding Foreground}"/>
+
+                            <Button x:Name="PART_Button" Grid.Column="1" Margin="0,0,15,0" Width="40" 
+                                Background="Transparent" BorderThickness="0" Cursor="Hand" Focusable="False">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid Background="Transparent">
+                                            <Path Data="M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3.01,4.9 3.01,6L3,20C3,21.1 3.89,22 5,22H19C20.1,22 21,21.1 21,20V6C21,4.9 20.1,4 19,4ZM19,20H5V10H19V20ZM9,14H7V12H9V14ZM13,14H11V12H13V14ZM17,14H15V12H17V14ZM9,18H7V16H9V18ZM13,18H11V16H13V18ZM17,18H15V16H17V18Z" 
+                                              Fill="#807D7D" Stretch="Uniform" Width="24" Height="24" 
+                                              HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_Root}" StaysOpen="False"/>
+                        </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

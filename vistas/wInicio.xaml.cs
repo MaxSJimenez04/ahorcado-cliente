@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    /// <summary>
-    /// Lógica de interacción para wInicio.xaml
-    /// </summary>
     public partial class wInicio : Page
     {
         public wInicio()
