@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wRegistro">
@@ -33,7 +34,7 @@
                 </Button>
 
                 <TextBlock Grid.Column="1" 
-                           Text="Registro" 
+                           Text="{x:Static res:Resources.textRegistro}" 
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Left" 
                            Margin="50,0,0,0"
@@ -48,7 +49,7 @@
 
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
 
-                    <TextBlock Text="Nombre de Usuario:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <TextBox Name="txtNombreUsuario" Height="60"/>
                         <TextBlock Text="Ej: JugadorPro123" VerticalAlignment="Center" Margin="15,0,0,0" 
@@ -66,7 +67,7 @@
                         </TextBlock>
                     </Grid>
 
-                    <TextBlock Text="Correo Electrónico:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <TextBox Name="txtCorreo" Height="60"/>
                         <TextBlock Text="Ej: jugador@correo.com" VerticalAlignment="Center" Margin="15,0,0,0" 
@@ -84,7 +85,7 @@
                         </TextBlock>
                     </Grid>
 
-                    <TextBlock Text="Contraseña:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
 
                     <Grid Margin="0,0,0,20">
                         <Grid.ColumnDefinitions>
@@ -117,10 +118,10 @@
 
                 <StackPanel Grid.Column="1" Margin="45,0,60,0">
 
-                    <TextBlock Text="Fecha de Nacimiento:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20"/>
 
-                    <TextBlock Text="Teléfono:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <TextBox Name="txtTelefono" Height="60"/>
                         <TextBlock Text="Ej: 2281234567" VerticalAlignment="Center" Margin="15,0,0,0" 
@@ -144,7 +145,7 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
 
                 <Button Name="btnCancelar" 
-                        Content="Cancelar" 
+                        Content="{x:Static res:Resources.btnCancelar}" 
                         Style="{StaticResource BotonSecundario}" 
                         Margin="0,0,25,0" 
                         Width="Auto"
@@ -152,7 +153,7 @@
                         Click="btnCancelar_Click"/>
 
                 <Button Name="btnRegistrar" 
-                        Content="Registrar Cuenta" 
+                        Content="{x:Static res:Resources.btnRegistrar}" 
                         Click="btnRegistrar_Click"/>
             </StackPanel>
 

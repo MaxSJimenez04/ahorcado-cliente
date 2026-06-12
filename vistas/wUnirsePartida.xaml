@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wUnirsePartida">
@@ -41,7 +42,7 @@
                             </Rectangle.OpacityMask>
                         </Rectangle>
 
-                        <TextBlock Text="ACTUALIZAR" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Static res:Resources.textActualizar}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </Grid>
@@ -60,10 +61,10 @@
                             <ColumnDefinition Width="0.30*"/>
                             <ColumnDefinition Width="0.15*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Nombre Partida" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                        <TextBlock Grid.Column="1" Text="Nombre Usuario" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                        <TextBlock Grid.Column="2" Text="Correo Usuario" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                        <TextBlock Grid.Column="3" Text="Fecha Creación" Style="{StaticResource texto}" FontWeight="DemiBold"/>
+                        <TextBlock Grid.Column="0" Text="{x:Static res:Resources.columNombrePartida}" Style="{StaticResource texto}" FontWeight="DemiBold"/>
+                        <TextBlock Grid.Column="1" Text="{x:Static res:Resources.columNombreUsuario}" Style="{StaticResource texto}" FontWeight="DemiBold"/>
+                        <TextBlock Grid.Column="2" Text="{x:Static res:Resources.columCorreo}" Style="{StaticResource texto}" FontWeight="DemiBold"/>
+                        <TextBlock Grid.Column="3" Text="{x:Static res:Resources.columFecha}" Style="{StaticResource texto}" FontWeight="DemiBold"/>
                     </Grid>
 
                     <ListBox Name="lbPartidas" Grid.Row="1" Background="Transparent" BorderThickness="0"
@@ -119,7 +120,7 @@
             </Border>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button Name="btnUnirsePartida" Content="UNIRSE" Click="btnUnirsePartida_Click"/>
+                <Button Name="btnUnirsePartida" Content="{x:Static res:Resources.btnUnirse}" Click="btnUnirsePartida_Click"/>
             </StackPanel>
 
         </Grid>

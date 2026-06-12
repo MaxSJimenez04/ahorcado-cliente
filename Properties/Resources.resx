@@ -117,13 +117,157 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnCancelarMuys" xml:space="preserve">
+    <value>CANCELAR</value>
+  </data>
+  <data name="btnCerrarSesion" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
+  <data name="btnClasificacion" xml:space="preserve">
+    <value>Clasificación</value>
+  </data>
+  <data name="btnCrear" xml:space="preserve">
+    <value>CREAR</value>
+  </data>
+  <data name="btnCrearCuenta" xml:space="preserve">
+    <value>Crear Cuenta</value>
+  </data>
+  <data name="btnCrearPartida" xml:space="preserve">
+    <value>Crear Partida</value>
+  </data>
+  <data name="btnEditarPerfil" xml:space="preserve">
+    <value>Editar Perfil</value>
+  </data>
+  <data name="btnGuardarCambios" xml:space="preserve">
+    <value>Guardar Cambios</value>
+  </data>
+  <data name="btnIniciarPartidaDemo" xml:space="preserve">
+    <value>Iniciar Partida (Demo)</value>
+  </data>
+  <data name="btnIniciarSesion" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
   <data name="btnJugar" xml:space="preserve">
     <value>JUGAR</value>
+  </data>
+  <data name="btnMiPerfil" xml:space="preserve">
+    <value>Mi Perfil</value>
+  </data>
+  <data name="btnMisEstadísticas" xml:space="preserve">
+    <value>Mis Estadísticas</value>
   </data>
   <data name="btnOpciones" xml:space="preserve">
     <value>OPCIONES</value>
   </data>
+  <data name="btnOpcionesMi" xml:space="preserve">
+    <value>Opciones</value>
+  </data>
+  <data name="btnRegistrar" xml:space="preserve">
+    <value>Registrar Cuenta</value>
+  </data>
   <data name="btnSalir" xml:space="preserve">
     <value>SALIR</value>
+  </data>
+  <data name="btnUnirse" xml:space="preserve">
+    <value>UNIRSE</value>
+  </data>
+  <data name="btnUnirsePartida" xml:space="preserve">
+    <value>Unirse a Partida</value>
+  </data>
+  <data name="columContrincante" xml:space="preserve">
+    <value>Contrincante</value>
+  </data>
+  <data name="columCorreo" xml:space="preserve">
+    <value>Correo Usuario</value>
+  </data>
+  <data name="columFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="columNombrePartida" xml:space="preserve">
+    <value>Nombre Partida</value>
+  </data>
+  <data name="columNombreUsuario" xml:space="preserve">
+    <value>Nombre Usuario</value>
+  </data>
+  <data name="columPalabra" xml:space="preserve">
+    <value>Palabra</value>
+  </data>
+  <data name="columPuntos" xml:space="preserve">
+    <value>Puntos</value>
+  </data>
+  <data name="columResultado" xml:space="preserve">
+    <value>Resultado</value>
+  </data>
+  <data name="textActualizar" xml:space="preserve">
+    <value>ACTUALIZAR</value>
+  </data>
+  <data name="textBuscarpor" xml:space="preserve">
+    <value>Buscar por:</value>
+  </data>
+  <data name="textConfiguraciónPartida" xml:space="preserve">
+    <value>Configuración Partida</value>
+  </data>
+  <data name="textContraseña" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="textCorreo" xml:space="preserve">
+    <value>Correo Electrónico:</value>
+  </data>
+  <data name="textDerrotas" xml:space="preserve">
+    <value>Derrotas:</value>
+  </data>
+  <data name="textEsperaContrincante" xml:space="preserve">
+    <value>Espera mientras se conecta un contrincante...</value>
+  </data>
+  <data name="textFechaNacimiento" xml:space="preserve">
+    <value>Fecha de Nacimiento:</value>
+  </data>
+  <data name="textHistorialPartidas" xml:space="preserve">
+    <value>Historial de Partidas</value>
+  </data>
+  <data name="textIdioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="textInicioSesion" xml:space="preserve">
+    <value>Inicio Sesión</value>
+  </data>
+  <data name="textNombrePartida" xml:space="preserve">
+    <value>Nombre de la partida:</value>
+  </data>
+  <data name="textNombreUsuario" xml:space="preserve">
+    <value>Nombre de Usuario:</value>
+  </data>
+  <data name="textNuevaContraseña" xml:space="preserve">
+    <value>Nueva Contraseña:</value>
+  </data>
+  <data name="textPartidasjugadas" xml:space="preserve">
+    <value>Partidas jugadas:</value>
+  </data>
+  <data name="textPista" xml:space="preserve">
+    <value>Pista</value>
+  </data>
+  <data name="textPuntajeGlobal" xml:space="preserve">
+    <value>Puntaje Global</value>
+  </data>
+  <data name="textRegistro" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="textSeleccionarCategoría" xml:space="preserve">
+    <value>Seleccionar Categoría:</value>
+  </data>
+  <data name="textSeleccionarPalabra" xml:space="preserve">
+    <value>Seleccionar Palabra</value>
+  </data>
+  <data name="textSeleccioneUnaFecha" xml:space="preserve">
+    <value>Seleccione una Fecha</value>
+  </data>
+  <data name="textTelefono" xml:space="preserve">
+    <value>Teléfono: </value>
+  </data>
+  <data name="textVictorias" xml:space="preserve">
+    <value>Victorias:</value>
   </data>
 </root>

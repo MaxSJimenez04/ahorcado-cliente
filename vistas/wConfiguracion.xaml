@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wConfiguracion">
@@ -33,7 +34,7 @@
                 </Button>
 
                 <TextBlock Grid.Column="1" 
-                           Text="Opciones" 
+                           Text="{x:Static res:Resources.btnOpciones}" 
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Left" 
                            Margin="50,0,0,0"
@@ -42,7 +43,7 @@
 
             <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
 
-                <TextBlock Text="Idioma" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                <TextBlock Text="{x:Static res:Resources.textIdioma}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
 
                 <ComboBox Name="cbIdioma" SelectedIndex="0" Style="{StaticResource ComboBoxOpciones}" Width="500">
                     <ComboBoxItem Content="Español"/>

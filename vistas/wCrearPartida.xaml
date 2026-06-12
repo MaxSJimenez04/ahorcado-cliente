@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wCrearPartida">
@@ -40,10 +41,10 @@
 
                     <StackPanel Grid.Column="0" Margin="0,0,30,0">
 
-                        <TextBlock Text="Configuración Partida" Style="{StaticResource titulos}" FontSize="32" 
+                        <TextBlock Text="{x:Static res:Resources.textConfiguraciónPartida}" Style="{StaticResource titulos}" FontSize="32" 
                                    Margin="0,0,0,20" HorizontalAlignment="Left"/>
 
-                        <TextBlock Text="Nombre de la partida:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBlock Text="{x:Static res:Resources.textNombrePartida}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
 
                         <Grid Margin="0,0,0,20">
                             <TextBox Name="txtNombrePartida" Height="60"/>
@@ -62,7 +63,7 @@
                             </TextBlock>
                         </Grid>
 
-                        <TextBlock Text="Seleccionar Categoría:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBlock Text="{x:Static res:Resources.textSeleccionarCategoría}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                         <ComboBox Name="cbCategoria" SelectedIndex="0">
                             <ComboBoxItem Content="Frutas y Verduras"/>
                             <ComboBoxItem Content="Animales"/>
@@ -76,7 +77,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Text="Seleccionar Palabra" Style="{StaticResource texto}" Margin="0,55,0,5"/>
+                        <TextBlock Grid.Row="0" Text="{x:Static res:Resources.textSeleccionarPalabra}" Style="{StaticResource texto}" Margin="0,55,0,5"/>
 
                         <ListBox Name="lbPalabras" Grid.Row="1" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2"
                                  FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" FontSize="20" Foreground="#1E1E1E" Margin="0,0,0,30">
@@ -101,8 +102,8 @@
             </Border>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button Name="btnCancelar" Content="CANCELAR" Style="{StaticResource BotonSecundario}" Margin="0,0,25,0" Click="btnCancelar_Click"/>
-                <Button Name="btnCrear" Content="CREAR" Click="btnCrear_Click"/>
+                <Button Name="btnCancelar" Content="{x:Static res:Resources.btnCancelarMuys}" Style="{StaticResource BotonSecundario}" Margin="0,0,25,0" Click="btnCancelar_Click"/>
+                <Button Name="btnCrear" Content="{x:Static res:Resources.btnCrear}" Click="btnCrear_Click"/>
             </StackPanel>
 
         </Grid>

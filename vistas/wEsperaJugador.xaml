@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wEsperaJugador">
@@ -39,7 +40,7 @@
 
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <TextBlock Text="Espera mientras se conecta un contrincante..." 
+                <TextBlock Text="{x:Static res:Resources.textEsperaContrincante}" 
                            Style="{StaticResource titulos}" FontSize="36" TextAlignment="Center" Margin="0,0,0,40"/>
 
                 <Image Name="imgCarga" Source="../resources/img/cargando.png" Width="100" Height="100" Stretch="Uniform"
@@ -73,7 +74,7 @@
             </StackPanel>
 
             <Grid Grid.Row="2" VerticalAlignment="Center">
-                <Button Name="btnIniciarPartidaDemo" Content="Iniciar Partida (DEMO)" 
+                <Button Name="btnIniciarPartidaDemo" Content="{x:Static res:Resources.btnIniciarPartidaDemo}" 
                         HorizontalAlignment="Right" Click="btnIniciarPartidaDemo_Click"
                         ToolTip="Botón temporal para navegar al juego durante la revisión"/>
             </Grid>

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wPerfil">
@@ -27,7 +28,7 @@
                     <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
                 </Button>
 
-                <TextBlock Grid.Column="1" Text="Mi Perfil" VerticalAlignment="Center" 
+                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnMiPerfil}" VerticalAlignment="Center" 
                            HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
             </Grid>
 
@@ -38,21 +39,21 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
-                    <TextBlock Text="Nombre de Usuario:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="JugadorPro"/>
 
-                    <TextBlock Text="Correo Electrónico:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="jugadorpro@correo.com"/>
 
-                    <TextBlock Text="Contraseña:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <PasswordBox Name="pbContraseniaOculta" Height="60" Width="Auto" Margin="0,0,0,20" IsEnabled="False" Password="PasswordPrueba123"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Margin="45,0,60,0">
-                    <TextBlock Text="Fecha de Nacimiento:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="12/05/1998"/>
 
-                    <TextBlock Text="Teléfono:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="2281234567"/>
                 </StackPanel>
             </Grid>
@@ -61,11 +62,11 @@
                 <Button Name="btnEstadisticas" HorizontalAlignment="Left" Height="60" Padding="20,0" Click="btnEstadisticas_Click">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Path Data="{StaticResource IconoClasificacion}" Fill="#F4F3F2" Width="24" Height="24" Stretch="Fill" Margin="0,0,10,0"/>
-                        <TextBlock Text="Mis Estadísticas" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Static res:Resources.btnMisEstadísticas}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
 
-                <Button Name="btnEditarPerfil" HorizontalAlignment="Right" Content="Editar Perfil" Click="btnEditarPerfil_Click"/>
+                <Button Name="btnEditarPerfil" HorizontalAlignment="Right" Content="{x:Static res:Resources.btnEditarPerfil}" Click="btnEditarPerfil_Click"/>
             </Grid>
 
         </Grid>

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wEditarPerfil">
@@ -27,7 +28,7 @@
                     <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
                 </Button>
 
-                <TextBlock Grid.Column="1" Text="Editar Mi Perfil" VerticalAlignment="Center" 
+                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnEditarPerfil}" VerticalAlignment="Center" 
                            HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
             </Grid>
 
@@ -38,13 +39,13 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
-                    <TextBlock Text="Nombre de Usuario:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" Text="JugadorPro"/>
 
-                    <TextBlock Text="Correo Electrónico (No modificable):" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False" Background="LightGray" Text="jugadorpro@correo.com"/>
 
-                    <TextBlock Text="Nueva Contraseña:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textNuevaContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
 
                     <Grid Margin="0,0,0,20">
                         <Grid.ColumnDefinitions>
@@ -75,17 +76,17 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Margin="45,0,60,0">
-                    <TextBlock Text="Fecha de Nacimiento:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20" Text="10/12/2002"/>
 
-                    <TextBlock Text="Teléfono:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" Text="2281234567"/>
                 </StackPanel>
             </Grid>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="60,0">
-                <Button Name="btnCancelar" Content="Cancelar" Style="{StaticResource BotonSecundario}"  Width="Auto" Padding="35,0" Margin="0,0,25,0" Click="btnCancelar_Click"/>
-                <Button Name="btnGuardarCambios" Content="Guardar Cambios" Click="btnGuardarCambios_Click"/>
+                <Button Name="btnCancelar" Content="{x:Static res:Resources.btnCancelar}" Style="{StaticResource BotonSecundario}"  Width="Auto" Padding="35,0" Margin="0,0,25,0" Click="btnCancelar_Click"/>
+                <Button Name="btnGuardarCambios" Content="{x:Static res:Resources.btnGuardarCambios}" Click="btnGuardarCambios_Click"/>
             </StackPanel>
 
         </Grid>

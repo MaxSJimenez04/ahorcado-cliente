@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wMenuPrincipal">
@@ -25,26 +26,26 @@
             </Grid.RowDefinitions>
 
             <Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" 
-                    Content="Crear Partida" Click="btnCrearPartida_Click"/>
+                    Content="{x:Static res:Resources.btnCrearPartida}" Click="btnCrearPartida_Click"/>
 
             <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
-                    Content="Unirse a Partida" Click="btnUnirsePartida_Click"/>
+                    Content="{x:Static res:Resources.btnUnirsePartida}" Click="btnUnirsePartida_Click"/>
 
             <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" 
-                    Content="Mi Perfil" Click="btnMiPerfil_Click"/>
+                    Content="{x:Static res:Resources.btnMiPerfil}" Click="btnMiPerfil_Click"/>
 
             <Button Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" 
-                    Content="Opciones" Click="btnOpciones_Click"/>
+                    Content="{x:Static res:Resources.btnOpcionesMi}" Click="btnOpciones_Click"/>
 
             <Button Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" 
-                    Content="Cerrar Sesión" Style="{StaticResource BotonSecundario}" Click="btnCerrarSesion_Click"/>
+                    Content="{x:Static res:Resources.btnCerrarSesion}" Style="{StaticResource BotonSecundario}" Click="btnCerrarSesion_Click"/>
 
             <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" 
                     Name="btnClasificacion" Click="btnClasificacion_Click">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Path Data="{StaticResource IconoClasificacion}" 
                           Fill="#F4F3F2" Width="28" Height="28" Stretch="Fill" Margin="0,0,15,0"/>
-                    <TextBlock Text="Clasificación" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Static res:Resources.btnClasificacion}" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
 
