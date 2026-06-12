@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="a06b5417-7bd0-4d2f-a301-89cd6b8826ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54669/Servicios/PartidaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PartidaService.xsd" MetadataType="Schema" ID="6ffbdc37-8915-41da-bcff-7026d935ec2f" SourceId="1" SourceUrl="http://localhost:54669/Servicios/PartidaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PartidaService.disco" MetadataType="Disco" ID="4d21a5ad-4320-4d0c-bc09-f01c051edff6" SourceId="1" SourceUrl="http://localhost:54669/Servicios/PartidaService.svc?disco" />
+    <MetadataFile FileName="PartidaService1.xsd" MetadataType="Schema" ID="829182e1-191b-4e26-9b84-713d2a34b2b9" SourceId="1" SourceUrl="http://localhost:54669/Servicios/PartidaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PartidaService.wsdl" MetadataType="Wsdl" ID="ad477918-5026-42d9-8d96-4d33d8a6bb05" SourceId="1" SourceUrl="http://localhost:54669/Servicios/PartidaService.svc?wsdl" />
+    <MetadataFile FileName="PartidaService2.xsd" MetadataType="Schema" ID="a56fb25c-edc4-4c7b-90cc-55d768c1ff82" SourceId="1" SourceUrl="http://localhost:54669/Servicios/PartidaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PartidaService3.xsd" MetadataType="Schema" ID="33e5c9d0-6b3f-4efa-8b02-f0b7255dc4be" SourceId="1" SourceUrl="http://localhost:54669/Servicios/PartidaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

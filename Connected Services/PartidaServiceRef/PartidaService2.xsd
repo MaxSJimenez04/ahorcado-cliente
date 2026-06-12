@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServidorAhorcado.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServidorAhorcado.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:54669/Servicios/PartidaService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfPartidaLobbyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartidaLobbyDTO" nillable="true" type="tns:PartidaLobbyDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartidaLobbyDTO" nillable="true" type="tns:ArrayOfPartidaLobbyDTO" />
+  <xs:complexType name="PartidaLobbyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correoJugadorA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+      <xs:element minOccurs="0" name="nombrePartida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioJugadorA" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartidaLobbyDTO" nillable="true" type="tns:PartidaLobbyDTO" />
+  <xs:complexType name="PartidaDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcionPalabra" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estadoId" type="xs:int" />
+      <xs:element minOccurs="0" name="idIdioma" type="xs:int" />
+      <xs:element minOccurs="0" name="idJugadorA" type="xs:int" />
+      <xs:element minOccurs="0" name="idJugadorB" type="xs:int" />
+      <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+      <xs:element minOccurs="0" name="intentosFallidos" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="letrasUsadas" nillable="true" type="q1:ArrayOfchar" />
+      <xs:element minOccurs="0" name="nombrePartida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="palabraObjetivo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="progresoPalabra" nillable="true" type="q2:ArrayOfchar" />
+      <xs:element minOccurs="0" name="usuarioJugadorA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuarioJugadorB" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartidaDTO" nillable="true" type="tns:PartidaDTO" />
+</xs:schema>

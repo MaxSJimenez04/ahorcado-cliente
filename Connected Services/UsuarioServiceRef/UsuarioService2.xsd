@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServidorAhorcado.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServidorAhorcado.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="JugadorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="primerApellido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="puntos" type="xs:int" />
+      <xs:element minOccurs="0" name="segundoApellido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JugadorDTO" nillable="true" type="tns:JugadorDTO" />
+</xs:schema>

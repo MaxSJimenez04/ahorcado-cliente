@@ -37,6 +37,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +58,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\EstadisticasServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PalabraServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PartidaServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SesionServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UsuarioServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="vistas\wClasificacion.xaml.cs">
       <DependentUpon>wClasificacion.xaml</DependentUpon>
     </Compile>
@@ -182,6 +210,86 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\EstadisticasServiceRef\ClienteAhorcado.EstadisticasServiceRef.EstadisticasDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EstadisticasServiceRef\ClienteAhorcado.EstadisticasServiceRef.HistorialDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EstadisticasServiceRef\EstadisticasService.wsdl" />
+    <None Include="Connected Services\EstadisticasServiceRef\EstadisticasService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EstadisticasServiceRef\EstadisticasService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EstadisticasServiceRef\EstadisticasService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PalabraServiceRef\ClienteAhorcado.PalabraServiceRef.CategoriaDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PalabraServiceRef\ClienteAhorcado.PalabraServiceRef.PalabraDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PalabraServiceRef\PalabraService.wsdl" />
+    <None Include="Connected Services\PalabraServiceRef\PalabraService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PalabraServiceRef\PalabraService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PalabraServiceRef\PalabraService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PartidaServiceRef\ClienteAhorcado.PartidaServiceRef.PartidaDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PartidaServiceRef\ClienteAhorcado.PartidaServiceRef.PartidaLobbyDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PartidaServiceRef\PartidaService.wsdl" />
+    <None Include="Connected Services\PartidaServiceRef\PartidaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PartidaServiceRef\PartidaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PartidaServiceRef\PartidaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PartidaServiceRef\PartidaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SesionServiceRef\ClienteAhorcado.SesionServiceRef.JugadorDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SesionServiceRef\SesionService.wsdl" />
+    <None Include="Connected Services\SesionServiceRef\SesionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SesionServiceRef\SesionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SesionServiceRef\SesionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SesionServiceRef\SesionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UsuarioServiceRef\ClienteAhorcado.UsuarioServiceRef.JugadorDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UsuarioServiceRef\UsuarioService.wsdl" />
+    <None Include="Connected Services\UsuarioServiceRef\UsuarioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UsuarioServiceRef\UsuarioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UsuarioServiceRef\UsuarioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -247,10 +355,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="resources\componentes\" />
-    <Folder Include="resources\imagenes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="resources\img\fondo_libreta.jpeg" />
   </ItemGroup>
@@ -276,6 +381,91 @@
   <ItemGroup>
     <Resource Include="resources\img\actualizar.png" />
     <Resource Include="resources\img\cargando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\EstadisticasServiceRef\" />
+    <WCFMetadataStorage Include="Connected Services\PalabraServiceRef\" />
+    <WCFMetadataStorage Include="Connected Services\PartidaServiceRef\" />
+    <WCFMetadataStorage Include="Connected Services\SesionServiceRef\" />
+    <WCFMetadataStorage Include="Connected Services\UsuarioServiceRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SesionServiceRef\SesionService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SesionServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SesionServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SesionServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EstadisticasServiceRef\EstadisticasService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EstadisticasServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EstadisticasServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EstadisticasServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PalabraServiceRef\PalabraService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PalabraServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PalabraServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PalabraServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PartidaServiceRef\PartidaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PartidaServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PartidaServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PartidaServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UsuarioServiceRef\UsuarioService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UsuarioServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UsuarioServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UsuarioServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
