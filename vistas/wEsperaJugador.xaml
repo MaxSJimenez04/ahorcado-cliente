@@ -19,8 +19,9 @@
 
             <Grid Grid.Row="0">
                 <Button HorizontalAlignment="Left" VerticalAlignment="Center" 
-                        Name="btnAbandonarPartida" Width="60" Height="60" 
-                        Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" Cursor="Hand" Click="btnAbandonarPartida_Click">
+                        Name="btnCancelarPartida" Width="60" Height="60" 
+                        Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" Cursor="Hand" Click="btnCancelarPartida_Click"
+                        ToolTip="Cancelar creación de la partida">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="Borde" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
@@ -53,9 +54,8 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rotacionCarga_Img" 
-                                                                  Storyboard.TargetProperty="Angle" 
-                                                                  RepeatBehavior="Forever">
-
+                                                                   Storyboard.TargetProperty="Angle" 
+                                                                   RepeatBehavior="Forever">
                                         <DiscreteDoubleKeyFrame KeyTime="0:0:0.000" Value="0"/>
                                         <DiscreteDoubleKeyFrame KeyTime="0:0:0.125" Value="45"/>
                                         <DiscreteDoubleKeyFrame KeyTime="0:0:0.250" Value="90"/>
@@ -70,15 +70,7 @@
                         </EventTrigger>
                     </Image.Triggers>
                 </Image>
-
             </StackPanel>
-
-            <Grid Grid.Row="2" VerticalAlignment="Center">
-                <Button Name="btnIniciarPartidaDemo" Content="{x:Static res:Resources.btnIniciarPartidaDemo}" 
-                        HorizontalAlignment="Right" Click="btnIniciarPartidaDemo_Click"
-                        ToolTip="Botón temporal para navegar al juego durante la revisión"/>
-            </Grid>
-
         </Grid>
     </Grid>
 </Page>

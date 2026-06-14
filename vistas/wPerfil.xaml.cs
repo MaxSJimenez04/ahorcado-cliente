@@ -44,6 +44,19 @@ namespace ClienteAhorcado.vistas
 
                 if (datosPerfil != null)
                 {
+                    // ACTUALIZAR SINGLETON
+                    var sesionLocal = utils.Sesion.Instancia;
+
+                    sesionLocal.IdJugador = datosPerfil.idJugador;
+                    sesionLocal.Nombre = datosPerfil.nombre;
+                    sesionLocal.PrimerApellido = datosPerfil.primerApellido;
+                    sesionLocal.SegundoApellido = datosPerfil.segundoApellido;
+                    sesionLocal.Correo = datosPerfil.correo;
+                    sesionLocal.Telefono = datosPerfil.telefono;
+                    sesionLocal.FechaNacimiento = datosPerfil.fechaNacimiento;
+                    sesionLocal.Puntos = datosPerfil.puntos;
+
+                    // POBLAR LA INTERFAZ GRÁFICA
                     txtNombre.Text = datosPerfil.nombre;
                     txtPrimerApellido.Text = datosPerfil.primerApellido;
                     txtSegundoApellido.Text = datosPerfil.segundoApellido;
@@ -83,7 +96,12 @@ namespace ClienteAhorcado.vistas
                 txtNombreUsuario.Text = sesionLocal.Usuario;
                 txtCorreo.Text = sesionLocal.Correo;
                 txtTelefono.Text = sesionLocal.Telefono;
-                txtFechaNacimiento.Text = sesionLocal.FechaNacimiento.ToString("dd/MM/yyyy");
+
+                // Verificar fecha válida antes de formatear
+                if (sesionLocal.FechaNacimiento != DateTime.MinValue)
+                {
+                    txtFechaNacimiento.Text = sesionLocal.FechaNacimiento.ToString("dd/MM/yyyy");
+                }
             }
         }
 

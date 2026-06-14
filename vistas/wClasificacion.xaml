@@ -43,101 +43,30 @@
                         </Style>
                     </ListBox.ItemContainerStyle>
 
-                    <ListBoxItem>
-                        <Border Background="#FFFFFF" CornerRadius="8">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="2"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#FFFFFF" CornerRadius="8">
+                                <Grid Height="60">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="2"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="0" Background="#FADB5F" CornerRadius="8,0,0,8">
-                                    <TextBlock Text="1°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
-                                </Border>
-                                <Border Grid.Column="1" Background="#D5CFCF"/>
-                                <TextBlock Grid.Column="2" Text="ReyDelAhorcado" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                                <TextBlock Grid.Column="3" Text="5420 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
-                            </Grid>
-                        </Border>
-                    </ListBoxItem>
+                                    <Border Grid.Column="0" Background="{Binding ColorMedalla}" CornerRadius="8,0,0,8">
+                                        <TextBlock Text="{Binding PosicionStr}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
+                                    </Border>
 
-                    <ListBoxItem>
-                        <Border Background="#FFFFFF" CornerRadius="8">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="2"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Grid.Column="0" Background="#E0E0E0" CornerRadius="8,0,0,8">
-                                    <TextBlock Text="2°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
-                                </Border>
-                                <Border Grid.Column="1" Background="#D5CFCF"/>
-                                <TextBlock Grid.Column="2" Text="Maria_99" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                                <TextBlock Grid.Column="3" Text="4980 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
-                            </Grid>
-                        </Border>
-                    </ListBoxItem>
+                                    <Border Grid.Column="1" Background="#D5CFCF"/>
 
-                    <ListBoxItem>
-                        <Border Background="#FFFFFF" CornerRadius="8">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="2"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Grid.Column="0" Background="#ECA26C" CornerRadius="8,0,0,8">
-                                    <TextBlock Text="3°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
-                                </Border>
-                                <Border Grid.Column="1" Background="#D5CFCF"/>
-                                <TextBlock Grid.Column="2" Text="tito2004" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                                <TextBlock Grid.Column="3" Text="4500 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
-                            </Grid>
-                        </Border>
-                    </ListBoxItem>
+                                    <TextBlock Grid.Column="2" Text="{Binding Usuario}" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
+                                    <TextBlock Grid.Column="3" Text="{Binding PuntosStr}" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
 
-                    <ListBoxItem>
-                        <Border Background="#FFFFFF" CornerRadius="8">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="2"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Grid.Column="0" CornerRadius="8,0,0,8">
-                                    <TextBlock Text="4°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#807D7D"/>
-                                </Border>
-                                <Border Grid.Column="1" Background="#D5CFCF"/>
-                                <TextBlock Grid.Column="2" Text="AlexGamer" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                                <TextBlock Grid.Column="3" Text="4120 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
-                            </Grid>
-                        </Border>
-                    </ListBoxItem>
-
-                    <ListBoxItem>
-                        <Border Background="#FFFFFF" CornerRadius="8">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="2"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Grid.Column="0" CornerRadius="8,0,0,8">
-                                    <TextBlock Text="5°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#807D7D"/>
-                                </Border>
-                                <Border Grid.Column="1" Background="#D5CFCF"/>
-                                <TextBlock Grid.Column="2" Text="SofiaLopez" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                                <TextBlock Grid.Column="3" Text="3800 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
-                            </Grid>
-                        </Border>
-                    </ListBoxItem>
                 </ListBox>
             </Border>
 
@@ -152,13 +81,13 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Grid.Column="0" CornerRadius="6,0,0,6">
-                            <TextBlock Text="19°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
+                            <TextBlock Name="txtMiPosicion" Text="-°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
                         </Border>
 
                         <Border Grid.Column="1" Background="#D5CFCF"/>
 
-                        <TextBlock Grid.Column="2" Text="WaspComb" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold" Foreground="#28A745"/>
-                        <TextBlock Grid.Column="3" Text="1510 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="2" Name="txtMiUsuario" Text="Cargando..." VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold" Foreground="#28A745"/>
+                        <TextBlock Grid.Column="3" Name="txtMisPuntos" Text="0 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" FontWeight="Bold"/>
                     </Grid>
                 </Border>
             </Grid>
