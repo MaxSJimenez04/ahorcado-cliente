@@ -211,6 +211,12 @@ namespace ClienteAhorcado.SesionServiceRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISesionService/IniciaSesion", ReplyAction="http://tempuri.org/ISesionService/IniciaSesionResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, ClienteAhorcado.SesionServiceRef.JugadorDTO>> IniciaSesionAsync(string usuario, string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISesionService/CerrarSesion", ReplyAction="http://tempuri.org/ISesionService/CerrarSesionResponse")]
+        void CerrarSesion(string usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISesionService/CerrarSesion", ReplyAction="http://tempuri.org/ISesionService/CerrarSesionResponse")]
+        System.Threading.Tasks.Task CerrarSesionAsync(string usuario);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -246,6 +252,14 @@ namespace ClienteAhorcado.SesionServiceRef {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, ClienteAhorcado.SesionServiceRef.JugadorDTO>> IniciaSesionAsync(string usuario, string contrasena) {
             return base.Channel.IniciaSesionAsync(usuario, contrasena);
+        }
+        
+        public void CerrarSesion(string usuario) {
+            base.Channel.CerrarSesion(usuario);
+        }
+        
+        public System.Threading.Tasks.Task CerrarSesionAsync(string usuario) {
+            return base.Channel.CerrarSesionAsync(usuario);
         }
     }
 }
