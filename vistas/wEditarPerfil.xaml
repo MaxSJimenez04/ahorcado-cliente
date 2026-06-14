@@ -40,7 +40,7 @@
 
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
 
-                    <TextBlock Text="Nombre(s):" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textNombres}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <TextBox Name="txtNombre" Height="60" MaxLength="255" Text="Juan Carlos"/>
                         <TextBlock Text="Ej: Juan Carlos" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
@@ -57,7 +57,7 @@
                         </TextBlock>
                     </Grid>
 
-                    <TextBlock Text="Primer Apellido:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textPrimerApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <TextBox Name="txtPrimerApellido" Height="60" MaxLength="255" Text="Pérez"/>
                         <TextBlock Text="Ej: Pérez" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
@@ -74,7 +74,7 @@
                         </TextBlock>
                     </Grid>
 
-                    <TextBlock Text="Segundo Apellido:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textSegundoApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <TextBox Name="txtSegundoApellido" Height="60" MaxLength="255" Text="Gómez"/>
                         <TextBlock Text="Ej: Gómez" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">

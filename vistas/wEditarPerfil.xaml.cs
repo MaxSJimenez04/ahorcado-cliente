@@ -90,19 +90,19 @@ namespace ClienteAhorcado.vistas
                 string.IsNullOrWhiteSpace(telefono) || string.IsNullOrWhiteSpace(contrasenia) ||
                 fechaNacimiento == null)
             {
-                MessageBox.Show("No puedes dejar campos vacíos.", "Datos incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.MsgCamposVacios, Properties.Resources.TitDatosIncompletos, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (contrasenia.Length < 8)
             {
-                MessageBox.Show("La nueva contraseña debe tener al menos 8 caracteres.", "Contraseña débil", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.MsgContraseniaCorta, Properties.Resources.titContraseniaDebil, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (!EsTelefonoValido(telefono))
             {
-                MessageBox.Show("Por favor, ingresa un número de teléfono válido (entre 10 y 15 dígitos numéricos).", "Teléfono inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.MsgTelefonoInvalido, Properties.Resources.titTelefonoInvalido, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -136,20 +136,20 @@ namespace ClienteAhorcado.vistas
                         sesion.Telefono = telefono;
                         sesion.FechaNacimiento = fechaNacimiento.Value;
 
-                        MessageBox.Show("Cambios guardados con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show(Properties.Resources.MsgCambiosGuardados, Properties.Resources.titExito, MessageBoxButton.OK, MessageBoxImage.Information);
                         RegresarAPerfil();
                         break;
                     case 1:
-                        MessageBox.Show("Los datos enviados no son válidos para el servidor.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(Properties.Resources.MsgDatosInvalidos, Properties.Resources.titErrorValidacion, MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 2:
-                        MessageBox.Show("No se encontró tu usuario en la base de datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Properties.Resources.MsgUsuarioNoEncontrado, Properties.Resources.titError, MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     case 3:
-                        MessageBox.Show("El nombre de usuario ya está ocupado.", "Conflicto", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(Properties.Resources.MsgUsuarioOcupado, Properties.Resources.titConflicto, MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 4:
-                        MessageBox.Show("Error interno del servidor. Intenta de nuevo más tarde.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Properties.Resources.MsgErrorServidor, Properties.Resources.titError, MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                 }
                 usuarioSrv.Close();
@@ -157,7 +157,7 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 usuarioSrv.Abort();
-                MessageBox.Show($"Ocurrió un error al intentar comunicar con el servidor: {ex.Message}", "Fallo de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.MsgErrorConexion, ex.Message), Properties.Resources.titFalloConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
