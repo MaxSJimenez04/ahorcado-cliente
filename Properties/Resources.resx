@@ -201,6 +201,33 @@
   <data name="columResultado" xml:space="preserve">
     <value>Resultado</value>
   </data>
+  <data name="MsgCambiosGuardados" xml:space="preserve">
+    <value>Cambios guardados con éxito.</value>
+  </data>
+  <data name="MsgCamposVacios" xml:space="preserve">
+    <value>No puedes dejar campos vacíos.</value>
+  </data>
+  <data name="MsgContraseniaCorta" xml:space="preserve">
+    <value>La nueva contraseña debe tener al menos 8 caracteres.</value>
+  </data>
+  <data name="MsgDatosInvalidos" xml:space="preserve">
+    <value>Los datos enviados no son válidos para el servidor.</value>
+  </data>
+  <data name="MsgErrorConexion" xml:space="preserve">
+    <value>Ocurrió un error al intentar comunicar con el servidor: {0}</value>
+  </data>
+  <data name="MsgErrorServidor" xml:space="preserve">
+    <value>Error interno del servidor. Intenta de nuevo más tarde.</value>
+  </data>
+  <data name="MsgTelefonoInvalido" xml:space="preserve">
+    <value>Por favor, ingresa un número de teléfono válido...</value>
+  </data>
+  <data name="MsgUsuarioNoEncontrado" xml:space="preserve">
+    <value>No se encontró tu usuario en la base de datos.</value>
+  </data>
+  <data name="MsgUsuarioOcupado" xml:space="preserve">
+    <value>El nombre de usuario ya está ocupado.</value>
+  </data>
   <data name="textActualizar" xml:space="preserve">
     <value>ACTUALIZAR</value>
   </data>
@@ -237,6 +264,9 @@
   <data name="textNombrePartida" xml:space="preserve">
     <value>Nombre de la partida:</value>
   </data>
+  <data name="textNombres" xml:space="preserve">
+    <value>Nombre(s):</value>
+  </data>
   <data name="textNombreUsuario" xml:space="preserve">
     <value>Nombre de Usuario:</value>
   </data>
@@ -249,11 +279,17 @@
   <data name="textPista" xml:space="preserve">
     <value>Pista</value>
   </data>
+  <data name="textPrimerApellido" xml:space="preserve">
+    <value>Primer Apellido:</value>
+  </data>
   <data name="textPuntajeGlobal" xml:space="preserve">
     <value>Puntaje Global</value>
   </data>
   <data name="textRegistro" xml:space="preserve">
     <value>Registro</value>
+  </data>
+  <data name="textSegundoApellido" xml:space="preserve">
+    <value>Segundo Apellido:</value>
   </data>
   <data name="textSeleccionarCategoría" xml:space="preserve">
     <value>Seleccionar Categoría:</value>
@@ -269,5 +305,29 @@
   </data>
   <data name="textVictorias" xml:space="preserve">
     <value>Victorias:</value>
+  </data>
+  <data name="titConflicto" xml:space="preserve">
+    <value>Conflicto</value>
+  </data>
+  <data name="titContraseniaDebil" xml:space="preserve">
+    <value>Contraseña débil</value>
+  </data>
+  <data name="TitDatosIncompletos" xml:space="preserve">
+    <value>Datos incompletos</value>
+  </data>
+  <data name="titError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="titErrorValidacion" xml:space="preserve">
+    <value>Error de Validación</value>
+  </data>
+  <data name="titExito" xml:space="preserve">
+    <value>Éxito</value>
+  </data>
+  <data name="titFalloConexion" xml:space="preserve">
+    <value>Fallo de conexión</value>
+  </data>
+  <data name="titTelefonoInvalido" xml:space="preserve">
+    <value>Teléfono inválido</value>
   </data>
 </root>

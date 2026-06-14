@@ -201,6 +201,33 @@
   <data name="columResultado" xml:space="preserve">
     <value>Result</value>
   </data>
+  <data name="MsgCambiosGuardados" xml:space="preserve">
+    <value>Changes saved successfully.</value>
+  </data>
+  <data name="MsgCamposVacios" xml:space="preserve">
+    <value>You cannot leave fields empty.</value>
+  </data>
+  <data name="MsgContraseniaCorta" xml:space="preserve">
+    <value>The new password must be at least 8 characters long.</value>
+  </data>
+  <data name="MsgDatosInvalidos" xml:space="preserve">
+    <value>The data sent is not valid for the server.</value>
+  </data>
+  <data name="MsgErrorConexion" xml:space="preserve">
+    <value>An error occurred while trying to communicate with the server: {0}</value>
+  </data>
+  <data name="MsgErrorServidor" xml:space="preserve">
+    <value>Internal server error. Please try again later.</value>
+  </data>
+  <data name="MsgTelefonoInvalido" xml:space="preserve">
+    <value>Please enter a valid phone number...</value>
+  </data>
+  <data name="MsgUsuarioNoEncontrado" xml:space="preserve">
+    <value>Your username was not found in the database.</value>
+  </data>
+  <data name="MsgUsuarioOcupado" xml:space="preserve">
+    <value>The username is already taken.</value>
+  </data>
   <data name="textActualizar" xml:space="preserve">
     <value>UPDATE</value>
   </data>
@@ -237,6 +264,9 @@
   <data name="textNombrePartida" xml:space="preserve">
     <value>Game name:</value>
   </data>
+  <data name="textNombres" xml:space="preserve">
+    <value>Name(s):</value>
+  </data>
   <data name="textNombreUsuario" xml:space="preserve">
     <value>User name:</value>
   </data>
@@ -249,11 +279,17 @@
   <data name="textPista" xml:space="preserve">
     <value>Clue</value>
   </data>
+  <data name="textPrimerApellido" xml:space="preserve">
+    <value>First Last Name:</value>
+  </data>
   <data name="textPuntajeGlobal" xml:space="preserve">
     <value>Puntaje Global</value>
   </data>
   <data name="textRegistro" xml:space="preserve">
     <value>Registration</value>
+  </data>
+  <data name="textSegundoApellido" xml:space="preserve">
+    <value>Second Last Name:</value>
   </data>
   <data name="textSeleccionarCategoría" xml:space="preserve">
     <value>Select Category:</value>
@@ -269,5 +305,29 @@
   </data>
   <data name="textVictorias" xml:space="preserve">
     <value>Victories:</value>
+  </data>
+  <data name="titConflicto" xml:space="preserve">
+    <value>Conflict</value>
+  </data>
+  <data name="titContraseniaDebil" xml:space="preserve">
+    <value>Weak password</value>
+  </data>
+  <data name="TitDatosIncompletos" xml:space="preserve">
+    <value>Incomplete data</value>
+  </data>
+  <data name="titError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="titErrorValidacion" xml:space="preserve">
+    <value>Validation Error</value>
+  </data>
+  <data name="titExito" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="titFalloConexion" xml:space="preserve">
+    <value>Connection failed</value>
+  </data>
+  <data name="titTelefonoInvalido" xml:space="preserve">
+    <value>Invalid phone</value>
   </data>
 </root>

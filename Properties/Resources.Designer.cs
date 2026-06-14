@@ -19,7 +19,7 @@ namespace ClienteAhorcado.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -313,6 +313,87 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cambios guardados con éxito..
+        /// </summary>
+        public static string MsgCambiosGuardados {
+            get {
+                return ResourceManager.GetString("MsgCambiosGuardados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No puedes dejar campos vacíos..
+        /// </summary>
+        public static string MsgCamposVacios {
+            get {
+                return ResourceManager.GetString("MsgCamposVacios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La nueva contraseña debe tener al menos 8 caracteres..
+        /// </summary>
+        public static string MsgContraseniaCorta {
+            get {
+                return ResourceManager.GetString("MsgContraseniaCorta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Los datos enviados no son válidos para el servidor..
+        /// </summary>
+        public static string MsgDatosInvalidos {
+            get {
+                return ResourceManager.GetString("MsgDatosInvalidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió un error al intentar comunicar con el servidor: {0}.
+        /// </summary>
+        public static string MsgErrorConexion {
+            get {
+                return ResourceManager.GetString("MsgErrorConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error interno del servidor. Intenta de nuevo más tarde..
+        /// </summary>
+        public static string MsgErrorServidor {
+            get {
+                return ResourceManager.GetString("MsgErrorServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, ingresa un número de teléfono válido....
+        /// </summary>
+        public static string MsgTelefonoInvalido {
+            get {
+                return ResourceManager.GetString("MsgTelefonoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encontró tu usuario en la base de datos..
+        /// </summary>
+        public static string MsgUsuarioNoEncontrado {
+            get {
+                return ResourceManager.GetString("MsgUsuarioNoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario ya está ocupado..
+        /// </summary>
+        public static string MsgUsuarioOcupado {
+            get {
+                return ResourceManager.GetString("MsgUsuarioOcupado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ACTUALIZAR.
         /// </summary>
         public static string textActualizar {
@@ -421,6 +502,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nombre(s):.
+        /// </summary>
+        public static string textNombres {
+            get {
+                return ResourceManager.GetString("textNombres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre de Usuario:.
         /// </summary>
         public static string textNombreUsuario {
@@ -457,6 +547,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Primer Apellido:.
+        /// </summary>
+        public static string textPrimerApellido {
+            get {
+                return ResourceManager.GetString("textPrimerApellido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Puntaje Global.
         /// </summary>
         public static string textPuntajeGlobal {
@@ -471,6 +570,15 @@ namespace ClienteAhorcado.Properties {
         public static string textRegistro {
             get {
                 return ResourceManager.GetString("textRegistro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Segundo Apellido:.
+        /// </summary>
+        public static string textSegundoApellido {
+            get {
+                return ResourceManager.GetString("textSegundoApellido", resourceCulture);
             }
         }
         
@@ -516,6 +624,78 @@ namespace ClienteAhorcado.Properties {
         public static string textVictorias {
             get {
                 return ResourceManager.GetString("textVictorias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Conflicto.
+        /// </summary>
+        public static string titConflicto {
+            get {
+                return ResourceManager.GetString("titConflicto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña débil.
+        /// </summary>
+        public static string titContraseniaDebil {
+            get {
+                return ResourceManager.GetString("titContraseniaDebil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos incompletos.
+        /// </summary>
+        public static string TitDatosIncompletos {
+            get {
+                return ResourceManager.GetString("TitDatosIncompletos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error.
+        /// </summary>
+        public static string titError {
+            get {
+                return ResourceManager.GetString("titError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error de Validación.
+        /// </summary>
+        public static string titErrorValidacion {
+            get {
+                return ResourceManager.GetString("titErrorValidacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Éxito.
+        /// </summary>
+        public static string titExito {
+            get {
+                return ResourceManager.GetString("titExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fallo de conexión.
+        /// </summary>
+        public static string titFalloConexion {
+            get {
+                return ResourceManager.GetString("titFalloConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Teléfono inválido.
+        /// </summary>
+        public static string titTelefonoInvalido {
+            get {
+                return ResourceManager.GetString("titTelefonoInvalido", resourceCulture);
             }
         }
     }
