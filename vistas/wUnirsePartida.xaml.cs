@@ -43,7 +43,7 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 partidaSrv.Abort();
-                MessageBox.Show($"Error al cargar la lista de partidas: {ex.Message}", "Fallo de comunicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorCargarPartidas, ex.Message), Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -68,7 +68,7 @@ namespace ClienteAhorcado.vistas
         {
             if (lbPartidas.SelectedItem == null)
             {
-                MessageBox.Show("Por favor, selecciona una partida de la lista para unirte.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgSeleccionarPartida, Properties.Resources.titAviso, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -88,14 +88,14 @@ namespace ClienteAhorcado.vistas
                 if (estadoPartida != null)
                 {
                     // Si nos devuelve el objeto, significa que el servidor nos aceptó en la sala
-                    MessageBox.Show($"Conectado a la partida '{partidaSeleccionada.nombrePartida}'.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.msgConectadoPartida, partidaSeleccionada.nombrePartida), Properties.Resources.titExito, MessageBoxButton.OK, MessageBoxImage.Information);
 
                     NavigationService.Navigate(new wPartidaJugador(false));
                 }
                 else
                 {
                     // Alguien más se unió un milisegundo antes o el creador canceló
-                    MessageBox.Show("No se pudo unir a la partida. Es posible que ya no esté disponible.", "Partida no disponible", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    MessageBox.Show(Properties.Resources.msgPartidaNoDisponible, Properties.Resources.titPartidaNoDisponible, MessageBoxButton.OK, MessageBoxImage.Stop);
                     CargarPartidas();
                 }
 
@@ -104,7 +104,7 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 partidaSrv.Abort();
-                MessageBox.Show($"Error al intentar unirse a la partida: {ex.Message}", "Fallo de comunicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorUnirsePartida, ex.Message), Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

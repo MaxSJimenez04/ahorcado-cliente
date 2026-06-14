@@ -49,7 +49,8 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 palabraSrv.Abort();
-                MessageBox.Show($"Error al cargar categorías: {ex.Message}", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorCargarCategorias, ex.Message),
+                                Properties.Resources.titErrorConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -81,7 +82,8 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 palabraSrv.Abort();
-                MessageBox.Show($"Error al cargar palabras: {ex.Message}", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorCargarPalabras, ex.Message),
+                                Properties.Resources.titErrorConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -122,8 +124,8 @@ namespace ClienteAhorcado.vistas
 
             if (string.IsNullOrWhiteSpace(nombrePartida) || idCategoriaObj == null || idPalabraObj == null)
             {
-                MessageBox.Show("Por favor, llena todos los campos y selecciona una palabra para la partida.",
-                                "Datos incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgCamposPartidaIncompletos,
+                                Properties.Resources.TitDatosIncompletos, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -144,29 +146,29 @@ namespace ClienteAhorcado.vistas
 
                 if (resultadoPartida > 0)
                 {
-                    MessageBox.Show($"¡Partida '{nombrePartida}' creada con éxito!",
-                                    "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(string.Format(Properties.Resources.msgPartidaCreadaExito, nombrePartida),
+                                    Properties.Resources.titExito, MessageBoxButton.OK, MessageBoxImage.Information);
 
                     NavigationService.Navigate(new wEsperaJugador(resultadoPartida));
                 }
                 else if (resultadoPartida == -1)
                 {
-                    MessageBox.Show("El nombre de la partida ya está en uso. Por favor, elige otro.",
-                                    "Nombre ocupado", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(Properties.Resources.msgNombrePartidaEnUso,
+                                    Properties.Resources.titNombreOcupado, MessageBoxButton.OK, MessageBoxImage.Warning);
                     partidaSrv.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrió un error en la base de datos al intentar crear la partida.",
-                                    "Error del servidor", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Properties.Resources.msgErrorBDCrearPartida,
+                                    Properties.Resources.titErrorServidor, MessageBoxButton.OK, MessageBoxImage.Error);
                     partidaSrv.Close();
                 }
             }
             catch (Exception ex)
             {
                 partidaSrv.Abort();
-                MessageBox.Show($"Ocurrió un error al comunicar con el servidor: {ex.Message}",
-                                "Fallo de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorComunicarServidor, ex.Message),
+                                Properties.Resources.titFalloConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

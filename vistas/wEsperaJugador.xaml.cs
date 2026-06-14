@@ -41,15 +41,20 @@ namespace ClienteAhorcado.vistas
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al abrir el canal de espera: {ex.Message}", "Fallo de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorCanalEspera, ex.Message),
+                                Properties.Resources.titFalloConexion,
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error);
                 NavigationService.Navigate(new wMenuPrincipal());
             }
         }
 
         private void btnCancelarPartida_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Deseas cancelar la creación de la partida?",
-                                                      "Cancelar Partida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.msgConfirmarCancelarPartida,
+                                                      Properties.Resources.titCancelarPartida,
+                                                      MessageBoxButton.YesNo,
+                                                      MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -77,8 +82,10 @@ namespace ClienteAhorcado.vistas
             // WPF requiere que los cambios de interfaz dictados por un hilo externo se hagan usando el Dispatcher
             Dispatcher.Invoke(() =>
             {
-                MessageBox.Show($"¡El jugador {usuarioJugadorB} se ha unido a la partida!\nEl juego va a comenzar.",
-                                "Contrincante encontrado", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(string.Format(Properties.Resources.msgJugadorUnido, usuarioJugadorB),
+                                Properties.Resources.titContrincanteEncontrado,
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Information);
 
                 NavigationService.Navigate(new wPartidaJugador(true));
             });

@@ -56,7 +56,7 @@ namespace ClienteAhorcado.vistas
 
             if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasenia))
             {
-                MessageBox.Show("Por favor, ingresa tu usuario y contraseña.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgIngresarCredenciales, Properties.Resources.titCamposVacios, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -71,19 +71,19 @@ namespace ClienteAhorcado.vistas
                 switch (resultado.Key)
                 {
                     case 1:
-                        MessageBox.Show("Por favor, ingresa usuario y contraseña.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(Properties.Resources.msgIngresarCredenciales, Properties.Resources.titCamposVacios, MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 2:
-                        MessageBox.Show("No se encontró el usuario o la contraseña es incorrecta.", "Credenciales inválidas", MessageBoxButton.OK, MessageBoxImage.Stop);
+                        MessageBox.Show(Properties.Resources.msgCredencialesIncorrectas, Properties.Resources.titCredencialesInvalidas, MessageBoxButton.OK, MessageBoxImage.Stop);
                         break;
                     case 3:
-                        MessageBox.Show("Ya hay una sesión activa para este usuario.", "Sesión Activa", MessageBoxButton.OK, MessageBoxImage.Hand);
+                        MessageBox.Show(Properties.Resources.msgSesionActiva, Properties.Resources.titSesionActiva, MessageBoxButton.OK, MessageBoxImage.Hand);
                         break;
                     case 4:
-                        MessageBox.Show("Error interno en la base de datos del servidor, intente de nuevo más tarde.", "Error del servidor", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Properties.Resources.msgErrorBD, Properties.Resources.titErrorServidor, MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     case 5:
-                        MessageBox.Show("Ocurrió un error inesperado en el servidor.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Properties.Resources.msgErrorInesperadoServidor, Properties.Resources.titError, MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     case 0:
                         var sesionGlobal = utils.Sesion.Instancia;
@@ -105,22 +105,19 @@ namespace ClienteAhorcado.vistas
             catch (System.ServiceModel.EndpointNotFoundException)
             {
                 sesion.Abort(); // Abort nunca lanza excepción, limpia el canal a la fuerza
-                MessageBox.Show("No se pudo conectar con el servidor, intente más tarde.",
-                                "Sin conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.msgSinConexion, Properties.Resources.titSinConexion, MessageBoxButton.OK, MessageBoxImage.Error);
                 NavigationService.Navigate(new wInicio());
             }
             catch (System.ServiceModel.CommunicationException)
             {
                 sesion.Abort();
-                MessageBox.Show("Error de comunicación con el servidor, intente más tarde.",
-                                "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.msgErrorComunicacion, Properties.Resources.titErrorConexion, MessageBoxButton.OK, MessageBoxImage.Error);
                 NavigationService.Navigate(new wInicio());
             }
             catch (TimeoutException)
             {
                 sesion.Abort();
-                MessageBox.Show("El servidor tardó demasiado en responder.",
-                                "Tiempo agotado", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.msgTiempoAgotado, Properties.Resources.titTiempoAgotado, MessageBoxButton.OK, MessageBoxImage.Error);
                 NavigationService.Navigate(new wInicio());
             }
         }

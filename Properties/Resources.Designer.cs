@@ -322,11 +322,47 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, llena todos los campos y selecciona una palabra para la partida..
+        /// </summary>
+        public static string msgCamposPartidaIncompletos {
+            get {
+                return ResourceManager.GetString("msgCamposPartidaIncompletos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No puedes dejar campos vacíos..
         /// </summary>
         public static string MsgCamposVacios {
             get {
                 return ResourceManager.GetString("MsgCamposVacios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Conectado a la partida &apos;{0}&apos;..
+        /// </summary>
+        public static string msgConectadoPartida {
+            get {
+                return ResourceManager.GetString("msgConectadoPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Estás seguro que deseas abandonar la partida? Perderás puntos de clasificación..
+        /// </summary>
+        public static string msgConfirmarAbandono {
+            get {
+                return ResourceManager.GetString("msgConfirmarAbandono", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Deseas cancelar la creación de la partida?.
+        /// </summary>
+        public static string msgConfirmarCancelarPartida {
+            get {
+                return ResourceManager.GetString("msgConfirmarCancelarPartida", resourceCulture);
             }
         }
         
@@ -340,11 +376,137 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña debe tener al menos 8 caracteres por seguridad..
+        /// </summary>
+        public static string msgContraseniaSeguridad {
+            get {
+                return ResourceManager.GetString("msgContraseniaSeguridad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, ingresa un correo electrónico válido (ejemplo: usuario@correo.com)..
+        /// </summary>
+        public static string msgCorreoInvalido {
+            get {
+                return ResourceManager.GetString("msgCorreoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo electrónico ya está registrado. Si ya tienes cuenta, intenta iniciar sesión..
+        /// </summary>
+        public static string msgCorreoRegistrado {
+            get {
+                return ResourceManager.GetString("msgCorreoRegistrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encontró el usuario o la contraseña es incorrecta..
+        /// </summary>
+        public static string msgCredencialesIncorrectas {
+            get {
+                return ResourceManager.GetString("msgCredencialesIncorrectas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Los datos enviados no son válidos para el servidor..
         /// </summary>
         public static string MsgDatosInvalidos {
             get {
                 return ResourceManager.GetString("MsgDatosInvalidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Los datos enviados no cumplen con los requisitos del servidor..
+        /// </summary>
+        public static string msgDatosInvalidosServidor {
+            get {
+                return ResourceManager.GetString("msgDatosInvalidosServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió un error interno en el servidor de base de datos. Intenta más tarde..
+        /// </summary>
+        public static string msgErrorBD {
+            get {
+                return ResourceManager.GetString("msgErrorBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió un error en la base de datos al intentar crear la partida..
+        /// </summary>
+        public static string msgErrorBDCrearPartida {
+            get {
+                return ResourceManager.GetString("msgErrorBDCrearPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al abrir el canal de espera: {0}.
+        /// </summary>
+        public static string msgErrorCanalEspera {
+            get {
+                return ResourceManager.GetString("msgErrorCanalEspera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al cargar categorías: {0}.
+        /// </summary>
+        public static string msgErrorCargarCategorias {
+            get {
+                return ResourceManager.GetString("msgErrorCargarCategorias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al cargar palabras: {0}.
+        /// </summary>
+        public static string msgErrorCargarPalabras {
+            get {
+                return ResourceManager.GetString("msgErrorCargarPalabras", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al cargar la lista de partidas: {0}.
+        /// </summary>
+        public static string msgErrorCargarPartidas {
+            get {
+                return ResourceManager.GetString("msgErrorCargarPartidas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error de comunicación con el servidor, intente más tarde..
+        /// </summary>
+        public static string msgErrorComunicacion {
+            get {
+                return ResourceManager.GetString("msgErrorComunicacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió un error al comunicar con el servidor: {0}.
+        /// </summary>
+        public static string msgErrorComunicarServidor {
+            get {
+                return ResourceManager.GetString("msgErrorComunicarServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al conectar con el servidor: {0}.
+        /// </summary>
+        public static string msgErrorConectarServidor {
+            get {
+                return ResourceManager.GetString("msgErrorConectarServidor", resourceCulture);
             }
         }
         
@@ -358,6 +520,34 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error al conectar con el servidor: {0} 
+        ///Se usarán los datos locales de sesión..
+        /// </summary>
+        public static string msgErrorConexionRespaldo {
+            get {
+                return ResourceManager.GetString("msgErrorConexionRespaldo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocurrió un error inesperado en el servidor..
+        /// </summary>
+        public static string msgErrorInesperadoServidor {
+            get {
+                return ResourceManager.GetString("msgErrorInesperadoServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudieron recuperar los datos del perfil desde el servidor..
+        /// </summary>
+        public static string msgErrorRecuperarPerfil {
+            get {
+                return ResourceManager.GetString("msgErrorRecuperarPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error interno del servidor. Intenta de nuevo más tarde..
         /// </summary>
         public static string MsgErrorServidor {
@@ -367,11 +557,174 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error al intentar unirse a la partida: {0}.
+        /// </summary>
+        public static string msgErrorUnirsePartida {
+            get {
+                return ResourceManager.GetString("msgErrorUnirsePartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, selecciona una fecha de nacimiento válida..
+        /// </summary>
+        public static string msgFechaInvalida {
+            get {
+                return ResourceManager.GetString("msgFechaInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, ingresa tu usuario y contraseña..
+        /// </summary>
+        public static string msgIngresarCredenciales {
+            get {
+                return ResourceManager.GetString("msgIngresarCredenciales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡El jugador {0} se ha unido a la partida!
+        ///El juego va a comenzar..
+        /// </summary>
+        public static string msgJugadorUnido {
+            get {
+                return ResourceManager.GetString("msgJugadorUnido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Has marcado la letra como {0}.
+        /// </summary>
+        public static string msgJuicioLetra {
+            get {
+                return ResourceManager.GetString("msgJuicioLetra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, llena todos los campos para continuar..
+        /// </summary>
+        public static string msgLlenarCampos {
+            get {
+                return ResourceManager.GetString("msgLlenarCampos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de la partida ya está en uso. Por favor, elige otro..
+        /// </summary>
+        public static string msgNombrePartidaEnUso {
+            get {
+                return ResourceManager.GetString("msgNombrePartidaEnUso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Partida &apos;{0}&apos; creada con éxito!.
+        /// </summary>
+        public static string msgPartidaCreadaExito {
+            get {
+                return ResourceManager.GetString("msgPartidaCreadaExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo unir a la partida. Es posible que ya no esté disponible..
+        /// </summary>
+        public static string msgPartidaNoDisponible {
+            get {
+                return ResourceManager.GetString("msgPartidaNoDisponible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registrando cuenta....
+        /// </summary>
+        public static string msgRegistrandoCuenta {
+            get {
+                return ResourceManager.GetString("msgRegistrandoCuenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Cuenta registrada con éxito!.
+        /// </summary>
+        public static string msgRegistroExitoso {
+            get {
+                return ResourceManager.GetString("msgRegistroExitoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El servidor devolvió una respuesta desconocida..
+        /// </summary>
+        public static string msgRespuestaDesconocida {
+            get {
+                return ResourceManager.GetString("msgRespuestaDesconocida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, selecciona una partida de la lista para unirte..
+        /// </summary>
+        public static string msgSeleccionarPartida {
+            get {
+                return ResourceManager.GetString("msgSeleccionarPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ya hay una sesión activa para este usuario..
+        /// </summary>
+        public static string msgSesionActiva {
+            get {
+                return ResourceManager.GetString("msgSesionActiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo conectar con el servidor, intente más tarde..
+        /// </summary>
+        public static string msgSinConexion {
+            get {
+                return ResourceManager.GetString("msgSinConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se encontró una sesión activa. Volviendo al inicio..
+        /// </summary>
+        public static string msgSinSesionActiva {
+            get {
+                return ResourceManager.GetString("msgSinSesionActiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Por favor, ingresa un número de teléfono válido....
         /// </summary>
         public static string MsgTelefonoInvalido {
             get {
                 return ResourceManager.GetString("MsgTelefonoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El servidor tardó demasiado en responder..
+        /// </summary>
+        public static string msgTiempoAgotado {
+            get {
+                return ResourceManager.GetString("msgTiempoAgotado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario ya está en uso. Por favor, elige otro..
+        /// </summary>
+        public static string msgUsuarioEnUso {
+            get {
+                return ResourceManager.GetString("msgUsuarioEnUso", resourceCulture);
             }
         }
         
@@ -430,6 +783,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Correcto.
+        /// </summary>
+        public static string textCorrecto {
+            get {
+                return ResourceManager.GetString("textCorrecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Correo Electrónico:.
         /// </summary>
         public static string textCorreo {
@@ -480,6 +842,15 @@ namespace ClienteAhorcado.Properties {
         public static string textIdioma {
             get {
                 return ResourceManager.GetString("textIdioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Incorrecto.
+        /// </summary>
+        public static string textIncorrecto {
+            get {
+                return ResourceManager.GetString("textIncorrecto", resourceCulture);
             }
         }
         
@@ -628,6 +999,52 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 
+        ///Yo: {0}.
+        /// </summary>
+        public static string textYoChat {
+            get {
+                return ResourceManager.GetString("textYoChat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Abandonar.
+        /// </summary>
+        public static string titAbandonar {
+            get {
+                return ResourceManager.GetString("titAbandonar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Aviso.
+        /// </summary>
+        public static string titAviso {
+            get {
+                return ResourceManager.GetString("titAviso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Campos vacíos.
+        /// </summary>
+        public static string titCamposVacios {
+            get {
+                return ResourceManager.GetString("titCamposVacios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancelar Partida.
+        /// </summary>
+        public static string titCancelarPartida {
+            get {
+                return ResourceManager.GetString("titCancelarPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Conflicto.
         /// </summary>
         public static string titConflicto {
@@ -642,6 +1059,42 @@ namespace ClienteAhorcado.Properties {
         public static string titContraseniaDebil {
             get {
                 return ResourceManager.GetString("titContraseniaDebil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contrincante encontrado.
+        /// </summary>
+        public static string titContrincanteEncontrado {
+            get {
+                return ResourceManager.GetString("titContrincanteEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Correo Existente.
+        /// </summary>
+        public static string titCorreoExistente {
+            get {
+                return ResourceManager.GetString("titCorreoExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Correo inválido.
+        /// </summary>
+        public static string titCorreoInvalido {
+            get {
+                return ResourceManager.GetString("titCorreoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Credenciales inválidas.
+        /// </summary>
+        public static string titCredencialesInvalidas {
+            get {
+                return ResourceManager.GetString("titCredencialesInvalidas", resourceCulture);
             }
         }
         
@@ -664,6 +1117,33 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error de conexión.
+        /// </summary>
+        public static string titErrorConexion {
+            get {
+                return ResourceManager.GetString("titErrorConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error del Servidor.
+        /// </summary>
+        public static string titErrorServidor {
+            get {
+                return ResourceManager.GetString("titErrorServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error de Sesión.
+        /// </summary>
+        public static string titErrorSesion {
+            get {
+                return ResourceManager.GetString("titErrorSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error de Validación.
         /// </summary>
         public static string titErrorValidacion {
@@ -682,6 +1162,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fallo de comunicación.
+        /// </summary>
+        public static string titFalloComunicacion {
+            get {
+                return ResourceManager.GetString("titFalloComunicacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Fallo de conexión.
         /// </summary>
         public static string titFalloConexion {
@@ -691,11 +1180,101 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fecha inválida.
+        /// </summary>
+        public static string titFechaInvalida {
+            get {
+                return ResourceManager.GetString("titFechaInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Juicio.
+        /// </summary>
+        public static string titJuicio {
+            get {
+                return ResourceManager.GetString("titJuicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre ocupado.
+        /// </summary>
+        public static string titNombreOcupado {
+            get {
+                return ResourceManager.GetString("titNombreOcupado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partida no disponible.
+        /// </summary>
+        public static string titPartidaNoDisponible {
+            get {
+                return ResourceManager.GetString("titPartidaNoDisponible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro.
+        /// </summary>
+        public static string titRegistro {
+            get {
+                return ResourceManager.GetString("titRegistro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro Exitoso.
+        /// </summary>
+        public static string titRegistroExitoso {
+            get {
+                return ResourceManager.GetString("titRegistroExitoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sesión Activa.
+        /// </summary>
+        public static string titSesionActiva {
+            get {
+                return ResourceManager.GetString("titSesionActiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sin conexión.
+        /// </summary>
+        public static string titSinConexion {
+            get {
+                return ResourceManager.GetString("titSinConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Teléfono inválido.
         /// </summary>
         public static string titTelefonoInvalido {
             get {
                 return ResourceManager.GetString("titTelefonoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo agotado.
+        /// </summary>
+        public static string titTiempoAgotado {
+            get {
+                return ResourceManager.GetString("titTiempoAgotado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario Existente.
+        /// </summary>
+        public static string titUsuarioExistente {
+            get {
+                return ResourceManager.GetString("titUsuarioExistente", resourceCulture);
             }
         }
     }

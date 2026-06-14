@@ -42,8 +42,10 @@ namespace ClienteAhorcado.vistas
 
         private void btnAbandonarPartida_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Estás seguro que deseas abandonar la partida? Perderás puntos de clasificación.",
-                                                      "Abandonar", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.msgConfirmarAbandono,
+                                                      Properties.Resources.titAbandonar,
+                                                      MessageBoxButton.YesNo,
+                                                      MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -54,9 +56,12 @@ namespace ClienteAhorcado.vistas
         private void btnJuicio_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            string decision = btn.Name == "btnCorrecto" ? "Correcto" : "Incorrecto";
+            string decision = btn.Name == "btnCorrecto" ? Properties.Resources.textCorrecto : Properties.Resources.textIncorrecto;
 
-            MessageBox.Show($"Has marcado la letra como {decision}", "Juicio", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(string.Format(Properties.Resources.msgJuicioLetra, decision),
+                            Properties.Resources.titJuicio,
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information);
         }
 
         private void btnEnviarChat_Click(object sender, RoutedEventArgs e)
@@ -64,7 +69,7 @@ namespace ClienteAhorcado.vistas
             string mensaje = txtChatMensaje.Text;
             if (!string.IsNullOrWhiteSpace(mensaje))
             {
-                txtChatHistorial.Text += $"\nYo: {mensaje}";
+                txtChatHistorial.Text += string.Format(Properties.Resources.textYoChat, mensaje);
                 txtChatMensaje.Clear();
             }
         }

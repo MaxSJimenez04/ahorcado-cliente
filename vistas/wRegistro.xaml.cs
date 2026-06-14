@@ -74,40 +74,35 @@ namespace ClienteAhorcado.vistas
                 string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasenia) ||
                 string.IsNullOrWhiteSpace(fechaNacimiento) || string.IsNullOrWhiteSpace(telefono))
             {
-                MessageBox.Show("Por favor, llena todos los campos para continuar.",
-                                "Datos incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgLlenarCampos, Properties.Resources.TitDatosIncompletos, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (contrasenia.Length < 8)
             {
-                MessageBox.Show("La contraseña debe tener al menos 8 caracteres por seguridad.",
-                                "Contraseña débil", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgContraseniaSeguridad, Properties.Resources.titContraseniaDebil, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (!EsCorreoValido(correo))
             {
-                MessageBox.Show("Por favor, ingresa un correo electrónico válido (ejemplo: usuario@correo.com).",
-                                "Correo inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgCorreoInvalido, Properties.Resources.titCorreoInvalido, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (!EsTelefonoValido(telefono))
             {
-                MessageBox.Show("Por favor, ingresa un número de teléfono válido (entre 10 y 15 dígitos numéricos).",
-                                "Teléfono inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.MsgTelefonoInvalido, Properties.Resources.titTelefonoInvalido, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            MessageBox.Show("Registrando cuenta...", "Registro", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Properties.Resources.msgRegistrandoCuenta, Properties.Resources.titRegistro, MessageBoxButton.OK, MessageBoxImage.Information);
 
             // Conversión segura de la Fecha de Nacimiento
             DateTime fechaNacimientoParsed;
             if (!DateTime.TryParse(fechaNacimiento, out fechaNacimientoParsed))
             {
-                MessageBox.Show("Por favor, selecciona una fecha de nacimiento válida.",
-                                "Fecha inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.msgFechaInvalida, Properties.Resources.titFechaInvalida, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -133,23 +128,23 @@ namespace ClienteAhorcado.vistas
                 switch (estadoRegistro)
                 {
                     case 0:
-                        MessageBox.Show("¡Cuenta registrada con éxito!", "Registro Exitoso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show(Properties.Resources.msgRegistroExitoso, Properties.Resources.titRegistroExitoso, MessageBoxButton.OK, MessageBoxImage.Information);
                         NavigationService.Navigate(new wLogin());
                         break;
                     case 1:
-                        MessageBox.Show("Los datos enviados no cumplen con los requisitos del servidor.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(Properties.Resources.msgDatosInvalidosServidor, Properties.Resources.titErrorValidacion, MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 2:
-                        MessageBox.Show("El nombre de usuario ya está en uso. Por favor, elige otro.", "Usuario Existente", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(Properties.Resources.msgUsuarioEnUso, Properties.Resources.titUsuarioExistente, MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 3:
-                        MessageBox.Show("El correo electrónico ya está registrado. Si ya tienes cuenta, intenta iniciar sesión.", "Correo Existente", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(Properties.Resources.msgCorreoRegistrado, Properties.Resources.titCorreoExistente, MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 4:
-                        MessageBox.Show("Ocurrió un error interno en el servidor de base de datos. Intenta más tarde.", "Error del Servidor", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Properties.Resources.msgErrorBD, Properties.Resources.titErrorServidor, MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     default:
-                        MessageBox.Show("El servidor devolvió una respuesta desconocida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Properties.Resources.msgRespuestaDesconocida, Properties.Resources.titError, MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                 }
 
@@ -158,7 +153,7 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 clienteWCF.Abort();
-                MessageBox.Show($"Error al conectar con el servidor: {ex.Message}", "Fallo de Conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorConectarServidor, ex.Message), Properties.Resources.titFalloConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

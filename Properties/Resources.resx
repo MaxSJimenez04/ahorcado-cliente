@@ -204,23 +204,142 @@
   <data name="MsgCambiosGuardados" xml:space="preserve">
     <value>Cambios guardados con éxito.</value>
   </data>
+  <data name="msgCamposPartidaIncompletos" xml:space="preserve">
+    <value>Por favor, llena todos los campos y selecciona una palabra para la partida.</value>
+  </data>
   <data name="MsgCamposVacios" xml:space="preserve">
     <value>No puedes dejar campos vacíos.</value>
+  </data>
+  <data name="msgConectadoPartida" xml:space="preserve">
+    <value>Conectado a la partida '{0}'.</value>
+  </data>
+  <data name="msgConfirmarAbandono" xml:space="preserve">
+    <value>¿Estás seguro que deseas abandonar la partida? Perderás puntos de clasificación.</value>
+  </data>
+  <data name="msgConfirmarCancelarPartida" xml:space="preserve">
+    <value>¿Deseas cancelar la creación de la partida?</value>
   </data>
   <data name="MsgContraseniaCorta" xml:space="preserve">
     <value>La nueva contraseña debe tener al menos 8 caracteres.</value>
   </data>
+  <data name="msgContraseniaSeguridad" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres por seguridad.</value>
+  </data>
+  <data name="msgCorreoInvalido" xml:space="preserve">
+    <value>Por favor, ingresa un correo electrónico válido (ejemplo: usuario@correo.com).</value>
+  </data>
+  <data name="msgCorreoRegistrado" xml:space="preserve">
+    <value>El correo electrónico ya está registrado. Si ya tienes cuenta, intenta iniciar sesión.</value>
+  </data>
+  <data name="msgCredencialesIncorrectas" xml:space="preserve">
+    <value>No se encontró el usuario o la contraseña es incorrecta.</value>
+  </data>
   <data name="MsgDatosInvalidos" xml:space="preserve">
     <value>Los datos enviados no son válidos para el servidor.</value>
+  </data>
+  <data name="msgDatosInvalidosServidor" xml:space="preserve">
+    <value>Los datos enviados no cumplen con los requisitos del servidor.</value>
+  </data>
+  <data name="msgErrorBD" xml:space="preserve">
+    <value>Ocurrió un error interno en el servidor de base de datos. Intenta más tarde.</value>
+  </data>
+  <data name="msgErrorBDCrearPartida" xml:space="preserve">
+    <value>Ocurrió un error en la base de datos al intentar crear la partida.</value>
+  </data>
+  <data name="msgErrorCanalEspera" xml:space="preserve">
+    <value>Error al abrir el canal de espera: {0}</value>
+  </data>
+  <data name="msgErrorCargarCategorias" xml:space="preserve">
+    <value>Error al cargar categorías: {0}</value>
+  </data>
+  <data name="msgErrorCargarPalabras" xml:space="preserve">
+    <value>Error al cargar palabras: {0}</value>
+  </data>
+  <data name="msgErrorCargarPartidas" xml:space="preserve">
+    <value>Error al cargar la lista de partidas: {0}</value>
+  </data>
+  <data name="msgErrorComunicacion" xml:space="preserve">
+    <value>Error de comunicación con el servidor, intente más tarde.</value>
+  </data>
+  <data name="msgErrorComunicarServidor" xml:space="preserve">
+    <value>Ocurrió un error al comunicar con el servidor: {0}</value>
+  </data>
+  <data name="msgErrorConectarServidor" xml:space="preserve">
+    <value>Error al conectar con el servidor: {0}</value>
   </data>
   <data name="MsgErrorConexion" xml:space="preserve">
     <value>Ocurrió un error al intentar comunicar con el servidor: {0}</value>
   </data>
+  <data name="msgErrorConexionRespaldo" xml:space="preserve">
+    <value>Error al conectar con el servidor: {0} 
+Se usarán los datos locales de sesión.</value>
+  </data>
+  <data name="msgErrorInesperadoServidor" xml:space="preserve">
+    <value>Ocurrió un error inesperado en el servidor.</value>
+  </data>
+  <data name="msgErrorRecuperarPerfil" xml:space="preserve">
+    <value>No se pudieron recuperar los datos del perfil desde el servidor.</value>
+  </data>
   <data name="MsgErrorServidor" xml:space="preserve">
     <value>Error interno del servidor. Intenta de nuevo más tarde.</value>
   </data>
+  <data name="msgErrorUnirsePartida" xml:space="preserve">
+    <value>Error al intentar unirse a la partida: {0}</value>
+  </data>
+  <data name="msgFechaInvalida" xml:space="preserve">
+    <value>Por favor, selecciona una fecha de nacimiento válida.</value>
+  </data>
+  <data name="msgIngresarCredenciales" xml:space="preserve">
+    <value>Por favor, ingresa tu usuario y contraseña.</value>
+  </data>
+  <data name="msgJugadorUnido" xml:space="preserve">
+    <value>¡El jugador {0} se ha unido a la partida!
+El juego va a comenzar.</value>
+  </data>
+  <data name="msgJuicioLetra" xml:space="preserve">
+    <value>Has marcado la letra como {0}</value>
+  </data>
+  <data name="msgLlenarCampos" xml:space="preserve">
+    <value>Por favor, llena todos los campos para continuar.</value>
+  </data>
+  <data name="msgNombrePartidaEnUso" xml:space="preserve">
+    <value>El nombre de la partida ya está en uso. Por favor, elige otro.</value>
+  </data>
+  <data name="msgPartidaCreadaExito" xml:space="preserve">
+    <value>¡Partida '{0}' creada con éxito!</value>
+  </data>
+  <data name="msgPartidaNoDisponible" xml:space="preserve">
+    <value>No se pudo unir a la partida. Es posible que ya no esté disponible.</value>
+  </data>
+  <data name="msgRegistrandoCuenta" xml:space="preserve">
+    <value>Registrando cuenta...</value>
+  </data>
+  <data name="msgRegistroExitoso" xml:space="preserve">
+    <value>¡Cuenta registrada con éxito!</value>
+  </data>
+  <data name="msgRespuestaDesconocida" xml:space="preserve">
+    <value>El servidor devolvió una respuesta desconocida.</value>
+  </data>
+  <data name="msgSeleccionarPartida" xml:space="preserve">
+    <value>Por favor, selecciona una partida de la lista para unirte.</value>
+  </data>
+  <data name="msgSesionActiva" xml:space="preserve">
+    <value>Ya hay una sesión activa para este usuario.</value>
+  </data>
+  <data name="msgSinConexion" xml:space="preserve">
+    <value>No se pudo conectar con el servidor, intente más tarde.</value>
+  </data>
+  <data name="msgSinSesionActiva" xml:space="preserve">
+    <value>No se encontró una sesión activa. Volviendo al inicio.</value>
+  </data>
   <data name="MsgTelefonoInvalido" xml:space="preserve">
     <value>Por favor, ingresa un número de teléfono válido...</value>
+  </data>
+  <data name="msgTiempoAgotado" xml:space="preserve">
+    <value>El servidor tardó demasiado en responder.</value>
+  </data>
+  <data name="msgUsuarioEnUso" xml:space="preserve">
+    <value>El nombre de usuario ya está en uso. Por favor, elige otro.</value>
   </data>
   <data name="MsgUsuarioNoEncontrado" xml:space="preserve">
     <value>No se encontró tu usuario en la base de datos.</value>
@@ -240,6 +359,9 @@
   <data name="textContraseña" xml:space="preserve">
     <value>Contraseña:</value>
   </data>
+  <data name="textCorrecto" xml:space="preserve">
+    <value>Correcto</value>
+  </data>
   <data name="textCorreo" xml:space="preserve">
     <value>Correo Electrónico:</value>
   </data>
@@ -257,6 +379,9 @@
   </data>
   <data name="textIdioma" xml:space="preserve">
     <value>Idioma</value>
+  </data>
+  <data name="textIncorrecto" xml:space="preserve">
+    <value>Incorrecto</value>
   </data>
   <data name="textInicioSesion" xml:space="preserve">
     <value>Inicio Sesión</value>
@@ -306,11 +431,39 @@
   <data name="textVictorias" xml:space="preserve">
     <value>Victorias:</value>
   </data>
+  <data name="textYoChat" xml:space="preserve">
+    <value>
+Yo: {0}</value>
+  </data>
+  <data name="titAbandonar" xml:space="preserve">
+    <value>Abandonar</value>
+  </data>
+  <data name="titAviso" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
+  <data name="titCamposVacios" xml:space="preserve">
+    <value>Campos vacíos</value>
+  </data>
+  <data name="titCancelarPartida" xml:space="preserve">
+    <value>Cancelar Partida</value>
+  </data>
   <data name="titConflicto" xml:space="preserve">
     <value>Conflicto</value>
   </data>
   <data name="titContraseniaDebil" xml:space="preserve">
     <value>Contraseña débil</value>
+  </data>
+  <data name="titContrincanteEncontrado" xml:space="preserve">
+    <value>Contrincante encontrado</value>
+  </data>
+  <data name="titCorreoExistente" xml:space="preserve">
+    <value>Correo Existente</value>
+  </data>
+  <data name="titCorreoInvalido" xml:space="preserve">
+    <value>Correo inválido</value>
+  </data>
+  <data name="titCredencialesInvalidas" xml:space="preserve">
+    <value>Credenciales inválidas</value>
   </data>
   <data name="TitDatosIncompletos" xml:space="preserve">
     <value>Datos incompletos</value>
@@ -318,16 +471,58 @@
   <data name="titError" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="titErrorConexion" xml:space="preserve">
+    <value>Error de conexión</value>
+  </data>
+  <data name="titErrorServidor" xml:space="preserve">
+    <value>Error del Servidor</value>
+  </data>
+  <data name="titErrorSesion" xml:space="preserve">
+    <value>Error de Sesión</value>
+  </data>
   <data name="titErrorValidacion" xml:space="preserve">
     <value>Error de Validación</value>
   </data>
   <data name="titExito" xml:space="preserve">
     <value>Éxito</value>
   </data>
+  <data name="titFalloComunicacion" xml:space="preserve">
+    <value>Fallo de comunicación</value>
+  </data>
   <data name="titFalloConexion" xml:space="preserve">
     <value>Fallo de conexión</value>
   </data>
+  <data name="titFechaInvalida" xml:space="preserve">
+    <value>Fecha inválida</value>
+  </data>
+  <data name="titJuicio" xml:space="preserve">
+    <value>Juicio</value>
+  </data>
+  <data name="titNombreOcupado" xml:space="preserve">
+    <value>Nombre ocupado</value>
+  </data>
+  <data name="titPartidaNoDisponible" xml:space="preserve">
+    <value>Partida no disponible</value>
+  </data>
+  <data name="titRegistro" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="titRegistroExitoso" xml:space="preserve">
+    <value>Registro Exitoso</value>
+  </data>
+  <data name="titSesionActiva" xml:space="preserve">
+    <value>Sesión Activa</value>
+  </data>
+  <data name="titSinConexion" xml:space="preserve">
+    <value>Sin conexión</value>
+  </data>
   <data name="titTelefonoInvalido" xml:space="preserve">
     <value>Teléfono inválido</value>
+  </data>
+  <data name="titTiempoAgotado" xml:space="preserve">
+    <value>Tiempo agotado</value>
+  </data>
+  <data name="titUsuarioExistente" xml:space="preserve">
+    <value>Usuario Existente</value>
   </data>
 </root>

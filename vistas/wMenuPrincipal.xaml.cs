@@ -54,7 +54,7 @@ namespace ClienteAhorcado.vistas
                 {
                     var sesionSrv = new SesionServiceRef.SesionServiceClient();
 
-                    // sesionSrv.CerrarSesion(usuarioActual); 
+                    sesionSrv.CerrarSesion(usuarioActual); 
 
                     sesionSrv.Close();
                 }

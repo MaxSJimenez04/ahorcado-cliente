@@ -29,7 +29,7 @@ namespace ClienteAhorcado.vistas
 
             if (string.IsNullOrEmpty(usuarioLogueado))
             {
-                MessageBox.Show("No se encontró una sesión activa. Volviendo al inicio.", "Error de Sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.msgSinSesionActiva, Properties.Resources.titErrorSesion, MessageBoxButton.OK, MessageBoxImage.Error);
                 NavigationService.Navigate(new wInicio());
                 return;
             }
@@ -68,7 +68,7 @@ namespace ClienteAhorcado.vistas
                 }
                 else
                 {
-                    MessageBox.Show("No se pudieron recuperar los datos del perfil desde el servidor.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(Properties.Resources.msgErrorRecuperarPerfil, Properties.Resources.titError, MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
 
                 usuarioSrv.Close();
@@ -76,8 +76,8 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 usuarioSrv.Abort();
-                MessageBox.Show($"Error al conectar con el servidor: {ex.Message}\nSe usarán los datos locales de sesión.",
-                                "Fallo de comunicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorConexionRespaldo, ex.Message),
+                                Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
 
                 // Respaldo (Fallback): Si falla el servidor, cargamos lo que tenga el Singleton localmente
                 CargarDatosLocales();
