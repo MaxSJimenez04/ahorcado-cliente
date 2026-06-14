@@ -47,7 +47,7 @@
                         <TextBlock Text="{x:Static res:Resources.textNombrePartida}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
 
                         <Grid Margin="0,0,0,20">
-                            <TextBox Name="txtNombrePartida" Height="60"/>
+                            <TextBox Name="txtNombrePartida" Height="60" MaxLength="255"/>
                             <TextBlock Text="Ej: Gran Partida" VerticalAlignment="Center" Margin="15,0,0,0" 
                                        Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
                                 <TextBlock.Style>
@@ -64,11 +64,9 @@
                         </Grid>
 
                         <TextBlock Text="{x:Static res:Resources.textSeleccionarCategoría}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                        <ComboBox Name="cbCategoria" SelectedIndex="0">
-                            <ComboBoxItem Content="Frutas y Verduras"/>
-                            <ComboBoxItem Content="Animales"/>
-                            <ComboBoxItem Content="Películas"/>
-                        </ComboBox>
+
+                        <ComboBox Name="cbCategoria" SelectionChanged="cbCategoria_SelectionChanged"/>
+
                     </StackPanel>
 
                     <Grid Grid.Column="1" Margin="30,0,0,0">
@@ -81,7 +79,6 @@
 
                         <ListBox Name="lbPalabras" Grid.Row="1" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2"
                                  FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" FontSize="20" Foreground="#1E1E1E" Margin="0,0,0,30">
-
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="Padding" Value="15,10"/>
@@ -90,12 +87,6 @@
                                     <Setter Property="BorderThickness" Value="0,0,0,1"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
-
-                            <ListBoxItem Content="Manzana"/>
-                            <ListBoxItem Content="Sandía"/>
-                            <ListBoxItem Content="Plátano"/>
-                            <ListBoxItem Content="Zanahoria"/>
-                            <ListBoxItem Content="Brócoli"/>
                         </ListBox>
                     </Grid>
                 </Grid>

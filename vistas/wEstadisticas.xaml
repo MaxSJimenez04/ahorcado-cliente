@@ -27,7 +27,7 @@
                     <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
                 </Button>
 
-                <TextBlock Grid.Column="1" Text="Mis Estadísticas" VerticalAlignment="Center" 
+                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnMisEstadísticas}" VerticalAlignment="Center" 
                            HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
             </Grid>
 
@@ -53,17 +53,17 @@
 
                             <Grid Grid.Row="0" Margin="0,5">
                                 <TextBlock Text="{x:Static res:Resources.textVictorias}" Style="{StaticResource texto}" FontWeight="Bold" HorizontalAlignment="Left"/>
-                                <TextBlock Name="lbVictorias" Text="24" Style="{StaticResource texto}" HorizontalAlignment="Right"/>
+                                <TextBlock Name="lbVictorias" Text="0" Style="{StaticResource texto}" HorizontalAlignment="Right"/>
                             </Grid>
 
                             <Grid Grid.Row="1" Margin="0,5">
                                 <TextBlock Text="{x:Static res:Resources.textDerrotas}" Style="{StaticResource texto}" FontWeight="Bold" HorizontalAlignment="Left"/>
-                                <TextBlock Name="lbDerrotas" Text="12" Style="{StaticResource texto}" HorizontalAlignment="Right"/>
+                                <TextBlock Name="lbDerrotas" Text="0" Style="{StaticResource texto}" HorizontalAlignment="Right"/>
                             </Grid>
 
                             <Grid Grid.Row="2" Margin="0,5">
                                 <TextBlock Text="{x:Static res:Resources.textPartidasjugadas}" Style="{StaticResource texto}" FontWeight="Bold" HorizontalAlignment="Left"/>
-                                <TextBlock Name="lbTotalPartidas" Text="36" Style="{StaticResource texto}" HorizontalAlignment="Right"/>
+                                <TextBlock Name="lbTotalPartidas" Text="0" Style="{StaticResource texto}" HorizontalAlignment="Right"/>
                             </Grid>
                         </Grid>
                     </Border>
@@ -77,7 +77,7 @@
 
                             <TextBlock Grid.Row="0" Text="{x:Static res:Resources.textPuntajeGlobal}" Style="{StaticResource texto}" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-                            <TextBlock Grid.Row="1" Name="lbPuntajeGlobal" Text="1240 pts" 
+                            <TextBlock Grid.Row="1" Name="lbPuntajeGlobal" Text="0 pts" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center"
                                        FontSize="56" FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" FontWeight="Bold" Foreground="#1E1E1E"/>
                         </Grid>
@@ -97,7 +97,7 @@
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <TextBlock Text="{x:Static res:Resources.textBuscarpor}" Style="{StaticResource texto}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                                <ComboBox Name="cbFiltroHistorial" SelectedIndex="0" Width="180" Height="45" FontSize="16">
+                                <ComboBox Name="cbFiltroHistorial" SelectedIndex="0" Width="180" Height="45" FontSize="16" SelectionChanged="cbFiltroHistorial_SelectionChanged">
                                     <ComboBoxItem Content="Todos"/>
                                     <ComboBoxItem Content="Victoria"/>
                                     <ComboBoxItem Content="Derrota"/>
@@ -134,56 +134,26 @@
                                 </Style>
                             </ListBox.ItemContainerStyle>
 
-                            <ListBoxItem>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.25*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                        <ColumnDefinition Width="0.15*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="Hueso" Style="{StaticResource texto}"/>
-                                    <TextBlock Grid.Column="1" Text="Victoria" Style="{StaticResource texto}" Foreground="Green" FontWeight="Medium"/>
-                                    <TextBlock Grid.Column="2" Text="+10" Style="{StaticResource texto}" Foreground="Green"/>
-                                    <TextBlock Grid.Column="3" Text="tito2004" Style="{StaticResource texto}"/>
-                                    <TextBlock Grid.Column="4" Text="10/05/2026 12:33 pm" Style="{StaticResource texto}" FontSize="16"/>
-                                </Grid>
-                            </ListBoxItem>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.25*"/>
+                                            <ColumnDefinition Width="0.20*"/>
+                                            <ColumnDefinition Width="0.15*"/>
+                                            <ColumnDefinition Width="0.20*"/>
+                                            <ColumnDefinition Width="0.20*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding PalabraObjetivo}" Style="{StaticResource texto}"/>
 
-                            <ListBoxItem>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.25*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                        <ColumnDefinition Width="0.15*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="Planeta" Style="{StaticResource texto}"/>
-                                    <TextBlock Grid.Column="1" Text="Derrota" Style="{StaticResource texto}" Foreground="Orange"/>
-                                    <TextBlock Grid.Column="2" Text="+0" Style="{StaticResource texto}" Foreground="Orange"/>
-                                    <TextBlock Grid.Column="3" Text="Maria_99" Style="{StaticResource texto}"/>
-                                    <TextBlock Grid.Column="4" Text="08/05/2026 04:15 pm" Style="{StaticResource texto}" FontSize="16"/>
-                                </Grid>
-                            </ListBoxItem>
+                                        <TextBlock Grid.Column="1" Text="{Binding EstadoResultado}" Style="{StaticResource texto}" Foreground="{Binding ColorResultado}" FontWeight="Medium"/>
+                                        <TextBlock Grid.Column="2" Text="{Binding PuntosObtenidos}" Style="{StaticResource texto}" Foreground="{Binding ColorResultado}"/>
 
-                            <ListBoxItem>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.25*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                        <ColumnDefinition Width="0.15*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                        <ColumnDefinition Width="0.20*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="Ahorcado" Style="{StaticResource texto}"/>
-                                    <TextBlock Grid.Column="1" Text="Abandonaste" Style="{StaticResource texto}" Foreground="Red"/>
-                                    <TextBlock Grid.Column="2" Text="-3" Style="{StaticResource texto}" Foreground="Red"/>
-                                    <TextBlock Grid.Column="3" Text="X_Gamer_X" Style="{StaticResource texto}"/>
-                                    <TextBlock Grid.Column="4" Text="01/05/2026 09:02 am" Style="{StaticResource texto}" FontSize="16"/>
-                                </Grid>
-                            </ListBoxItem>
+                                        <TextBlock Grid.Column="3" Text="{Binding NombreContrincante}" Style="{StaticResource texto}"/>
+                                        <TextBlock Grid.Column="4" Text="{Binding FechaPartida, StringFormat=\{0:dd/MM/yyyy hh:mm tt\}}" Style="{StaticResource texto}" FontSize="16"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
                         </ListBox>
                     </Grid>
                 </Border>

@@ -35,13 +35,11 @@
                 <Button Grid.Column="2" Name="btnActualizar" Click="btnActualizar_Click" 
                         Width="Auto" Height="60" Padding="20,0" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-
                         <Rectangle Width="25" Height="25" Fill="#F4F3F2" Margin="0,0,10,0" VerticalAlignment="Center">
                             <Rectangle.OpacityMask>
                                 <ImageBrush ImageSource="../resources/img/actualizar.png" Stretch="Uniform"/>
                             </Rectangle.OpacityMask>
                         </Rectangle>
-
                         <TextBlock Text="{x:Static res:Resources.textActualizar}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -74,6 +72,7 @@
                             <Style TargetType="ListBoxItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                 <Setter Property="Margin" Value="0,0,0,15"/>
+                                <Setter Property="Cursor" Value="Hand"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter Property="Opacity" Value="0.8"/>
@@ -82,39 +81,25 @@
                             </Style>
                         </ListBox.ItemContainerStyle>
 
-                        <ListBoxItem>
-                            <Border Background="#ABABAB" CornerRadius="8" Padding="10,15">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.30*"/>
-                                        <ColumnDefinition Width="0.25*"/>
-                                        <ColumnDefinition Width="0.30*"/>
-                                        <ColumnDefinition Width="0.15*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="Partida Épica" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                    <TextBlock Grid.Column="1" Text="JugadorPro" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                    <TextBlock Grid.Column="2" Text="jugador@correo.com" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                    <TextBlock Grid.Column="3" Text="05/06/2026" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                </Grid>
-                            </Border>
-                        </ListBoxItem>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="#ABABAB" CornerRadius="8" Padding="10,15">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.30*"/>
+                                            <ColumnDefinition Width="0.25*"/>
+                                            <ColumnDefinition Width="0.30*"/>
+                                            <ColumnDefinition Width="0.15*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding nombrePartida}" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding usuarioJugadorA}" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
+                                        <TextBlock Grid.Column="2" Text="{Binding correoJugadorA}" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
+                                        <TextBlock Grid.Column="3" Text="{Binding fechaCreacion, StringFormat=\{0:dd/MM/yyyy\}}" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
 
-                        <ListBoxItem>
-                            <Border Background="#ABABAB" CornerRadius="8" Padding="10,15">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.30*"/>
-                                        <ColumnDefinition Width="0.25*"/>
-                                        <ColumnDefinition Width="0.30*"/>
-                                        <ColumnDefinition Width="0.15*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="Los Novatos" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                    <TextBlock Grid.Column="1" Text="Admin123" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                    <TextBlock Grid.Column="2" Text="admin@juego.com" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                    <TextBlock Grid.Column="3" Text="04/06/2026" Style="{StaticResource texto}" Foreground="#1E1E1E"/>
-                                </Grid>
-                            </Border>
-                        </ListBoxItem>
                     </ListBox>
                 </Grid>
             </Border>

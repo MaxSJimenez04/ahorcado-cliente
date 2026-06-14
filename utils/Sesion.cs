@@ -18,6 +18,8 @@ namespace ClienteAhorcado.utils
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public int Puntos { get; set; }
+        public int IdIdioma { get; set; } = 1;
 
         private Sesion() { }
 
@@ -42,6 +44,7 @@ namespace ClienteAhorcado.utils
             SegundoApellido = null;
             Correo = null;
             Telefono = null;
+            Puntos = 0;
             FechaNacimiento = DateTime.MinValue;
         }
     }
