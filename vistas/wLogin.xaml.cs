@@ -74,16 +74,30 @@ namespace ClienteAhorcado.vistas
                         MessageBox.Show("Por favor, ingresa usuario y contraseña.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
                         break;
                     case 2:
-                        MessageBox.Show("No se encontró el usuario", "Usuario no encontrado", MessageBoxButton.OK, MessageBoxImage.Stop);
+                        MessageBox.Show("No se encontró el usuario o la contraseña es incorrecta.", "Credenciales inválidas", MessageBoxButton.OK, MessageBoxImage.Stop);
                         break;
                     case 3:
-                        MessageBox.Show("Ya hay una sesión activa", "Sesión Activa", MessageBoxButton.OK, MessageBoxImage.Hand);
+                        MessageBox.Show("Ya hay una sesión activa para este usuario.", "Sesión Activa", MessageBoxButton.OK, MessageBoxImage.Hand);
                         break;
                     case 4:
-                        MessageBox.Show("No hay conexión con el servidor, intente de nuevo más tarde", "Sin conexión", MessageBoxButton.OK, MessageBoxImage.Error);
-                        NavigationService.Navigate(new wInicio());
+                        MessageBox.Show("Error interno en la base de datos del servidor, intente de nuevo más tarde.", "Error del servidor", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                    case 5:
+                        MessageBox.Show("Ocurrió un error inesperado en el servidor.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     case 0:
+                        var sesionGlobal = utils.Sesion.Instancia;
+                        var datosRecibidos = resultado.Value;
+
+                        sesionGlobal.IdJugador = datosRecibidos.idJugador;
+                        sesionGlobal.Usuario = datosRecibidos.usuario;
+                        sesionGlobal.Nombre = datosRecibidos.nombre;
+                        sesionGlobal.PrimerApellido = datosRecibidos.primerApellido;
+                        sesionGlobal.SegundoApellido = datosRecibidos.segundoApellido;
+                        sesionGlobal.Correo = datosRecibidos.correo;
+                        sesionGlobal.Telefono = datosRecibidos.telefono;
+                        sesionGlobal.FechaNacimiento = datosRecibidos.fechaNacimiento;
+
                         NavigationService.Navigate(new wMenuPrincipal());
                         break;
                 }

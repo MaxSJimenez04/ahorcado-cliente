@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="utils\Sesion.cs" />
     <Compile Include="vistas\wClasificacion.xaml.cs">
       <DependentUpon>wClasificacion.xaml</DependentUpon>
     </Compile>

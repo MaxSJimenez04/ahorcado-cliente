@@ -49,9 +49,69 @@
 
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
 
+                    <TextBlock Text="Nombre(s):" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtNombre" Height="60" MaxLength="255"/>
+                        <TextBlock Text="Ej: Juan Carlos" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtNombre}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <TextBlock Text="Primer Apellido:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtPrimerApellido" Height="60" MaxLength="255"/>
+                        <TextBlock Text="Ej: Pérez" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtPrimerApellido}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <TextBlock Text="Segundo Apellido:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtSegundoApellido" Height="60" MaxLength="255"/>
+                        <TextBlock Text="Ej: Gómez" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtSegundoApellido}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
+
+                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="45,0,60,0">
+
                     <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtNombreUsuario" Height="60"/>
+                        <TextBox Name="txtNombreUsuario" Height="60" MaxLength="255"/>
                         <TextBlock Text="Ej: JugadorPro123" VerticalAlignment="Center" Margin="15,0,0,0" 
                                    Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
                             <TextBlock.Style>
@@ -69,7 +129,7 @@
 
                     <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtCorreo" Height="60"/>
+                        <TextBox Name="txtCorreo" Height="60" MaxLength="255"/>
                         <TextBlock Text="Ej: jugador@correo.com" VerticalAlignment="Center" Margin="15,0,0,0" 
                                    Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
                             <TextBlock.Style>
@@ -85,16 +145,33 @@
                         </TextBlock>
                     </Grid>
 
-                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <Grid Margin="0,0,0,20">
+                        <TextBox Name="txtTelefono" Height="60" MaxLength="15"/>
+                        <TextBlock Text="Ej: 2281234567" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtTelefono}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Grid>
 
+                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
                     <Grid Margin="0,0,0,20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" Height="60" HorizontalAlignment="Stretch"/>
-                        <TextBox Name="txtContraseniaVisible" Grid.Column="0" Height="60" Visibility="Collapsed" HorizontalAlignment="Stretch"/>
+                        <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" Height="60" HorizontalAlignment="Stretch" MaxLength="255"/>
+                        <TextBox Name="txtContraseniaVisible" Grid.Column="0" Height="60" Visibility="Collapsed" HorizontalAlignment="Stretch" MaxLength="255"/>
 
                         <Button Name="btnMostrarContrasenia" Grid.Column="1" Width="60" Height="60" Margin="-8,0,0,0"
                                 Background="#807D7D" Cursor="Hand" Click="btnMostrarContrasenia_Click">
@@ -110,33 +187,8 @@
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </Button.Template>
-
                             <TextBlock Text="👁" FontSize="20" Foreground="#F4F3F2"/>
                         </Button>
-                    </Grid>
-                </StackPanel>
-
-                <StackPanel Grid.Column="1" Margin="45,0,60,0">
-
-                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20"/>
-
-                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtTelefono" Height="60"/>
-                        <TextBlock Text="Ej: 2281234567" VerticalAlignment="Center" Margin="15,0,0,0" 
-                                   Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=txtTelefono}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
                     </Grid>
 
                 </StackPanel>

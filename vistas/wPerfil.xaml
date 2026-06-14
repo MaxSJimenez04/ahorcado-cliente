@@ -28,7 +28,7 @@
                     <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
                 </Button>
 
-                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnMiPerfil}" VerticalAlignment="Center" 
+                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnEditarPerfil}" VerticalAlignment="Center" 
                            HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
             </Grid>
 
@@ -39,22 +39,31 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Margin="60,0,45,0">
-                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="JugadorPro"/>
+                    <TextBlock Text="Nombre(s):" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtNombre" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
 
-                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="jugadorpro@correo.com"/>
+                    <TextBlock Text="Primer Apellido:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtPrimerApellido" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
 
-                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <PasswordBox Name="pbContraseniaOculta" Height="60" Width="Auto" Margin="0,0,0,20" IsEnabled="False" Password="PasswordPrueba123"/>
+                    <TextBlock Text="Segundo Apellido:" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtSegundoApellido" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+
+                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Margin="45,0,60,0">
-                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="12/05/1998"/>
+                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+
+                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
 
                     <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" IsEnabled="False" Text="2281234567"/>
+                    <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+
+                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                    <PasswordBox Name="pbContraseniaOculta" Height="60" Width="Auto" Margin="0,0,0,20" IsEnabled="False" Password="••••••••"/>
                 </StackPanel>
             </Grid>
 

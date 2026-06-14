@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace ClienteAhorcado.vistas
 {
@@ -22,7 +23,25 @@ namespace ClienteAhorcado.vistas
         public wEditarPerfil()
         {
             InitializeComponent();
-            dpFechaNacimiento.SelectedDate = new System.DateTime(1998, 5, 12);
+            CargarDatosDesdeSesion();
+        }
+
+        private void CargarDatosDesdeSesion()
+        {
+            var sesion = utils.Sesion.Instancia;
+
+            // Prellenamos los campos con la información actual
+            txtNombre.Text = sesion.Nombre;
+            txtPrimerApellido.Text = sesion.PrimerApellido;
+            txtSegundoApellido.Text = sesion.SegundoApellido;
+            txtNombreUsuario.Text = sesion.Usuario;
+            txtCorreo.Text = sesion.Correo;
+            txtTelefono.Text = sesion.Telefono;
+
+            if (sesion.FechaNacimiento != DateTime.MinValue)
+            {
+                dpFechaNacimiento.SelectedDate = sesion.FechaNacimiento;
+            }
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
@@ -60,8 +79,92 @@ namespace ClienteAhorcado.vistas
 
         private void btnGuardarCambios_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Cambios guardados con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-            RegresarAPerfil();
+            string nombre = txtNombre.Text;
+            string primerApellido = txtPrimerApellido.Text;
+            string segundoApellido = txtSegundoApellido.Text;
+            string telefono = txtTelefono.Text;
+            string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
+            DateTime? fechaNacimiento = dpFechaNacimiento.SelectedDate;
+
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(primerApellido) ||
+                string.IsNullOrWhiteSpace(telefono) || string.IsNullOrWhiteSpace(contrasenia) ||
+                fechaNacimiento == null)
+            {
+                MessageBox.Show("No puedes dejar campos vacíos.", "Datos incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (contrasenia.Length < 8)
+            {
+                MessageBox.Show("La nueva contraseña debe tener al menos 8 caracteres.", "Contraseña débil", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!EsTelefonoValido(telefono))
+            {
+                MessageBox.Show("Por favor, ingresa un número de teléfono válido (entre 10 y 15 dígitos numéricos).", "Teléfono inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var sesion = utils.Sesion.Instancia;
+            var jugadorActualizado = new UsuarioServiceRef.JugadorDTO
+            {
+                idJugador = sesion.IdJugador,
+                usuario = sesion.Usuario,
+                correo = sesion.Correo,
+                nombre = nombre,
+                primerApellido = primerApellido,
+                segundoApellido = segundoApellido,
+                telefono = telefono,
+                fechaNacimiento = fechaNacimiento.Value,
+                contrasena = contrasenia
+            };
+
+            // Llamada al servicio
+            var usuarioSrv = new UsuarioServiceRef.UsuarioServiceClient();
+            try
+            {
+                int estadoActualizacion = usuarioSrv.ActualizarJugador(jugadorActualizado);
+
+                switch (estadoActualizacion)
+                {
+                    case 0:
+                        // Si es exitoso, actualizamos nuestro Singleton
+                        sesion.Nombre = nombre;
+                        sesion.PrimerApellido = primerApellido;
+                        sesion.SegundoApellido = segundoApellido;
+                        sesion.Telefono = telefono;
+                        sesion.FechaNacimiento = fechaNacimiento.Value;
+
+                        MessageBox.Show("Cambios guardados con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        RegresarAPerfil();
+                        break;
+                    case 1:
+                        MessageBox.Show("Los datos enviados no son válidos para el servidor.", "Error de Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        break;
+                    case 2:
+                        MessageBox.Show("No se encontró tu usuario en la base de datos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                    case 3:
+                        MessageBox.Show("El nombre de usuario ya está ocupado.", "Conflicto", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        break;
+                    case 4:
+                        MessageBox.Show("Error interno del servidor. Intenta de nuevo más tarde.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                }
+                usuarioSrv.Close();
+            }
+            catch (Exception ex)
+            {
+                usuarioSrv.Abort();
+                MessageBox.Show($"Ocurrió un error al intentar comunicar con el servidor: {ex.Message}", "Fallo de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private bool EsTelefonoValido(string telefono)
+        {
+            string patron = @"^\d{10,15}$";
+            return Regex.IsMatch(telefono, patron);
         }
     }
 }
