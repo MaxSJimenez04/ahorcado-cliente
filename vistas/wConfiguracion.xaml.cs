@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Globalization;
 
 namespace ClienteAhorcado.vistas
 {
@@ -20,13 +22,57 @@ namespace ClienteAhorcado.vistas
         public wConfiguracion()
         {
             InitializeComponent();
+            CargarIdiomaActual();
+        }
+
+        private void CargarIdiomaActual()
+        {
+            if (utils.Sesion.Instancia.IdIdioma == 2)
+            {
+                cbIdioma.SelectedIndex = 1;
+            }
+            else
+            {
+                cbIdioma.SelectedIndex = 0; 
+            }
+        }
+
+        private void cbIdioma_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!this.IsLoaded) return;
+
+            int seleccion = cbIdioma.SelectedIndex;
+            string codigoCultura = "es-MX";
+            int nuevoIdIdioma = 1;
+
+            if (seleccion == 1)
+            {
+                codigoCultura = "en-US";
+                nuevoIdIdioma = 2;
+            }
+
+            // Si el usuario seleccionó el idioma que YA estaba activo, no hacemos nada
+            if (utils.Sesion.Instancia.IdIdioma == nuevoIdIdioma) return;
+
+            // 1. Cambiamos el idioma interno del hilo actual
+            var culturaInfo = new CultureInfo(codigoCultura);
+            Thread.CurrentThread.CurrentUICulture = culturaInfo;
+            Thread.CurrentThread.CurrentCulture = culturaInfo;
+
+            // 2.Le decimos al archivo de Recursos (.resx) que cambie de idioma
+            Properties.Resources.Culture = culturaInfo;
+
+            utils.Sesion.Instancia.IdIdioma = nuevoIdIdioma;
+
+            txtTituloOpciones.Text = Properties.Resources.btnOpciones;
+            txtEtiquetaIdioma.Text = Properties.Resources.textIdioma;
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
+            if (!string.IsNullOrEmpty(utils.Sesion.Instancia.Usuario))
             {
-                NavigationService.GoBack();
+                NavigationService.Navigate(new wMenuPrincipal());
             }
             else
             {

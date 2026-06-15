@@ -33,7 +33,8 @@
                           Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
                 </Button>
 
-                <TextBlock Grid.Column="1" 
+                <TextBlock x:Name="txtTituloOpciones"
+                           Grid.Column="1" 
                            Text="{x:Static res:Resources.btnOpciones}" 
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Left" 
@@ -43,9 +44,12 @@
 
             <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
 
-                <TextBlock Text="{x:Static res:Resources.textIdioma}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                <TextBlock x:Name="txtEtiquetaIdioma"
+                           Text="{x:Static res:Resources.textIdioma}" 
+                           Style="{StaticResource texto}" 
+                           Margin="0,0,0,5"/>
 
-                <ComboBox Name="cbIdioma" SelectedIndex="0" Style="{StaticResource ComboBoxOpciones}" Width="500">
+                <ComboBox Name="cbIdioma" Style="{StaticResource ComboBoxOpciones}" Width="500" SelectionChanged="cbIdioma_SelectionChanged">
                     <ComboBoxItem Content="Español"/>
                     <ComboBoxItem Content="Inglés"/>
                 </ComboBox>
