@@ -257,7 +257,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:54669/Servicios/SesionService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>CHRIZKU_LAP\chris</Upn>
+          <Upn>TUF15_MAX\Maxim</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
