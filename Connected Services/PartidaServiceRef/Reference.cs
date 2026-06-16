@@ -138,6 +138,9 @@ namespace ClienteAhorcado.PartidaServiceRef {
         private int estadoIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool hayLetraPendienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idIdiomaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -151,6 +154,9 @@ namespace ClienteAhorcado.PartidaServiceRef {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int intentosFallidosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private char letraPendienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private char[] letrasUsadasField;
@@ -202,6 +208,19 @@ namespace ClienteAhorcado.PartidaServiceRef {
                 if ((this.estadoIdField.Equals(value) != true)) {
                     this.estadoIdField = value;
                     this.RaisePropertyChanged("estadoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool hayLetraPendiente {
+            get {
+                return this.hayLetraPendienteField;
+            }
+            set {
+                if ((this.hayLetraPendienteField.Equals(value) != true)) {
+                    this.hayLetraPendienteField = value;
+                    this.RaisePropertyChanged("hayLetraPendiente");
                 }
             }
         }
@@ -267,6 +286,19 @@ namespace ClienteAhorcado.PartidaServiceRef {
                 if ((this.intentosFallidosField.Equals(value) != true)) {
                     this.intentosFallidosField = value;
                     this.RaisePropertyChanged("intentosFallidos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public char letraPendiente {
+            get {
+                return this.letraPendienteField;
+            }
+            set {
+                if ((this.letraPendienteField.Equals(value) != true)) {
+                    this.letraPendienteField = value;
+                    this.RaisePropertyChanged("letraPendiente");
                 }
             }
         }
@@ -387,6 +419,12 @@ namespace ClienteAhorcado.PartidaServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/ProponerLetra", ReplyAction="http://tempuri.org/IPartidaService/ProponerLetraResponse")]
         System.Threading.Tasks.Task ProponerLetraAsync(int idPartida, int idJugador, char letra);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/JuzgarLetra", ReplyAction="http://tempuri.org/IPartidaService/JuzgarLetraResponse")]
+        void JuzgarLetra(int idPartida, int idJugador, bool decisionEsCorrecta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/JuzgarLetra", ReplyAction="http://tempuri.org/IPartidaService/JuzgarLetraResponse")]
+        System.Threading.Tasks.Task JuzgarLetraAsync(int idPartida, int idJugador, bool decisionEsCorrecta);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/AbandonarPartida", ReplyAction="http://tempuri.org/IPartidaService/AbandonarPartidaResponse")]
         void AbandonarPartida(int idPartida, int idJugador);
         
@@ -398,10 +436,16 @@ namespace ClienteAhorcado.PartidaServiceRef {
     public interface IPartidaServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/NotificarJugadorUnido")]
-        void NotificarJugadorUnido(string usuarioJugadorB);
+        void NotificarJugadorUnido(ClienteAhorcado.PartidaServiceRef.PartidaDTO partida);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/NotificarLetraParaJuzgar")]
+        void NotificarLetraParaJuzgar(char letra);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/NotificarLetraPropuesta")]
         void NotificarLetraPropuesta(char letra, bool esCorrecta, char[] progresoPalabra, int intentosFallidos);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/NotificarErrorJuicio")]
+        void NotificarErrorJuicio(char letra, bool eraCorrecta);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/NotificarFinPartida")]
         void NotificarFinPartida(int estadoFinal);
@@ -465,6 +509,14 @@ namespace ClienteAhorcado.PartidaServiceRef {
         
         public System.Threading.Tasks.Task ProponerLetraAsync(int idPartida, int idJugador, char letra) {
             return base.Channel.ProponerLetraAsync(idPartida, idJugador, letra);
+        }
+        
+        public void JuzgarLetra(int idPartida, int idJugador, bool decisionEsCorrecta) {
+            base.Channel.JuzgarLetra(idPartida, idJugador, decisionEsCorrecta);
+        }
+        
+        public System.Threading.Tasks.Task JuzgarLetraAsync(int idPartida, int idJugador, bool decisionEsCorrecta) {
+            return base.Channel.JuzgarLetraAsync(idPartida, idJugador, decisionEsCorrecta);
         }
         
         public void AbandonarPartida(int idPartida, int idJugador) {

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ServiceModel;
+using ClienteAhorcado.PartidaServiceRef;
 
 namespace ClienteAhorcado.vistas
 {
@@ -90,7 +91,7 @@ namespace ClienteAhorcado.vistas
                     // Si nos devuelve el objeto, significa que el servidor nos aceptó en la sala
                     MessageBox.Show(string.Format(Properties.Resources.msgConectadoPartida, partidaSeleccionada.nombrePartida), Properties.Resources.titExito, MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    NavigationService.Navigate(new wPartidaJugador(false));
+                    NavigationService.Navigate(new wPartidaJugador(estadoPartida, false));
                 }
                 else
                 {
@@ -119,6 +120,18 @@ namespace ClienteAhorcado.vistas
         }
 
         public void NotificarFinPartida(int estadoFinal)
+        {
+        }
+
+        public void NotificarJugadorUnido(PartidaDTO partida)
+        {
+        }
+
+        public void NotificarLetraParaJuzgar(char letra)
+        {
+        }
+
+        public void NotificarErrorJuicio(char letra, bool eraCorrecta)
         {
         }
     }

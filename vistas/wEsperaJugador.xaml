@@ -21,7 +21,7 @@
                 <Button HorizontalAlignment="Left" VerticalAlignment="Center" 
                         Name="btnCancelarPartida" Width="60" Height="60" 
                         Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" Cursor="Hand" Click="btnCancelarPartida_Click"
-                        ToolTip="Cancelar creación de la partida">
+                        ToolTip="{x:Static res:Resources.titCancelarPartida}">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="Borde" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 

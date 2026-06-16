@@ -201,6 +201,21 @@
   <data name="columResultado" xml:space="preserve">
     <value>Resultado</value>
   </data>
+  <data name="msgAbandonoPropio" xml:space="preserve">
+    <value>Abandonaste la partida. Se aplicará penalización.</value>
+  </data>
+  <data name="msgAbandonoRivalAdiv" xml:space="preserve">
+    <value>El adivinador huyó por miedo. ¡Tú ganas!</value>
+  </data>
+  <data name="msgAbandonoRivalJuez" xml:space="preserve">
+    <value>El juez abandonó la partida. ¡Tú ganas!</value>
+  </data>
+  <data name="msgAdivinadorDerrota" xml:space="preserve">
+    <value>Agotaste tus intentos. Has sido ahorcado.</value>
+  </data>
+  <data name="msgAdivinadorVictoria" xml:space="preserve">
+    <value>¡Felicidades! Adivinaste la palabra.</value>
+  </data>
   <data name="MsgCambiosGuardados" xml:space="preserve">
     <value>Cambios guardados con éxito.</value>
   </data>
@@ -274,8 +289,20 @@
     <value>Error al conectar con el servidor: {0} 
 Se usarán los datos locales de sesión.</value>
   </data>
+  <data name="msgErrorEnviarLetra" xml:space="preserve">
+    <value>Error al enviar la letra: {0}</value>
+  </data>
+  <data name="msgErrorEnviarVeredicto" xml:space="preserve">
+    <value>Error al enviar veredicto: {0}</value>
+  </data>
   <data name="msgErrorInesperadoServidor" xml:space="preserve">
     <value>Ocurrió un error inesperado en el servidor.</value>
+  </data>
+  <data name="msgErrorJuicioNo" xml:space="preserve">
+    <value>El servidor detectó un error en tu evaluación.\n\nLa letra '{0}' NO forma parte de la palabra.\n\nPor favor, emite el veredicto correcto.</value>
+  </data>
+  <data name="msgErrorJuicioSi" xml:space="preserve">
+    <value>El servidor detectó un error en tu evaluación.\n\nLa letra '{0}' SÍ forma parte de la palabra.\n\nPor favor, emite el veredicto correcto.</value>
   </data>
   <data name="msgErrorRecuperarPerfil" xml:space="preserve">
     <value>No se pudieron recuperar los datos del perfil desde el servidor.</value>
@@ -291,6 +318,12 @@ Se usarán los datos locales de sesión.</value>
   </data>
   <data name="msgIngresarCredenciales" xml:space="preserve">
     <value>Por favor, ingresa tu usuario y contraseña.</value>
+  </data>
+  <data name="msgJuezDerrota" xml:space="preserve">
+    <value>El adivinador descubrió la palabra. ¡Derrota!</value>
+  </data>
+  <data name="msgJuezVictoria" xml:space="preserve">
+    <value>El adivinador no lo logró. ¡Victoria!</value>
   </data>
   <data name="msgJugadorUnido" xml:space="preserve">
     <value>¡El jugador {0} se ha unido a la partida!
@@ -353,6 +386,9 @@ El juego va a comenzar.</value>
   <data name="textBuscarpor" xml:space="preserve">
     <value>Buscar por:</value>
   </data>
+  <data name="textCategoria" xml:space="preserve">
+    <value>Categoría: {0}</value>
+  </data>
   <data name="textConfiguraciónPartida" xml:space="preserve">
     <value>Configuración Partida</value>
   </data>
@@ -385,6 +421,9 @@ El juego va a comenzar.</value>
   </data>
   <data name="textInicioSesion" xml:space="preserve">
     <value>Inicio Sesión</value>
+  </data>
+  <data name="textLetraElegida" xml:space="preserve">
+    <value>Letra Elegida:</value>
   </data>
   <data name="textNombrePartida" xml:space="preserve">
     <value>Nombre de la partida:</value>
@@ -468,6 +507,9 @@ Yo: {0}</value>
   <data name="TitDatosIncompletos" xml:space="preserve">
     <value>Datos incompletos</value>
   </data>
+  <data name="titDesconexion" xml:space="preserve">
+    <value>Desconexión</value>
+  </data>
   <data name="titError" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -501,6 +543,9 @@ Yo: {0}</value>
   <data name="titNombreOcupado" xml:space="preserve">
     <value>Nombre ocupado</value>
   </data>
+  <data name="titPartidaFinalizada" xml:space="preserve">
+    <value>Partida Finalizada</value>
+  </data>
   <data name="titPartidaNoDisponible" xml:space="preserve">
     <value>Partida no disponible</value>
   </data>
@@ -524,5 +569,8 @@ Yo: {0}</value>
   </data>
   <data name="titUsuarioExistente" xml:space="preserve">
     <value>Usuario Existente</value>
+  </data>
+  <data name="titVeredictoDenegado" xml:space="preserve">
+    <value>Veredicto Denegado</value>
   </data>
 </root>

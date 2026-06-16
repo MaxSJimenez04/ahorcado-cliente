@@ -356,7 +356,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="resources\img\ahorcado\ahorcado_0.png" />
+    <Resource Include="resources\img\ahorcado\ahorcado_1.png" />
+    <Resource Include="resources\img\ahorcado\ahorcado_2.png" />
+    <Resource Include="resources\img\ahorcado\ahorcado_3.png" />
+    <Resource Include="resources\img\ahorcado\ahorcado_4.png" />
+    <Resource Include="resources\img\ahorcado\ahorcado_5.png" />
+    <Resource Include="resources\img\ahorcado\ahorcado_6.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\img\fondo_libreta.jpeg" />
   </ItemGroup>
@@ -370,14 +378,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\img\idea.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="resources\img\ahorcado\ahorcado_0.jpeg" />
-    <Resource Include="resources\img\ahorcado\ahorcado_1.jpeg" />
-    <Resource Include="resources\img\ahorcado\ahorcado_2.jpeg" />
-    <Resource Include="resources\img\ahorcado\ahorcado_3.jpeg" />
-    <Resource Include="resources\img\ahorcado\ahorcado_4.jpeg" />
-    <Resource Include="resources\img\ahorcado\ahorcado_5.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\img\actualizar.png" />

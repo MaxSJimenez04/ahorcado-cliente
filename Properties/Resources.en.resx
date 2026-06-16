@@ -201,6 +201,21 @@
   <data name="columResultado" xml:space="preserve">
     <value>Result</value>
   </data>
+  <data name="msgAbandonoPropio" xml:space="preserve">
+    <value>You abandoned the game. A penalty will be applied.</value>
+  </data>
+  <data name="msgAbandonoRivalAdiv" xml:space="preserve">
+    <value>The guesser fled in fear. You win!</value>
+  </data>
+  <data name="msgAbandonoRivalJuez" xml:space="preserve">
+    <value>The judge abandoned the game. You win!</value>
+  </data>
+  <data name="msgAdivinadorDerrota" xml:space="preserve">
+    <value>You ran out of attempts. You have been hanged.</value>
+  </data>
+  <data name="msgAdivinadorVictoria" xml:space="preserve">
+    <value>Congratulations! You guessed the word.</value>
+  </data>
   <data name="MsgCambiosGuardados" xml:space="preserve">
     <value>Changes saved successfully.</value>
   </data>
@@ -274,8 +289,20 @@
     <value>Error connecting to the server: {0}
 Local session data will be used.</value>
   </data>
+  <data name="msgErrorEnviarLetra" xml:space="preserve">
+    <value>Error sending letter: {0}</value>
+  </data>
+  <data name="msgErrorEnviarVeredicto" xml:space="preserve">
+    <value>Error sending verdict: {0}</value>
+  </data>
   <data name="msgErrorInesperadoServidor" xml:space="preserve">
     <value>An unexpected error occurred on the server.</value>
+  </data>
+  <data name="msgErrorJuicioNo" xml:space="preserve">
+    <value>The server detected an error in your evaluation.\n\nThe letter '{0}' is NOT part of the word.\n\nPlease submit the correct verdict.</value>
+  </data>
+  <data name="msgErrorJuicioSi" xml:space="preserve">
+    <value>The server detected an error in your evaluation.\n\nThe letter '{0}' IS part of the word.\n\nPlease submit the correct verdict.</value>
   </data>
   <data name="msgErrorRecuperarPerfil" xml:space="preserve">
     <value>Could not retrieve profile data from the server.</value>
@@ -291,6 +318,12 @@ Local session data will be used.</value>
   </data>
   <data name="msgIngresarCredenciales" xml:space="preserve">
     <value>Please enter your username and password.</value>
+  </data>
+  <data name="msgJuezDerrota" xml:space="preserve">
+    <value>The guesser figured out the word. Defeat!</value>
+  </data>
+  <data name="msgJuezVictoria" xml:space="preserve">
+    <value>The guesser failed. Victory!</value>
   </data>
   <data name="msgJugadorUnido" xml:space="preserve">
     <value>Player {0} has joined the game!
@@ -353,6 +386,9 @@ The game is about to start.</value>
   <data name="textBuscarpor" xml:space="preserve">
     <value>Search by:</value>
   </data>
+  <data name="textCategoria" xml:space="preserve">
+    <value>Category: {0}</value>
+  </data>
   <data name="textConfiguraciónPartida" xml:space="preserve">
     <value>Game Setup</value>
   </data>
@@ -385,6 +421,9 @@ The game is about to start.</value>
   </data>
   <data name="textInicioSesion" xml:space="preserve">
     <value>Log In</value>
+  </data>
+  <data name="textLetraElegida" xml:space="preserve">
+    <value>Chosen Letter:</value>
   </data>
   <data name="textNombrePartida" xml:space="preserve">
     <value>Game name:</value>
@@ -468,6 +507,9 @@ Me: {0}</value>
   <data name="TitDatosIncompletos" xml:space="preserve">
     <value>Incomplete data</value>
   </data>
+  <data name="titDesconexion" xml:space="preserve">
+    <value>Disconnection</value>
+  </data>
   <data name="titError" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -501,6 +543,9 @@ Me: {0}</value>
   <data name="titNombreOcupado" xml:space="preserve">
     <value>Name taken</value>
   </data>
+  <data name="titPartidaFinalizada" xml:space="preserve">
+    <value>Game Over</value>
+  </data>
   <data name="titPartidaNoDisponible" xml:space="preserve">
     <value>Game unavailable</value>
   </data>
@@ -524,5 +569,8 @@ Me: {0}</value>
   </data>
   <data name="titUsuarioExistente" xml:space="preserve">
     <value>Existing User</value>
+  </data>
+  <data name="titVeredictoDenegado" xml:space="preserve">
+    <value>Verdict Denied</value>
   </data>
 </root>

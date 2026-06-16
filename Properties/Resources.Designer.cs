@@ -313,6 +313,51 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Abandonaste la partida. Se aplicará penalización..
+        /// </summary>
+        public static string msgAbandonoPropio {
+            get {
+                return ResourceManager.GetString("msgAbandonoPropio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El adivinador huyó por miedo. ¡Tú ganas!.
+        /// </summary>
+        public static string msgAbandonoRivalAdiv {
+            get {
+                return ResourceManager.GetString("msgAbandonoRivalAdiv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El juez abandonó la partida. ¡Tú ganas!.
+        /// </summary>
+        public static string msgAbandonoRivalJuez {
+            get {
+                return ResourceManager.GetString("msgAbandonoRivalJuez", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Agotaste tus intentos. Has sido ahorcado..
+        /// </summary>
+        public static string msgAdivinadorDerrota {
+            get {
+                return ResourceManager.GetString("msgAdivinadorDerrota", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Felicidades! Adivinaste la palabra..
+        /// </summary>
+        public static string msgAdivinadorVictoria {
+            get {
+                return ResourceManager.GetString("msgAdivinadorVictoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cambios guardados con éxito..
         /// </summary>
         public static string MsgCambiosGuardados {
@@ -530,11 +575,47 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error al enviar la letra: {0}.
+        /// </summary>
+        public static string msgErrorEnviarLetra {
+            get {
+                return ResourceManager.GetString("msgErrorEnviarLetra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al enviar veredicto: {0}.
+        /// </summary>
+        public static string msgErrorEnviarVeredicto {
+            get {
+                return ResourceManager.GetString("msgErrorEnviarVeredicto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ocurrió un error inesperado en el servidor..
         /// </summary>
         public static string msgErrorInesperadoServidor {
             get {
                 return ResourceManager.GetString("msgErrorInesperadoServidor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El servidor detectó un error en tu evaluación.\n\nLa letra &apos;{0}&apos; NO forma parte de la palabra.\n\nPor favor, emite el veredicto correcto..
+        /// </summary>
+        public static string msgErrorJuicioNo {
+            get {
+                return ResourceManager.GetString("msgErrorJuicioNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El servidor detectó un error en tu evaluación.\n\nLa letra &apos;{0}&apos; SÍ forma parte de la palabra.\n\nPor favor, emite el veredicto correcto..
+        /// </summary>
+        public static string msgErrorJuicioSi {
+            get {
+                return ResourceManager.GetString("msgErrorJuicioSi", resourceCulture);
             }
         }
         
@@ -580,6 +661,24 @@ namespace ClienteAhorcado.Properties {
         public static string msgIngresarCredenciales {
             get {
                 return ResourceManager.GetString("msgIngresarCredenciales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El adivinador descubrió la palabra. ¡Derrota!.
+        /// </summary>
+        public static string msgJuezDerrota {
+            get {
+                return ResourceManager.GetString("msgJuezDerrota", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El adivinador no lo logró. ¡Victoria!.
+        /// </summary>
+        public static string msgJuezVictoria {
+            get {
+                return ResourceManager.GetString("msgJuezVictoria", resourceCulture);
             }
         }
         
@@ -765,6 +864,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Categoría: {0}.
+        /// </summary>
+        public static string textCategoria {
+            get {
+                return ResourceManager.GetString("textCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuración Partida.
         /// </summary>
         public static string textConfiguraciónPartida {
@@ -860,6 +968,15 @@ namespace ClienteAhorcado.Properties {
         public static string textInicioSesion {
             get {
                 return ResourceManager.GetString("textInicioSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Letra Elegida:.
+        /// </summary>
+        public static string textLetraElegida {
+            get {
+                return ResourceManager.GetString("textLetraElegida", resourceCulture);
             }
         }
         
@@ -1108,6 +1225,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Desconexión.
+        /// </summary>
+        public static string titDesconexion {
+            get {
+                return ResourceManager.GetString("titDesconexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error.
         /// </summary>
         public static string titError {
@@ -1207,6 +1333,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Partida Finalizada.
+        /// </summary>
+        public static string titPartidaFinalizada {
+            get {
+                return ResourceManager.GetString("titPartidaFinalizada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Partida no disponible.
         /// </summary>
         public static string titPartidaNoDisponible {
@@ -1275,6 +1410,15 @@ namespace ClienteAhorcado.Properties {
         public static string titUsuarioExistente {
             get {
                 return ResourceManager.GetString("titUsuarioExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Veredicto Denegado.
+        /// </summary>
+        public static string titVeredictoDenegado {
+            get {
+                return ResourceManager.GetString("titVeredictoDenegado", resourceCulture);
             }
         }
     }

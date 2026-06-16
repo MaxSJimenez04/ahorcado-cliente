@@ -77,17 +77,17 @@ namespace ClienteAhorcado.vistas
 
 
 
-        public void NotificarJugadorUnido(string usuarioJugadorB)
+        public void NotificarJugadorUnido(PartidaServiceRef.PartidaDTO partida)
         {
-            // WPF requiere que los cambios de interfaz dictados por un hilo externo se hagan usando el Dispatcher
             Dispatcher.Invoke(() =>
             {
-                MessageBox.Show(string.Format(Properties.Resources.msgJugadorUnido, usuarioJugadorB),
+                MessageBox.Show(string.Format(Properties.Resources.msgJugadorUnido, partida.usuarioJugadorB),
                                 Properties.Resources.titContrincanteEncontrado,
                                 MessageBoxButton.OK,
                                 MessageBoxImage.Information);
 
-                NavigationService.Navigate(new wPartidaJugador(true));
+                // Pasamos el DTO al constructor y 'true' indicando que somos el Juez
+                NavigationService.Navigate(new wPartidaJugador(partida, true));
             });
         }
 
@@ -97,6 +97,14 @@ namespace ClienteAhorcado.vistas
         }
 
         public void NotificarFinPartida(int estadoFinal)
+        {
+        }
+
+        public void NotificarLetraParaJuzgar(char letra)
+        {
+        }
+
+        public void NotificarErrorJuicio(char letra, bool eraCorrecta)
         {
         }
     }

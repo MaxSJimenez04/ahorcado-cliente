@@ -61,6 +61,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="JuzgarLetra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element minOccurs="0" name="decisionEsCorrecta" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JuzgarLetraResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AbandonarPartida">
     <xs:complexType>
       <xs:sequence>
@@ -77,17 +91,32 @@
   <xs:element name="NotificarJugadorUnido">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="usuarioJugadorB" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ServidorAhorcado.DTO" minOccurs="0" name="partida" nillable="true" type="q4:PartidaDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotificarLetraParaJuzgar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="letra" type="q5:char" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NotificarLetraPropuesta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="letra" type="q4:char" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="letra" type="q6:char" />
         <xs:element minOccurs="0" name="esCorrecta" type="xs:boolean" />
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="progresoPalabra" nillable="true" type="q5:ArrayOfchar" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="progresoPalabra" nillable="true" type="q7:ArrayOfchar" />
         <xs:element minOccurs="0" name="intentosFallidos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotificarErrorJuicio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="letra" type="q8:char" />
+        <xs:element minOccurs="0" name="eraCorrecta" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
