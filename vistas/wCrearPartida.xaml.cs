@@ -12,11 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ServiceModel; // Necesario para InstanceContext
 
 namespace ClienteAhorcado.vistas
 {
-    // ¡OJO! Aquí agregamos la interfaz del callback generada por tu referencia de WCF
+    // Ya NO implementa IPartidaServiceCallback: quien escucha al servidor es
+    // ConexionPartida. Esta pantalla solo recolecta datos y crea la partida.
     public partial class wCrearPartida : Page
     {
         public wCrearPartida()
@@ -26,7 +26,7 @@ namespace ClienteAhorcado.vistas
         }
 
         // ==========================================
-        // CARGA DINÁMICA DE DATOS
+        // CARGA DINÁMICA DE DATOS (PalabraService: NO es dúplex, queda igual)
         // ==========================================
         private void CargarCategorias()
         {
@@ -38,7 +38,6 @@ namespace ClienteAhorcado.vistas
                 {
                     cbCategoria.ItemsSource = categorias;
 
-                    // Elegimos qué propiedad mostrar basándonos en el idioma de la sesión global
                     cbCategoria.DisplayMemberPath = utils.Sesion.Instancia.IdIdioma == 1 ? "categoriaES" : "categoriaEN";
                     cbCategoria.SelectedValuePath = "idCategoria";
 
@@ -73,7 +72,6 @@ namespace ClienteAhorcado.vistas
                 {
                     lbPalabras.ItemsSource = palabras;
 
-                    // Mostramos la palabra correcta según el idioma
                     lbPalabras.DisplayMemberPath = utils.Sesion.Instancia.IdIdioma == 1 ? "palabraES" : "palabraEN";
                     lbPalabras.SelectedValuePath = "idPalabra";
                 }
@@ -133,40 +131,38 @@ namespace ClienteAhorcado.vistas
             int idJugador = utils.Sesion.Instancia.IdJugador;
             int idIdioma = utils.Sesion.Instancia.IdIdioma;
 
-            // 1. Crear el contexto de instancia apuntando a esta clase (que implementa los callbacks)
-            var contexto = new InstanceContext(this);
-
-            // 2. Crear el cliente Duplex usando el contexto
-            var partidaSrv = new PartidaServiceRef.PartidaServiceClient(contexto);
+            // Usamos la conexión COMPARTIDA. El servidor registra el callback en
+            // ESTA conexión, y la misma seguirá viva en wEsperaJugador y wPartidaJugador.
+            var partidaSrv = utils.ConexionPartida.Instancia.Conectar();
 
             try
             {
-                // 3. Llamar al método del servidor
                 int resultadoPartida = partidaSrv.CrearPartida(idJugador, idPalabra, nombrePartida, idIdioma);
 
                 if (resultadoPartida > 0)
                 {
-                    MessageBox.Show(string.Format(Properties.Resources.msgPartidaCreadaExito, nombrePartida),
-                                    Properties.Resources.titExito, MessageBoxButton.OK, MessageBoxImage.Information);
-
+                    // NO cerramos la conexión: debe seguir viva para recibir
+                    // NotificarJugadorUnido en la pantalla de espera.
+                    // Navegamos de inmediato para que wEsperaJugador se suscriba cuanto antes.
                     NavigationService.Navigate(new wEsperaJugador(resultadoPartida));
                 }
                 else if (resultadoPartida == -1)
                 {
                     MessageBox.Show(Properties.Resources.msgNombrePartidaEnUso,
                                     Properties.Resources.titNombreOcupado, MessageBoxButton.OK, MessageBoxImage.Warning);
-                    partidaSrv.Close();
+                    // No entramos a la partida: cerramos la conexión que abrimos.
+                    utils.ConexionPartida.Instancia.Cerrar();
                 }
                 else
                 {
                     MessageBox.Show(Properties.Resources.msgErrorBDCrearPartida,
                                     Properties.Resources.titErrorServidor, MessageBoxButton.OK, MessageBoxImage.Error);
-                    partidaSrv.Close();
+                    utils.ConexionPartida.Instancia.Cerrar();
                 }
             }
             catch (Exception ex)
             {
-                partidaSrv.Abort();
+                utils.ConexionPartida.Instancia.Cerrar();
                 MessageBox.Show(string.Format(Properties.Resources.msgErrorComunicarServidor, ex.Message),
                                 Properties.Resources.titFalloConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }

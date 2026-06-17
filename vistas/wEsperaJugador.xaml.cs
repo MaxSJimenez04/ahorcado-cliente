@@ -12,41 +12,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ServiceModel;
 
 namespace ClienteAhorcado.vistas
 {
-    public partial class wEsperaJugador : Page, PartidaServiceRef.IPartidaServiceCallback
+    // Ya NO implementa el callback ni crea su propio cliente.
+    // Se suscribe al evento JugadorUnido de la conexión compartida (que abrió
+    // wCrearPartida y donde el servidor ya registró el callback de este jugador).
+    public partial class wEsperaJugador : Page
     {
         private int _idPartidaActual;
-        private PartidaServiceRef.PartidaServiceClient _partidaCliente;
 
         public wEsperaJugador(int idPartida)
         {
             InitializeComponent();
             _idPartidaActual = idPartida;
-            ConectarCanalDuplex();
+
+            // Escuchar cuando el Jugador B se una a la partida
+            utils.ConexionPartida.Instancia.JugadorUnido += OnJugadorUnido;
         }
 
-        private void ConectarCanalDuplex()
+        private void OnJugadorUnido(PartidaServiceRef.PartidaDTO partida)
         {
-            try
+            // El callback llega en un hilo de fondo: saltar al hilo de UI.
+            Dispatcher.Invoke(() =>
             {
-                var contexto = new InstanceContext(this);
+                // Dejar de escuchar este evento antes de cambiar de pantalla,
+                // pero SIN cerrar la conexión (debe seguir viva en la partida).
+                utils.ConexionPartida.Instancia.JugadorUnido -= OnJugadorUnido;
 
-                _partidaCliente = new PartidaServiceRef.PartidaServiceClient(contexto);
-
-                // Nota: Tu servidor ya asoció este Callback al Jugador en el método CrearPartida, 
-                // así que con solo mantener este _partidaCliente vivo, el canal queda abierto y escuchando.
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format(Properties.Resources.msgErrorCanalEspera, ex.Message),
-                                Properties.Resources.titFalloConexion,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error);
-                NavigationService.Navigate(new wMenuPrincipal());
-            }
+                // Pasamos el DTO completo y 'true' indicando que somos el Juez (Jugador A).
+                NavigationService.Navigate(new wPartidaJugador(partida, true));
+            });
         }
 
         private void btnCancelarPartida_Click(object sender, RoutedEventArgs e)
@@ -62,50 +58,21 @@ namespace ClienteAhorcado.vistas
                 {
                     int idJugadorActual = utils.Sesion.Instancia.IdJugador;
 
-                    // Llamamos al servidor para que destruya la partida en la base de datos
-                    _partidaCliente.AbandonarPartida(_idPartidaActual, idJugadorActual);
-                    _partidaCliente.Close();
+                    // Dejar de escuchar y avisar al servidor que se cancela la partida.
+                    utils.ConexionPartida.Instancia.JugadorUnido -= OnJugadorUnido;
+                    utils.ConexionPartida.Instancia.Cliente.AbandonarPartida(_idPartidaActual, idJugadorActual);
                 }
                 catch (Exception)
                 {
-                    _partidaCliente?.Abort();
+                    // Si algo falla, igual cerramos abajo.
+                }
+                finally
+                {
+                    utils.ConexionPartida.Instancia.Cerrar();
                 }
 
                 NavigationService.Navigate(new wMenuPrincipal());
             }
-        }
-
-
-
-        public void NotificarJugadorUnido(PartidaServiceRef.PartidaDTO partida)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                MessageBox.Show(string.Format(Properties.Resources.msgJugadorUnido, partida.usuarioJugadorB),
-                                Properties.Resources.titContrincanteEncontrado,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Information);
-
-                // Pasamos el DTO al constructor y 'true' indicando que somos el Juez
-                NavigationService.Navigate(new wPartidaJugador(partida, true));
-            });
-        }
-
-
-        public void NotificarLetraPropuesta(char letra, bool esCorrecta, char[] progresoPalabra, int intentosFallidos)
-        {
-        }
-
-        public void NotificarFinPartida(int estadoFinal)
-        {
-        }
-
-        public void NotificarLetraParaJuzgar(char letra)
-        {
-        }
-
-        public void NotificarErrorJuicio(char letra, bool eraCorrecta)
-        {
         }
     }
 }

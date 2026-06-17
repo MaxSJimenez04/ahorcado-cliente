@@ -12,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ServiceModel;
 
 namespace ClienteAhorcado.vistas
 {
-    public partial class wPartidaJugador : Page, PartidaServiceRef.IPartidaServiceCallback
+    // Ya NO implementa el callback directamente: se suscribe a los eventos de la
+    // conexión compartida (ConexionPartida), que es quien recibe los callbacks WCF.
+    public partial class wPartidaJugador : Page
     {
         private bool _esJuez;
         private PartidaServiceRef.PartidaDTO _partidaActual;
-        private PartidaServiceRef.PartidaServiceClient _partidaCliente;
+        private utils.ConexionPartida _conexion;
 
         public wPartidaJugador(PartidaServiceRef.PartidaDTO partida, bool esJuez = false)
         {
@@ -28,23 +29,28 @@ namespace ClienteAhorcado.vistas
             _partidaActual = partida;
             _esJuez = esJuez;
 
+            _conexion = utils.ConexionPartida.Instancia;
+
             ConfigurarInterfazPorRol();
             CargarDatosIniciales();
-            ConectarCanalDuplex();
+            SuscribirEventos();
         }
 
-        private void ConectarCanalDuplex()
+        // Nos enganchamos a los eventos del juego que dispara la conexión compartida.
+        private void SuscribirEventos()
         {
-            try
-            {
-                var contexto = new InstanceContext(this);
-                _partidaCliente = new PartidaServiceRef.PartidaServiceClient(contexto);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format(Properties.Resources.msgErrorConectarServidor, ex.Message),
-                                Properties.Resources.titFalloConexion, MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            _conexion.LetraParaJuzgar += OnLetraParaJuzgar;
+            _conexion.LetraPropuesta += OnLetraPropuesta;
+            _conexion.ErrorJuicio += OnErrorJuicio;
+            _conexion.FinPartida += OnFinPartida;
+        }
+
+        private void DesuscribirEventos()
+        {
+            _conexion.LetraParaJuzgar -= OnLetraParaJuzgar;
+            _conexion.LetraPropuesta -= OnLetraPropuesta;
+            _conexion.ErrorJuicio -= OnErrorJuicio;
+            _conexion.FinPartida -= OnFinPartida;
         }
 
         private void CargarDatosIniciales()
@@ -120,7 +126,7 @@ namespace ClienteAhorcado.vistas
             try
             {
                 int idJugadorActual = utils.Sesion.Instancia.IdJugador;
-                _partidaCliente.ProponerLetra(_partidaActual.idPartida, idJugadorActual, letraSeleccionada);
+                _conexion.Cliente.ProponerLetra(_partidaActual.idPartida, idJugadorActual, letraSeleccionada);
 
                 btn.IsEnabled = false;
             }
@@ -139,7 +145,7 @@ namespace ClienteAhorcado.vistas
             try
             {
                 int idJugadorActual = utils.Sesion.Instancia.IdJugador;
-                _partidaCliente.JuzgarLetra(_partidaActual.idPartida, idJugadorActual, decisionEsCorrecta);
+                _conexion.Cliente.JuzgarLetra(_partidaActual.idPartida, idJugadorActual, decisionEsCorrecta);
 
                 btnCorrecto.IsEnabled = false;
                 btnIncorrecto.IsEnabled = false;
@@ -178,12 +184,16 @@ namespace ClienteAhorcado.vistas
                 try
                 {
                     int idJugadorActual = utils.Sesion.Instancia.IdJugador;
-                    _partidaCliente.AbandonarPartida(_partidaActual.idPartida, idJugadorActual);
-                    _partidaCliente.Close();
+                    _conexion.Cliente.AbandonarPartida(_partidaActual.idPartida, idJugadorActual);
                 }
                 catch (Exception)
                 {
-                    _partidaCliente?.Abort();
+                    // Si falla, igual cerramos abajo.
+                }
+                finally
+                {
+                    DesuscribirEventos();
+                    _conexion.Cerrar();
                 }
 
                 NavigationService.Navigate(new wMenuPrincipal());
@@ -191,10 +201,10 @@ namespace ClienteAhorcado.vistas
         }
 
         // ==========================================
-        // EVENTOS EN TIEMPO REAL (CALLBACKS WCF)
+        // EVENTOS EN TIEMPO REAL (vienen de ConexionPartida)
         // ==========================================
 
-        public void NotificarLetraParaJuzgar(char letra)
+        private void OnLetraParaJuzgar(char letra)
         {
             Dispatcher.Invoke(() =>
             {
@@ -205,7 +215,7 @@ namespace ClienteAhorcado.vistas
             });
         }
 
-        public void NotificarLetraPropuesta(char letra, bool esCorrecta, char[] progresoPalabra, int intentosFallidos)
+        private void OnLetraPropuesta(char letra, bool esCorrecta, char[] progresoPalabra, int intentosFallidos)
         {
             Dispatcher.Invoke(() =>
             {
@@ -222,7 +232,7 @@ namespace ClienteAhorcado.vistas
             });
         }
 
-        public void NotificarErrorJuicio(char letra, bool eraCorrecta)
+        private void OnErrorJuicio(char letra, bool eraCorrecta)
         {
             Dispatcher.Invoke(() =>
             {
@@ -236,7 +246,7 @@ namespace ClienteAhorcado.vistas
             });
         }
 
-        public void NotificarFinPartida(int estadoFinal)
+        private void OnFinPartida(int estadoFinal)
         {
             Dispatcher.Invoke(() =>
             {
@@ -261,15 +271,16 @@ namespace ClienteAhorcado.vistas
 
                 MessageBox.Show(mensaje, titulo, MessageBoxButton.OK, MessageBoxImage.Information);
 
-                try { _partidaCliente.Close(); } catch { _partidaCliente?.Abort(); }
+                // Soltar los eventos y cerrar la conexión al terminar la partida.
+                DesuscribirEventos();
+                _conexion.Cerrar();
+
                 NavigationService.Navigate(new wMenuPrincipal());
             });
         }
 
-        public void NotificarJugadorUnido(PartidaServiceRef.PartidaDTO partida) { }
-
         // ==========================================
-        // LÓGICA DEL CHAT
+        // LÓGICA DEL CHAT (sigue local por ahora; el socket se conecta aparte)
         // ==========================================
         private void btnEnviarChat_Click(object sender, RoutedEventArgs e)
         {

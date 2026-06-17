@@ -12,12 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ServiceModel;
 using ClienteAhorcado.PartidaServiceRef;
 
 namespace ClienteAhorcado.vistas
 {
-    public partial class wUnirsePartida : Page, PartidaServiceRef.IPartidaServiceCallback
+    // Ya NO implementa el callback ni crea su propio cliente.
+    // Usa la conexión compartida: para listar y, sobre todo, para unirse
+    // (así el servidor registra el callback del Jugador B en la conexión que
+    // seguirá viva dentro de wPartidaJugador).
+    public partial class wUnirsePartida : Page
     {
         public wUnirsePartida()
         {
@@ -27,29 +30,24 @@ namespace ClienteAhorcado.vistas
 
         private void CargarPartidas()
         {
-            // Toda llamada a PartidaService requiere InstanceContext
-            var contexto = new InstanceContext(this);
-            var partidaSrv = new PartidaServiceRef.PartidaServiceClient(contexto);
-
+            var partidaSrv = utils.ConexionPartida.Instancia.Conectar();
             try
             {
                 var listaPartidas = partidaSrv.ObtenerPartidasDisponibles();
-
-                // Le pasamos la lista de DTOs directamente al ListBox. 
-                // La DataTemplate en XAML se encarga del resto.
                 lbPartidas.ItemsSource = listaPartidas;
-
-                partidaSrv.Close();
             }
             catch (Exception ex)
             {
-                partidaSrv.Abort();
-                MessageBox.Show(string.Format(Properties.Resources.msgErrorCargarPartidas, ex.Message), Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorCargarPartidas, ex.Message),
+                                Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
+            // Salimos sin unirnos: cerramos la conexión que abrimos para listar.
+            utils.ConexionPartida.Instancia.Cerrar();
+
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();
@@ -73,66 +71,32 @@ namespace ClienteAhorcado.vistas
                 return;
             }
 
-            // Al usar Data Binding, el SelectedItem ES nuestro PartidaLobbyDTO
             var partidaSeleccionada = (PartidaServiceRef.PartidaLobbyDTO)lbPartidas.SelectedItem;
-
             int idJugadorActual = utils.Sesion.Instancia.IdJugador;
 
-            var contexto = new InstanceContext(this);
-            var partidaSrv = new PartidaServiceRef.PartidaServiceClient(contexto);
+            var partidaSrv = utils.ConexionPartida.Instancia.Conectar();
 
             try
             {
-                // Intentamos unirnos a la partida seleccionada
                 var estadoPartida = partidaSrv.UnirseAPartida(partidaSeleccionada.idPartida, idJugadorActual);
 
                 if (estadoPartida != null)
                 {
-                    // Si nos devuelve el objeto, significa que el servidor nos aceptó en la sala
-                    MessageBox.Show(string.Format(Properties.Resources.msgConectadoPartida, partidaSeleccionada.nombrePartida), Properties.Resources.titExito, MessageBoxButton.OK, MessageBoxImage.Information);
-
+                    // Nos aceptaron: NO cerramos la conexión, debe seguir viva en la partida.
                     NavigationService.Navigate(new wPartidaJugador(estadoPartida, false));
                 }
                 else
                 {
-                    // Alguien más se unió un milisegundo antes o el creador canceló
+                    // Alguien más se unió un instante antes o el creador canceló.
                     MessageBox.Show(Properties.Resources.msgPartidaNoDisponible, Properties.Resources.titPartidaNoDisponible, MessageBoxButton.OK, MessageBoxImage.Stop);
                     CargarPartidas();
                 }
-
-                partidaSrv.Close();
             }
             catch (Exception ex)
             {
-                partidaSrv.Abort();
+                utils.ConexionPartida.Instancia.Cerrar();
                 MessageBox.Show(string.Format(Properties.Resources.msgErrorUnirsePartida, ex.Message), Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-
-
-        public void NotificarJugadorUnido(string usuarioJugadorB)
-        {
-        }
-
-        public void NotificarLetraPropuesta(char letra, bool esCorrecta, char[] progresoPalabra, int intentosFallidos)
-        {
-        }
-
-        public void NotificarFinPartida(int estadoFinal)
-        {
-        }
-
-        public void NotificarJugadorUnido(PartidaDTO partida)
-        {
-        }
-
-        public void NotificarLetraParaJuzgar(char letra)
-        {
-        }
-
-        public void NotificarErrorJuicio(char letra, bool eraCorrecta)
-        {
         }
     }
 }
