@@ -111,6 +111,8 @@ namespace ClienteAhorcado.vistas
 
         private void cbFiltroHistorial_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Esta línea evita el crash silencioso al cargar la ventana
+            if (!this.IsLoaded) return;
             AplicarFiltro();
         }
 

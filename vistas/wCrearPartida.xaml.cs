@@ -36,11 +36,11 @@ namespace ClienteAhorcado.vistas
                 var categorias = palabraSrv.ObtenerCategorias();
                 if (categorias != null && categorias.Length > 0)
                 {
-                    cbCategoria.ItemsSource = categorias;
 
                     cbCategoria.DisplayMemberPath = utils.Sesion.Instancia.IdIdioma == 1 ? "categoriaES" : "categoriaEN";
                     cbCategoria.SelectedValuePath = "idCategoria";
 
+                    cbCategoria.ItemsSource = categorias;
                     cbCategoria.SelectedIndex = 0;
                 }
                 palabraSrv.Close();

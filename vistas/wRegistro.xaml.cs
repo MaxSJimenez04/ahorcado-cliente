@@ -165,7 +165,11 @@ namespace ClienteAhorcado.vistas
 
         private bool EsTelefonoValido(string telefono)
         {
-            string patron = @"^\d{10,15}$";
+            // Evalúa dos escenarios para garantizar un máximo de 15 caracteres en total:
+            // 1. \d{10,15} -> Solo números (entre 10 y 15)
+            // 2. \+\d{9,14} -> Un símbolo '+' seguido de números (entre 9 y 14)
+            string patron = @"^(?:\d{10,15}|\+\d{9,14})$";
+            
             return Regex.IsMatch(telefono, patron);
         }
     }

@@ -242,6 +242,8 @@ namespace ClienteAhorcado.vistas
                 string mensajeError = eraCorrecta ? string.Format(Properties.Resources.msgErrorJuicioSi, letra)
                                                   : string.Format(Properties.Resources.msgErrorJuicioNo, letra);
 
+                mensajeError = mensajeError.Replace("\\n", "\n");
+
                 MessageBox.Show(mensajeError, Properties.Resources.titVeredictoDenegado, MessageBoxButton.OK, MessageBoxImage.Warning);
             });
         }

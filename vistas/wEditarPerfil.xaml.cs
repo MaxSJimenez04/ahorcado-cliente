@@ -86,15 +86,21 @@ namespace ClienteAhorcado.vistas
             string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
             DateTime? fechaNacimiento = dpFechaNacimiento.SelectedDate;
 
+            // 1. Ya no exigimos la contraseña en los campos vacíos obligatorios
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(primerApellido) ||
-                string.IsNullOrWhiteSpace(telefono) || string.IsNullOrWhiteSpace(contrasenia) ||
-                fechaNacimiento == null)
+                string.IsNullOrWhiteSpace(telefono) || fechaNacimiento == null)
             {
                 MessageBox.Show(Properties.Resources.MsgCamposVacios, Properties.Resources.TitDatosIncompletos, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            if (contrasenia.Length < 8)
+            // 2. Si la contraseña está vacía, la volvemos nula para que el servidor la ignore.
+            if (string.IsNullOrWhiteSpace(contrasenia))
+            {
+                contrasenia = null;
+            }
+            // 3. Solo validamos la longitud si el usuario realmente escribió algo nuevo
+            else if (contrasenia.Length < 8)
             {
                 MessageBox.Show(Properties.Resources.MsgContraseniaCorta, Properties.Resources.titContraseniaDebil, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -163,7 +169,11 @@ namespace ClienteAhorcado.vistas
 
         private bool EsTelefonoValido(string telefono)
         {
-            string patron = @"^\d{10,15}$";
+            // Evalúa dos escenarios para garantizar un máximo de 15 caracteres en total:
+            // 1. \d{10,15} -> Solo números (entre 10 y 15)
+            // 2. \+\d{9,14} -> Un símbolo '+' seguido de números (entre 9 y 14)
+            string patron = @"^(?:\d{10,15}|\+\d{9,14})$";
+            
             return Regex.IsMatch(telefono, patron);
         }
     }
