@@ -22,18 +22,20 @@ namespace ClienteAhorcado.vistas
         private bool _esJuez;
         private PartidaServiceRef.PartidaDTO _partidaActual;
         private utils.ConexionPartida _conexion;
+        private utils.ChatCliente _chat;
 
         public wPartidaJugador(PartidaServiceRef.PartidaDTO partida, bool esJuez = false)
         {
             InitializeComponent();
             _partidaActual = partida;
             _esJuez = esJuez;
-
+            
             _conexion = utils.ConexionPartida.Instancia;
 
             ConfigurarInterfazPorRol();
             CargarDatosIniciales();
             SuscribirEventos();
+            ConectarChat();
         }
 
         // Nos enganchamos a los eventos del juego que dispara la conexión compartida.
@@ -55,7 +57,7 @@ namespace ClienteAhorcado.vistas
 
         private void CargarDatosIniciales()
         {
-            txtCategoria.Text = string.Format(Properties.Resources.textCategoria, _partidaActual.nombrePartida);
+            txtCategoria.Text = string.Format(Properties.Resources.textCategoria, _partidaActual.categoriaPalabra);
             txtPista.Text = _partidaActual.descripcionPalabra;
 
             ActualizarAhorcado(_partidaActual.intentosFallidos);
@@ -110,6 +112,31 @@ namespace ClienteAhorcado.vistas
             if (fallos > 6) fallos = 6;
             string rutaImagen = $"../resources/img/ahorcado/ahorcado_{fallos}.png";
             imgAhorcado.Source = new BitmapImage(new Uri(rutaImagen, UriKind.Relative));
+        }
+
+        private async void ConectarChat()
+        {
+            _chat = new utils.ChatCliente();
+            _chat.MensajeRecibido += OnMensajeChatRecibido;
+
+            try
+            {
+                // ⚠️ Cambia "127.0.0.1" por la IP de la máquina servidor para la prueba en red.
+                await _chat.ConectarAsync("127.0.0.1", 9000, _partidaActual.idPartida, utils.Sesion.Instancia.Usuario);
+            }
+            catch (Exception)
+            {
+                // Si el servidor de chat no está corriendo, el juego sigue funcionando sin chat.
+            }
+        }
+
+        private void OnMensajeChatRecibido(string usuario, string texto)
+        {
+            // Llega desde un hilo de fondo: saltar al hilo de UI para tocar el TextBox.
+            Dispatcher.Invoke(() =>
+            {
+                txtChatHistorial.Text += $"{usuario}: {texto}{Environment.NewLine}";
+            });
         }
 
         // ==========================================
@@ -194,6 +221,7 @@ namespace ClienteAhorcado.vistas
                 {
                     DesuscribirEventos();
                     _conexion.Cerrar();
+                    _chat?.Desconectar();
                 }
 
                 NavigationService.Navigate(new wMenuPrincipal());
@@ -276,6 +304,7 @@ namespace ClienteAhorcado.vistas
                 // Soltar los eventos y cerrar la conexión al terminar la partida.
                 DesuscribirEventos();
                 _conexion.Cerrar();
+                _chat?.Desconectar();
 
                 NavigationService.Navigate(new wMenuPrincipal());
             });
@@ -284,13 +313,20 @@ namespace ClienteAhorcado.vistas
         // ==========================================
         // LÓGICA DEL CHAT (sigue local por ahora; el socket se conecta aparte)
         // ==========================================
-        private void btnEnviarChat_Click(object sender, RoutedEventArgs e)
+        private async void btnEnviarChat_Click(object sender, RoutedEventArgs e)
         {
             string mensaje = txtChatMensaje.Text;
             if (!string.IsNullOrWhiteSpace(mensaje))
             {
+                // Muestro mi propio mensaje en mi pantalla
                 txtChatHistorial.Text += string.Format(Properties.Resources.textYoChat, mensaje);
                 txtChatMensaje.Clear();
+
+                // Y lo mando al otro jugador por el socket
+                if (_chat != null)
+                {
+                    await _chat.EnviarMensajeAsync(mensaje);
+                }
             }
         }
 

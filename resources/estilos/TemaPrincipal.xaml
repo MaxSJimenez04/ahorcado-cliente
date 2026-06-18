@@ -246,6 +246,8 @@
                         <ContentPresenter x:Name="contentPresenter" IsHitTestVisible="False"
                                           Margin="{TemplateBinding Padding}"
                                           Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding ItemTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
                                           VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                         <Popup x:Name="PART_Popup" AllowsTransparency="True"

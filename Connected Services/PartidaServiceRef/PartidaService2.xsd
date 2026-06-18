@@ -20,6 +20,7 @@
   <xs:element name="PartidaLobbyDTO" nillable="true" type="tns:PartidaLobbyDTO" />
   <xs:complexType name="PartidaDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="categoriaPalabra" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="descripcionPalabra" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="estadoId" type="xs:int" />
       <xs:element minOccurs="0" name="hayLetraPendiente" type="xs:boolean" />

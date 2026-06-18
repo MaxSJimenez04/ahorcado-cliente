@@ -132,6 +132,9 @@ namespace ClienteAhorcado.PartidaServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string categoriaPalabraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string descripcionPalabraField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -183,6 +186,19 @@ namespace ClienteAhorcado.PartidaServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string categoriaPalabra {
+            get {
+                return this.categoriaPalabraField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoriaPalabraField, value) != true)) {
+                    this.categoriaPalabraField = value;
+                    this.RaisePropertyChanged("categoriaPalabra");
+                }
             }
         }
         

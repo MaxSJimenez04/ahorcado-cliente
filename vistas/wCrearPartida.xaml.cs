@@ -36,11 +36,18 @@ namespace ClienteAhorcado.vistas
                 var categorias = palabraSrv.ObtenerCategorias();
                 if (categorias != null && categorias.Length > 0)
                 {
+                    bool esEspanol = utils.Sesion.Instancia.IdIdioma == 1;
 
-                    cbCategoria.DisplayMemberPath = utils.Sesion.Instancia.IdIdioma == 1 ? "categoriaES" : "categoriaEN";
-                    cbCategoria.SelectedValuePath = "idCategoria";
+                    var listaCategorias = categorias
+                        .Select(c => new CategoriaItemUI
+                        {
+                            Id = c.idCategoria,
+                            Nombre = esEspanol ? c.categoriaES : c.categoriaEN
+                        })
+                        .ToList();
 
-                    cbCategoria.ItemsSource = categorias;
+                    cbCategoria.SelectedValuePath = "Id";
+                    cbCategoria.ItemsSource = listaCategorias;
                     cbCategoria.SelectedIndex = 0;
                 }
                 palabraSrv.Close();
@@ -167,5 +174,11 @@ namespace ClienteAhorcado.vistas
                                 Properties.Resources.titFalloConexion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+    }
+
+    public class CategoriaItemUI
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
     }
 }
