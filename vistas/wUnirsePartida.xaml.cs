@@ -35,22 +35,19 @@ namespace ClienteAhorcado.vistas
             {
                 var listaPartidas = partidaSrv.ObtenerPartidasDisponibles();
 
-                // 1. Verificamos el idioma actual
                 bool esEspanol = utils.Sesion.Instancia.IdIdioma == 1;
 
-                // 2. Transformamos la lista y aplicamos el formato de fecha exacto
-                var listaUI = listaPartidas.Select(p => new
+                // CAMBIO AQUÍ: Ahora instanciamos PartidaLobbyUI explícitamente
+                var listaUI = listaPartidas.Select(p => new PartidaLobbyUI
                 {
-                    p.idPartida,
-                    p.nombrePartida,
-                    p.usuarioJugadorA,
-                    p.correoJugadorA,
-                    // Aquí ocurre la magia: Si es español dd/MM/yyyy, si es inglés MM/dd/yyyy
+                    idPartida = p.idPartida,
+                    nombrePartida = p.nombrePartida,
+                    usuarioJugadorA = p.usuarioJugadorA,
+                    correoJugadorA = p.correoJugadorA,
                     fechaCreacion = esEspanol ? p.fechaCreacion.ToString("dd/MM/yyyy")
                                               : p.fechaCreacion.ToString("MM/dd/yyyy")
                 }).ToList();
 
-                // 3. Asignamos la nueva lista ya formateada
                 lbPartidas.ItemsSource = listaUI;
             }
             catch (Exception ex)
@@ -88,23 +85,22 @@ namespace ClienteAhorcado.vistas
                 return;
             }
 
-            var partidaSeleccionada = (PartidaServiceRef.PartidaLobbyDTO)lbPartidas.SelectedItem;
-            int idJugadorActual = utils.Sesion.Instancia.IdJugador;
-
             var partidaSrv = utils.ConexionPartida.Instancia.Conectar();
 
             try
             {
+                // CAMBIO AQUÍ: Hacemos el cast a la nueva clase y de forma segura dentro del try
+                var partidaSeleccionada = (PartidaLobbyUI)lbPartidas.SelectedItem;
+                int idJugadorActual = utils.Sesion.Instancia.IdJugador;
+
                 var estadoPartida = partidaSrv.UnirseAPartida(partidaSeleccionada.idPartida, idJugadorActual);
 
                 if (estadoPartida != null)
                 {
-                    // Nos aceptaron: NO cerramos la conexión, debe seguir viva en la partida.
                     NavigationService.Navigate(new wPartidaJugador(estadoPartida, false));
                 }
                 else
                 {
-                    // Alguien más se unió un instante antes o el creador canceló.
                     MessageBox.Show(Properties.Resources.msgPartidaNoDisponible, Properties.Resources.titPartidaNoDisponible, MessageBoxButton.OK, MessageBoxImage.Stop);
                     CargarPartidas();
                 }
@@ -114,6 +110,15 @@ namespace ClienteAhorcado.vistas
                 utils.ConexionPartida.Instancia.Cerrar();
                 MessageBox.Show(string.Format(Properties.Resources.msgErrorUnirsePartida, ex.Message), Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        public class PartidaLobbyUI
+        {
+            public int idPartida { get; set; }
+            public string nombrePartida { get; set; }
+            public string usuarioJugadorA { get; set; }
+            public string correoJugadorA { get; set; }
+            public string fechaCreacion { get; set; }
         }
     }
 }
