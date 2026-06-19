@@ -15,8 +15,6 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    // Ya NO implementa IPartidaServiceCallback: quien escucha al servidor es
-    // ConexionPartida. Esta pantalla solo recolecta datos y crea la partida.
     public partial class wCrearPartida : Page
     {
         public wCrearPartida()
@@ -25,9 +23,6 @@ namespace ClienteAhorcado.vistas
             CargarCategorias();
         }
 
-        // ==========================================
-        // CARGA DINÁMICA DE DATOS (PalabraService: NO es dúplex, queda igual)
-        // ==========================================
         private void CargarCategorias()
         {
             var palabraSrv = new PalabraServiceRef.PalabraServiceClient();
@@ -92,9 +87,6 @@ namespace ClienteAhorcado.vistas
             }
         }
 
-        // ==========================================
-        // NAVEGACIÓN
-        // ==========================================
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
             VolverAtras();
@@ -117,9 +109,6 @@ namespace ClienteAhorcado.vistas
             }
         }
 
-        // ==========================================
-        // CREACIÓN DE PARTIDA
-        // ==========================================
         private void btnCrear_Click(object sender, RoutedEventArgs e)
         {
             string nombrePartida = txtNombrePartida.Text;
@@ -138,8 +127,6 @@ namespace ClienteAhorcado.vistas
             int idJugador = utils.Sesion.Instancia.IdJugador;
             int idIdioma = utils.Sesion.Instancia.IdIdioma;
 
-            // Usamos la conexión COMPARTIDA. El servidor registra el callback en
-            // ESTA conexión, y la misma seguirá viva en wEsperaJugador y wPartidaJugador.
             var partidaSrv = utils.ConexionPartida.Instancia.Conectar();
 
             try
@@ -148,16 +135,12 @@ namespace ClienteAhorcado.vistas
 
                 if (resultadoPartida > 0)
                 {
-                    // NO cerramos la conexión: debe seguir viva para recibir
-                    // NotificarJugadorUnido en la pantalla de espera.
-                    // Navegamos de inmediato para que wEsperaJugador se suscriba cuanto antes.
                     NavigationService.Navigate(new wEsperaJugador(resultadoPartida));
                 }
                 else if (resultadoPartida == -1)
                 {
                     MessageBox.Show(Properties.Resources.msgNombrePartidaEnUso,
                                     Properties.Resources.titNombreOcupado, MessageBoxButton.OK, MessageBoxImage.Warning);
-                    // No entramos a la partida: cerramos la conexión que abrimos.
                     utils.ConexionPartida.Instancia.Cerrar();
                 }
                 else

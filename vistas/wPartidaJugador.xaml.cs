@@ -15,8 +15,6 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    // Ya NO implementa el callback directamente: se suscribe a los eventos de la
-    // conexión compartida (ConexionPartida), que es quien recibe los callbacks WCF.
     public partial class wPartidaJugador : Page
     {
         private bool _esJuez;
@@ -38,7 +36,6 @@ namespace ClienteAhorcado.vistas
             ConectarChat();
         }
 
-        // Nos enganchamos a los eventos del juego que dispara la conexión compartida.
         private void SuscribirEventos()
         {
             _conexion.LetraParaJuzgar += OnLetraParaJuzgar;
@@ -114,9 +111,7 @@ namespace ClienteAhorcado.vistas
             imgAhorcado.Source = new BitmapImage(new Uri(rutaImagen, UriKind.Relative));
         }
 
-        // ==========================================
-        // ACCIONES DEL JUGADOR
-        // ==========================================
+
 
         private void btnLetraTeclado_Click(object sender, RoutedEventArgs e)
         {
@@ -195,7 +190,6 @@ namespace ClienteAhorcado.vistas
                 }
                 catch (Exception)
                 {
-                    // Si falla, igual cerramos abajo.
                 }
                 finally
                 {
@@ -208,9 +202,7 @@ namespace ClienteAhorcado.vistas
             }
         }
 
-        // ==========================================
-        // EVENTOS EN TIEMPO REAL (vienen de ConexionPartida)
-        // ==========================================
+
 
         private void OnLetraParaJuzgar(char letra)
         {
@@ -231,8 +223,6 @@ namespace ClienteAhorcado.vistas
                 ActualizarAhorcado(intentosFallidos);
                 DesactivarBotonTeclado(letra);
 
-                // Desbloqueamos el teclado para el siguiente turno.
-                // WPF mantendrá deshabilitados los botones que pasaron por DesactivarBotonTeclado()
                 panelAdivinador.IsEnabled = true;
 
                 if (_esJuez)
@@ -262,10 +252,8 @@ namespace ClienteAhorcado.vistas
 
         private void OnFinPartida(int estadoFinal)
         {
-            // Cambiamos a InvokeAsync para permitir pausas sin congelar la pantalla
             Dispatcher.InvokeAsync(async () =>
             {
-                // LA LÍNEA CLAVE: Le damos a WPF 500 milisegundos para dibujar la última jugada
                 await Task.Delay(500);
                 string mensaje = "";
                 string titulo = Properties.Resources.titPartidaFinalizada;
@@ -288,7 +276,6 @@ namespace ClienteAhorcado.vistas
 
                 MessageBox.Show(mensaje, titulo, MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Soltar los eventos y cerrar la conexión al terminar la partida.
                 DesuscribirEventos();
                 _conexion.Cerrar();
                 _chat?.Desconectar();
@@ -297,9 +284,7 @@ namespace ClienteAhorcado.vistas
             });
         }
 
-        // ==========================================
-        // LÓGICA DEL CHAT (sigue local por ahora; el socket se conecta aparte)
-        // ==========================================
+
 
         private async void ConectarChat()
         {
@@ -308,21 +293,17 @@ namespace ClienteAhorcado.vistas
 
             try
             {
-                // ⚠️ Cambia "127.0.0.1" por la IP de la máquina servidor para la prueba en red.
                 await _chat.ConectarAsync("127.0.0.1", 9000, _partidaActual.idPartida, utils.Sesion.Instancia.Usuario);
             }
             catch (Exception)
             {
-                // Si el servidor de chat no está corriendo, el juego sigue funcionando sin chat.
             }
         }
 
         private void OnMensajeChatRecibido(string usuario, string texto)
         {
-            // Llega desde un hilo de fondo: saltar al hilo de UI para tocar el TextBox.
             Dispatcher.Invoke(() =>
             {
-                // 3. Usamos AppendText también al recibir
                 txtChatHistorial.AppendText($"{usuario}: {texto}{Environment.NewLine}");
             });
         }
@@ -332,10 +313,8 @@ namespace ClienteAhorcado.vistas
             string mensaje = txtChatMensaje.Text;
             if (!string.IsNullOrWhiteSpace(mensaje))
             {
-                // 1. Formateamos directamente con el texto limpio del recurso
                 string textoLocal = string.Format(Properties.Resources.textYoChat, mensaje);
 
-                // 2. Usamos AppendText agregando el salto de línea universal de .NET
                 txtChatHistorial.AppendText(textoLocal + Environment.NewLine);
                 txtChatMensaje.Clear();
 
@@ -348,10 +327,8 @@ namespace ClienteAhorcado.vistas
 
         private void txtChatMensaje_KeyDown(object sender, KeyEventArgs e)
         {
-            // Verificamos si la tecla presionada fue 'Enter'
             if (e.Key == Key.Enter)
             {
-                // Llamamos al mismo método que ya hace todo el trabajo de enviar el chat
                 btnEnviarChat_Click(null, null);
             }
         }

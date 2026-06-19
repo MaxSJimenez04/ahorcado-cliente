@@ -96,8 +96,6 @@ namespace ClienteAhorcado.vistas
                 return;
             }
 
-            MessageBox.Show(Properties.Resources.msgRegistrandoCuenta, Properties.Resources.titRegistro, MessageBoxButton.OK, MessageBoxImage.Information);
-
             var nuevoJugador = new UsuarioServiceRef.JugadorDTO
             {
                 nombre = nombre,
@@ -110,11 +108,9 @@ namespace ClienteAhorcado.vistas
                 contrasena = contrasenia
             };
 
-            // Llamada al servicio WCF y manejo de estados
             var clienteWCF = new UsuarioServiceRef.UsuarioServiceClient();
             try
             {
-                // Llamamos al método y guardamos el código de estado (0, 1, 2, 3, 4)
                 int estadoRegistro = clienteWCF.RegistrarJugador(nuevoJugador);
 
                 switch (estadoRegistro)
@@ -157,11 +153,7 @@ namespace ClienteAhorcado.vistas
 
         private bool EsTelefonoValido(string telefono)
         {
-            // Evalúa dos escenarios para garantizar un máximo de 15 caracteres en total:
-            // 1. \d{10,15} -> Solo números (entre 10 y 15)
-            // 2. \+\d{9,14} -> Un símbolo '+' seguido de números (entre 9 y 14)
             string patron = @"^(?:\d{10,15}|\+\d{9,14})$";
-            
             return Regex.IsMatch(telefono, patron);
         }
     }

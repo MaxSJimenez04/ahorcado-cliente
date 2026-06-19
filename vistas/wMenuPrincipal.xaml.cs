@@ -60,8 +60,6 @@ namespace ClienteAhorcado.vistas
                 }
                 catch (Exception)
                 {
-                    // Si el servidor está apagado o falla la red justo al salir, lo ignoramos 
-                    // para que el usuario pueda regresar a la pantalla de inicio
                 }
             }
 

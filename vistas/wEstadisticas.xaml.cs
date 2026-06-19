@@ -17,7 +17,6 @@ namespace ClienteAhorcado.vistas
 {
     public partial class wEstadisticas : Page
     {
-        // Guardamos la lista completa para no tener que llamar al servidor cada vez que usemos el filtro
         private List<HistorialUI> _historialCompleto = new List<HistorialUI>();
 
         public wEstadisticas()
@@ -57,7 +56,7 @@ namespace ClienteAhorcado.vistas
                             PalabraObjetivo = h.palabra,
                             NombreContrincante = h.usuarioContrincante,
                             FechaPartida = h.fechaPartida,
-                            FechaPartidaStr = h.fechaPartida.ToString(formatoFecha) // Asignamos la cadena limpia
+                            FechaPartidaStr = h.fechaPartida.ToString(formatoFecha)
                         };
 
                         if (h.puntos > 0)
@@ -114,7 +113,6 @@ namespace ClienteAhorcado.vistas
 
         private void cbFiltroHistorial_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Esta línea evita el crash silencioso al cargar la ventana
             if (!this.IsLoaded) return;
             AplicarFiltro();
         }
@@ -125,15 +123,12 @@ namespace ClienteAhorcado.vistas
 
             string filtroSeleccionado = (cbFiltroHistorial.SelectedItem as ComboBoxItem).Content.ToString();
 
-            // COMPARAMOS USANDO LA LLAVE DE RECURSO, NO LA PALABRA "Todos"
             if (filtroSeleccionado == Properties.Resources.filtroTodos)
             {
                 lbHistorial.ItemsSource = _historialCompleto.OrderByDescending(h => h.FechaPartida).ToList();
             }
             else
             {
-                // La lista se filtra automáticamente porque item.EstadoResultado 
-                // y filtroSeleccionado ahora provienen exactamente del mismo archivo de recursos.
                 var listaFiltrada = _historialCompleto
                                     .Where(h => h.EstadoResultado == filtroSeleccionado)
                                     .OrderByDescending(h => h.FechaPartida)
@@ -164,8 +159,8 @@ namespace ClienteAhorcado.vistas
         public string EstadoResultado { get; set; }
         public string PuntosObtenidos { get; set; }
         public string NombreContrincante { get; set; }
-        public DateTime FechaPartida { get; set; } // Se queda intacta para ordenar
-        public string FechaPartidaStr { get; set; } // NUEVA: Se usa para mostrar en pantalla
+        public DateTime FechaPartida { get; set; }
+        public string FechaPartidaStr { get; set; }
         public string ColorResultado { get; set; }
     }
 }

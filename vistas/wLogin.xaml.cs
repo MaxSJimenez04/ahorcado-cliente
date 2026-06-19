@@ -60,13 +60,12 @@ namespace ClienteAhorcado.vistas
                 return;
             }
 
-            // Cliente NUEVO en cada intento, sin using
             var sesion = new SesionServiceClient();
 
             try
             {
                 var resultado = sesion.IniciaSesion(usuario, contrasenia);
-                sesion.Close(); // Cierre manual solo si todo salió bien
+                sesion.Close();
 
                 switch (resultado.Key)
                 {
@@ -104,7 +103,7 @@ namespace ClienteAhorcado.vistas
             }
             catch (System.ServiceModel.EndpointNotFoundException)
             {
-                sesion.Abort(); // Abort nunca lanza excepción, limpia el canal a la fuerza
+                sesion.Abort();
                 MessageBox.Show(Properties.Resources.msgSinConexion, Properties.Resources.titSinConexion, MessageBoxButton.OK, MessageBoxImage.Error);
                 NavigationService.Navigate(new wInicio());
             }

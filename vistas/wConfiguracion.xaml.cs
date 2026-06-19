@@ -51,15 +51,12 @@ namespace ClienteAhorcado.vistas
                 nuevoIdIdioma = 2;
             }
 
-            // Si el usuario seleccionó el idioma que YA estaba activo, no hacemos nada
             if (utils.Sesion.Instancia.IdIdioma == nuevoIdIdioma) return;
 
-            // 1. Cambiamos el idioma interno del hilo actual
             var culturaInfo = new CultureInfo(codigoCultura);
             Thread.CurrentThread.CurrentUICulture = culturaInfo;
             Thread.CurrentThread.CurrentCulture = culturaInfo;
 
-            // 2.Le decimos al archivo de Recursos (.resx) que cambie de idioma
             Properties.Resources.Culture = culturaInfo;
 
             utils.Sesion.Instancia.IdIdioma = nuevoIdIdioma;

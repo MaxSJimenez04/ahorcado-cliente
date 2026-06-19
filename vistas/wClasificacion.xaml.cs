@@ -45,13 +45,12 @@ namespace ClienteAhorcado.vistas
                             PuntosStr = $"{jugador.puntos} pts"
                         };
 
-                        // Asignar color a los 3 primeros lugares
                         switch (jugador.posicion)
                         {
-                            case 1: itemUI.ColorMedalla = "#FADB5F"; break; // Oro
-                            case 2: itemUI.ColorMedalla = "#E0E0E0"; break; // Plata
-                            case 3: itemUI.ColorMedalla = "#ECA26C"; break; // Bronce
-                            default: itemUI.ColorMedalla = "#FFFFFF"; break; // Normal
+                            case 1: itemUI.ColorMedalla = "#FADB5F"; break;
+                            case 2: itemUI.ColorMedalla = "#E0E0E0"; break;
+                            case 3: itemUI.ColorMedalla = "#ECA26C"; break;
+                            default: itemUI.ColorMedalla = "#FFFFFF"; break;
                         }
 
                         listaGrafica.Add(itemUI);
@@ -79,7 +78,6 @@ namespace ClienteAhorcado.vistas
 
             try
             {
-                // El '1' indica que queremos buscar la clasificación por Puntos, según tu código del backend
                 var miPosicion = estSrv.ObtenerEstadisticaUsuario(idJugadorActual, 1);
 
                 if (miPosicion != null)

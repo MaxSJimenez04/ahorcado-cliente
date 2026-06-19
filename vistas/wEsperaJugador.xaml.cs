@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ClienteAhorcado.vistas
 {
-    // Ya NO implementa el callback ni crea su propio cliente.
-    // Se suscribe al evento JugadorUnido de la conexión compartida (que abrió
-    // wCrearPartida y donde el servidor ya registró el callback de este jugador).
     public partial class wEsperaJugador : Page
     {
         private int _idPartidaActual;
@@ -27,20 +24,15 @@ namespace ClienteAhorcado.vistas
             InitializeComponent();
             _idPartidaActual = idPartida;
 
-            // Escuchar cuando el Jugador B se una a la partida
             utils.ConexionPartida.Instancia.JugadorUnido += OnJugadorUnido;
         }
 
         private void OnJugadorUnido(PartidaServiceRef.PartidaDTO partida)
         {
-            // El callback llega en un hilo de fondo: saltar al hilo de UI.
             Dispatcher.Invoke(() =>
             {
-                // Dejar de escuchar este evento antes de cambiar de pantalla,
-                // pero SIN cerrar la conexión (debe seguir viva en la partida).
                 utils.ConexionPartida.Instancia.JugadorUnido -= OnJugadorUnido;
 
-                // Pasamos el DTO completo y 'true' indicando que somos el Juez (Jugador A).
                 NavigationService.Navigate(new wPartidaJugador(partida, true));
             });
         }
@@ -58,13 +50,11 @@ namespace ClienteAhorcado.vistas
                 {
                     int idJugadorActual = utils.Sesion.Instancia.IdJugador;
 
-                    // Dejar de escuchar y avisar al servidor que se cancela la partida.
                     utils.ConexionPartida.Instancia.JugadorUnido -= OnJugadorUnido;
                     utils.ConexionPartida.Instancia.Cliente.AbandonarPartida(_idPartidaActual, idJugadorActual);
                 }
                 catch (Exception)
                 {
-                    // Si algo falla, igual cerramos abajo.
                 }
                 finally
                 {

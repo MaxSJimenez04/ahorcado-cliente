@@ -16,10 +16,6 @@ using ClienteAhorcado.PartidaServiceRef;
 
 namespace ClienteAhorcado.vistas
 {
-    // Ya NO implementa el callback ni crea su propio cliente.
-    // Usa la conexión compartida: para listar y, sobre todo, para unirse
-    // (así el servidor registra el callback del Jugador B en la conexión que
-    // seguirá viva dentro de wPartidaJugador).
     public partial class wUnirsePartida : Page
     {
         public wUnirsePartida()
@@ -37,7 +33,6 @@ namespace ClienteAhorcado.vistas
 
                 bool esEspanol = utils.Sesion.Instancia.IdIdioma == 1;
 
-                // CAMBIO AQUÍ: Ahora instanciamos PartidaLobbyUI explícitamente
                 var listaUI = listaPartidas.Select(p => new PartidaLobbyUI
                 {
                     idPartida = p.idPartida,
@@ -59,7 +54,6 @@ namespace ClienteAhorcado.vistas
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            // Salimos sin unirnos: cerramos la conexión que abrimos para listar.
             utils.ConexionPartida.Instancia.Cerrar();
 
             if (NavigationService.CanGoBack)
@@ -89,7 +83,6 @@ namespace ClienteAhorcado.vistas
 
             try
             {
-                // CAMBIO AQUÍ: Hacemos el cast a la nueva clase y de forma segura dentro del try
                 var partidaSeleccionada = (PartidaLobbyUI)lbPartidas.SelectedItem;
                 int idJugadorActual = utils.Sesion.Instancia.IdJugador;
 

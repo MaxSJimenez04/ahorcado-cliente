@@ -30,7 +30,6 @@ namespace ClienteAhorcado.vistas
         {
             var sesion = utils.Sesion.Instancia;
 
-            // Prellenamos los campos con la información actual
             txtNombre.Text = sesion.Nombre;
             txtPrimerApellido.Text = sesion.PrimerApellido;
             txtSegundoApellido.Text = sesion.SegundoApellido;
@@ -86,7 +85,6 @@ namespace ClienteAhorcado.vistas
             string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
             DateTime? fechaNacimiento = dpFechaNacimiento.SelectedDate;
 
-            // 1. Ya no exigimos la contraseña en los campos vacíos obligatorios
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(primerApellido) ||
                 string.IsNullOrWhiteSpace(telefono) || fechaNacimiento == null)
             {
@@ -94,12 +92,10 @@ namespace ClienteAhorcado.vistas
                 return;
             }
 
-            // 2. Si la contraseña está vacía, la volvemos nula para que el servidor la ignore.
             if (string.IsNullOrWhiteSpace(contrasenia))
             {
                 contrasenia = null;
             }
-            // 3. Solo validamos la longitud si el usuario realmente escribió algo nuevo
             else if (contrasenia.Length < 8)
             {
                 MessageBox.Show(Properties.Resources.MsgContraseniaCorta, Properties.Resources.titContraseniaDebil, MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -126,7 +122,6 @@ namespace ClienteAhorcado.vistas
                 contrasena = contrasenia
             };
 
-            // Llamada al servicio
             var usuarioSrv = new UsuarioServiceRef.UsuarioServiceClient();
             try
             {
@@ -135,7 +130,6 @@ namespace ClienteAhorcado.vistas
                 switch (estadoActualizacion)
                 {
                     case 0:
-                        // Si es exitoso, actualizamos nuestro Singleton
                         sesion.Nombre = nombre;
                         sesion.PrimerApellido = primerApellido;
                         sesion.SegundoApellido = segundoApellido;
@@ -169,9 +163,6 @@ namespace ClienteAhorcado.vistas
 
         private bool EsTelefonoValido(string telefono)
         {
-            // Evalúa dos escenarios para garantizar un máximo de 15 caracteres en total:
-            // 1. \d{10,15} -> Solo números (entre 10 y 15)
-            // 2. \+\d{9,14} -> Un símbolo '+' seguido de números (entre 9 y 14)
             string patron = @"^(?:\d{10,15}|\+\d{9,14})$";
             
             return Regex.IsMatch(telefono, patron);

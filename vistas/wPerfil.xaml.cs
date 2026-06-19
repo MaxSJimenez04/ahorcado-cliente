@@ -34,17 +34,14 @@ namespace ClienteAhorcado.vistas
                 return;
             }
 
-            // Instanciamos el cliente WCF
             var usuarioSrv = new UsuarioServiceRef.UsuarioServiceClient();
 
             try
             {
-                // Solicitamos los datos al servidor
                 var datosPerfil = usuarioSrv.ObtenerDatosJugador(usuarioLogueado);
 
                 if (datosPerfil != null)
                 {
-                    // ACTUALIZAR SINGLETON
                     var sesionLocal = utils.Sesion.Instancia;
 
                     sesionLocal.IdJugador = datosPerfil.idJugador;
@@ -56,7 +53,6 @@ namespace ClienteAhorcado.vistas
                     sesionLocal.FechaNacimiento = datosPerfil.fechaNacimiento;
                     sesionLocal.Puntos = datosPerfil.puntos;
 
-                    // POBLAR LA INTERFAZ GRÁFICA
                     txtNombre.Text = datosPerfil.nombre;
                     txtPrimerApellido.Text = datosPerfil.primerApellido;
                     txtSegundoApellido.Text = datosPerfil.segundoApellido;
@@ -80,7 +76,6 @@ namespace ClienteAhorcado.vistas
                 MessageBox.Show(string.Format(Properties.Resources.msgErrorConexionRespaldo, ex.Message),
                                 Properties.Resources.titFalloComunicacion, MessageBoxButton.OK, MessageBoxImage.Error);
 
-                // Respaldo (Fallback): Si falla el servidor, cargamos lo que tenga el Singleton localmente
                 CargarDatosLocales();
             }
         }
@@ -98,7 +93,6 @@ namespace ClienteAhorcado.vistas
                 txtCorreo.Text = sesionLocal.Correo;
                 txtTelefono.Text = sesionLocal.Telefono;
 
-                // Verificar fecha válida antes de formatear
                 if (sesionLocal.FechaNacimiento != DateTime.MinValue)
                 {
                     bool esEspanol = sesionLocal.IdIdioma == 1;

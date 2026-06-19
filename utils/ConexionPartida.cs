@@ -4,8 +4,6 @@ using ClienteAhorcado.PartidaServiceRef;
 
 namespace ClienteAhorcado.utils
 {
-    // Mantiene UNA sola conexión dúplex viva durante toda la partida.
-    // Implementa el callback del servidor y lo reexpone como eventos.
     [CallbackBehavior(UseSynchronizationContext = false, ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ConexionPartida : IPartidaServiceCallback
     {
@@ -14,7 +12,6 @@ namespace ClienteAhorcado.utils
 
         public PartidaServiceClient Cliente { get; private set; }
 
-        // La pantalla activa se suscribe a estos eventos
         public event Action<PartidaDTO> JugadorUnido;
         public event Action<char> LetraParaJuzgar;
         public event Action<char, bool, char[], int> LetraPropuesta;
@@ -23,7 +20,6 @@ namespace ClienteAhorcado.utils
 
         private ConexionPartida() { }
 
-        // Abre la conexión una sola vez y la reutiliza
         public PartidaServiceClient Conectar()
         {
             if (Cliente == null ||
@@ -36,7 +32,6 @@ namespace ClienteAhorcado.utils
             return Cliente;
         }
 
-        // Cierra y limpia al terminar la partida
         public void Cerrar()
         {
             try
@@ -55,7 +50,6 @@ namespace ClienteAhorcado.utils
             }
         }
 
-        // El servidor llama aquí → disparamos el evento correspondiente
         public void NotificarJugadorUnido(PartidaDTO partida) => JugadorUnido?.Invoke(partida);
         public void NotificarLetraParaJuzgar(char letra) => LetraParaJuzgar?.Invoke(letra);
         public void NotificarLetraPropuesta(char letra, bool esCorrecta, char[] progreso, int fallidos)
