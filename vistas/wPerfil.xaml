@@ -9,75 +9,78 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wPerfil">
 
-    <Grid Background="Transparent">
-        <Grid Margin="50,25">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.60*"/>
-                <RowDefinition Height="0.20*"/>
-            </Grid.RowDefinitions>
+    <Viewbox Stretch="Uniform">
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <Grid Background="Transparent" Width="1250" Height="800">
+            <Grid Margin="50,25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.20*"/>
+                    <RowDefinition Height="0.60*"/>
+                    <RowDefinition Height="0.20*"/>
+                </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                        Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
-                    <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
-                </Button>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnEditarPerfil}" VerticalAlignment="Center" 
-                           HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
-            </Grid>
+                    <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                            Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+                        <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
+                    </Button>
 
-            <Grid Grid.Row="1" VerticalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnEditarPerfil}" VerticalAlignment="Center" 
+                               HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
+                </Grid>
 
-                <StackPanel Grid.Column="0" Margin="60,0,45,0">
-                    <TextBlock Text="{x:Static res:Resources.textNombres}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtNombre" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+                <Grid Grid.Row="1" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="{x:Static res:Resources.textPrimerApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtPrimerApellido" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+                    <StackPanel Grid.Column="0" Margin="60,0,45,0">
+                        <TextBlock Text="{x:Static res:Resources.textNombres}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtNombre" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
 
-                    <TextBlock Text="{x:Static res:Resources.textSegundoApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtSegundoApellido" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+                        <TextBlock Text="{x:Static res:Resources.textPrimerApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtPrimerApellido" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
 
-                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
-                </StackPanel>
+                        <TextBlock Text="{x:Static res:Resources.textSegundoApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtSegundoApellido" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
 
-                <StackPanel Grid.Column="1" Margin="45,0,60,0">
-                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
-
-                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
-
-                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
-
-                    <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <PasswordBox Name="pbContraseniaOculta" Height="60" Width="Auto" Margin="0,0,0,20" IsEnabled="False" Password="••••••••"/>
-                </StackPanel>
-            </Grid>
-
-            <Grid Grid.Row="2" VerticalAlignment="Center" Margin="60,0">
-                <Button Name="btnEstadisticas" HorizontalAlignment="Left" Height="60" Padding="20,0" Click="btnEstadisticas_Click">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Path Data="{StaticResource IconoClasificacion}" Fill="#F4F3F2" Width="24" Height="24" Stretch="Fill" Margin="0,0,10,0"/>
-                        <TextBlock Text="{x:Static res:Resources.btnMisEstadísticas}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtFechaNacimiento" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
                     </StackPanel>
-                </Button>
 
-                <Button Name="btnEditarPerfil" HorizontalAlignment="Right" Content="{x:Static res:Resources.btnEditarPerfil}" Click="btnEditarPerfil_Click"/>
+                    <StackPanel Grid.Column="1" Margin="45,0,60,0">
+                        <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtNombreUsuario" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+
+                        <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtCorreo" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+
+                        <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <TextBox Name="txtTelefono" Height="60" Margin="0,0,0,20" IsEnabled="False"/>
+
+                        <TextBlock Text="{x:Static res:Resources.textContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <PasswordBox Name="pbContraseniaOculta" Height="60" Width="Auto" Margin="0,0,0,20" IsEnabled="False" Password="••••••••"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="2" VerticalAlignment="Center" Margin="60,0">
+                    <Button Name="btnEstadisticas" HorizontalAlignment="Left" Height="60" Padding="20,0" Click="btnEstadisticas_Click">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Path Data="{StaticResource IconoClasificacion}" Fill="#F4F3F2" Width="24" Height="24" Stretch="Fill" Margin="0,0,10,0"/>
+                            <TextBlock Text="{x:Static res:Resources.btnMisEstadísticas}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Name="btnEditarPerfil" HorizontalAlignment="Right" Content="{x:Static res:Resources.btnEditarPerfil}" Click="btnEditarPerfil_Click"/>
+                </Grid>
+
             </Grid>
-
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

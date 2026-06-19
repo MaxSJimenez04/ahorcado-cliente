@@ -9,189 +9,192 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wPartidaJugador">
 
-    <Grid Background="Transparent">
-        <Grid Margin="50,25">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.75*"/>
-                <ColumnDefinition Width="0.25*"/>
-            </Grid.ColumnDefinitions>
+    <Viewbox Stretch="Uniform">
 
-            <Grid Grid.Column="0" Margin="0,0,20,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+        <Grid Background="Transparent" Width="1250" Height="800">
+            <Grid Margin="50,25">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="0" Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="0,0,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                    <Button Grid.Column="0" Name="btnAbandonarPartida" Margin="15,0,0,0" Width="60" Height="60" 
-                            Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="1" Cursor="Hand" Click="btnAbandonarPartida_Click"
-                            ToolTip="{x:Static res:Resources.titAbandonar}">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border x:Name="Borde" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
-                                        BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Borde" Property="Background" Value="#E0E0E0"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                        <Image Source="../resources/img/salida.png" Width="30" Height="30" Stretch="Uniform"/>
-                    </Button>
-
-                    <TextBlock Grid.Column="1" Name="txtCategoria" Text="-" Style="{StaticResource titulos}" 
-                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
-
-                <Border Grid.Row="1" Margin="0,15">
-                    <Image Name="imgAhorcado" Source="../resources/img/ahorcado/ahorcado_0.png" Stretch="Uniform" Margin="20"/>
-                </Border>
-
-                <ItemsControl Name="icPalabra" Grid.Row="2" HorizontalAlignment="Center" Margin="0,10,0,15">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Width="60" Height="60" Background="#E0E0E0" Margin="5">
-                                <Border Background="#807D7D" Height="2" VerticalAlignment="Bottom" Margin="10,0,10,10"/>
-                                <TextBlock Text="{Binding Letra}" Foreground="{Binding ColorLetra}" FontSize="36" FontWeight="Bold" FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-
-                <Grid Grid.Row="3" Height="Auto" Margin="0,15,0,0">
-                    <StackPanel Name="panelAdivinador" VerticalAlignment="Bottom" Visibility="Visible">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-                            <Button Content="Q" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="W" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="E" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="R" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="T" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="Y" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="U" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="I" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="O" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="P" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-                            <Button Content="A" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="S" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="D" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="F" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="G" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="H" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="J" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="K" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="L" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="Ñ" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-                            <Button Content="Z" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="X" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="C" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="V" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="B" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="N" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                            <Button Content="M" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <Grid Name="panelJuez" Visibility="Collapsed" VerticalAlignment="Stretch" Margin="50,0">
+                    <Grid Grid.Row="0" Margin="0,0,0,10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="0" Margin="0,0,25,0" VerticalAlignment="Center">
-                            <Button Name="btnCorrecto" Height="70" Width="300" Margin="0,0,0,15" Style="{StaticResource BotonSecundario}" Click="btnJuicio_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="../resources/img/correcto.png" Width="30" Height="30" Margin="0,0,45,0"/>
-                                    <TextBlock Text="{x:Static res:Resources.textCorrecto}" Foreground="#28A745" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Button>
-                            <Button Name="btnIncorrecto" Height="70" Width="300" Style="{StaticResource BotonSecundario}" Click="btnJuicio_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="../resources/img/incorrecto.png" Width="30" Height="30" Margin="0,0,30,0"/>
-                                    <TextBlock Text="{x:Static res:Resources.textIncorrecto}" Foreground="#DC3545" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
+                        <Button Grid.Column="0" Name="btnAbandonarPartida" Margin="15,0,0,0" Width="60" Height="60" 
+                                Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="1" Cursor="Hand" Click="btnAbandonarPartida_Click"
+                                ToolTip="{x:Static res:Resources.titAbandonar}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Borde" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Borde" Property="Background" Value="#E0E0E0"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Image Source="../resources/img/salida.png" Width="30" Height="30" Stretch="Uniform"/>
+                        </Button>
 
-                        <Border Grid.Column="1" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" CornerRadius="15" Padding="20">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="{x:Static res:Resources.textLetraElegida}" Style="{StaticResource texto}" FontSize="24" Foreground="#807D7D"/>
-                                <TextBlock Grid.Row="1" Name="txtLetraJuez" Text="-" FontSize="90" FontWeight="Bold" FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" 
-                                           HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#1E1E1E"/>
-                            </Grid>
-                        </Border>
+                        <TextBlock Grid.Column="1" Name="txtCategoria" Text="-" Style="{StaticResource titulos}" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
 
-                </Grid>
-            </Grid>
+                    <Border Grid.Row="1" Margin="0,15">
+                        <Image Name="imgAhorcado" Source="../resources/img/ahorcado/ahorcado_0.png" Stretch="Uniform" Margin="20"/>
+                    </Border>
 
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                    <ItemsControl Name="icPalabra" Grid.Row="2" HorizontalAlignment="Center" Margin="0,10,0,15">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="60" Height="60" Background="#E0E0E0" Margin="5">
+                                    <Border Background="#807D7D" Height="2" VerticalAlignment="Bottom" Margin="10,0,10,10"/>
+                                    <TextBlock Text="{Binding Letra}" Foreground="{Binding ColorLetra}" FontSize="36" FontWeight="Bold" FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
-                <Border Grid.Row="0" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="1" CornerRadius="15" Padding="20" Margin="0,0,0,25">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-                            <Image Source="../resources/img/idea.png" Width="30" Height="30" Margin="0,0,10,0"/>
-                            <TextBlock Text="{x:Static res:Resources.textPista}" Style="{StaticResource titulos}" FontSize="24"/>
+                    <Grid Grid.Row="3" Height="Auto" Margin="0,15,0,0">
+                        <StackPanel Name="panelAdivinador" VerticalAlignment="Bottom" Visibility="Visible">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                                <Button Content="Q" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="W" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="E" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="R" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="T" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="Y" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="U" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="I" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="O" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="P" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                                <Button Content="A" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="S" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="D" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="F" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="G" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="H" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="J" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="K" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="L" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="Ñ" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                                <Button Content="Z" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="X" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="C" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="V" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="B" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="N" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                                <Button Content="M" Width="60" Height="60" Margin="4" Style="{StaticResource BotonSecundario}" FontSize="24" Padding="0" Click="btnLetraTeclado_Click"/>
+                            </StackPanel>
                         </StackPanel>
-                        <TextBlock Name="txtPista" Text="..." 
-                                   Style="{StaticResource texto}" TextWrapping="Wrap" TextAlignment="Center"/>
-                    </StackPanel>
-                </Border>
 
-                <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="0" Padding="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Grid.Row="0" Text="Chat" Style="{StaticResource titulos}" FontSize="24" Margin="0,0,0,10"/>
-
-                        <TextBox Grid.Row="1" Name="txtChatHistorial" IsReadOnly="True" Style="{StaticResource EstiloChatTextBox}"
-                                 Margin="0,0,0,15" TextChanged="txtChatHistorial_TextChanged"/>
-
-                        <Grid Grid.Row="2" Height="50">
+                        <Grid Name="panelJuez" Visibility="Collapsed" VerticalAlignment="Stretch" Margin="50,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBox Grid.Column="0" Name="txtChatMensaje" Style="{StaticResource EstiloChatTextBox}"/>
+                            <StackPanel Grid.Column="0" Margin="0,0,25,0" VerticalAlignment="Center">
+                                <Button Name="btnCorrecto" Height="70" Width="300" Margin="0,0,0,15" Style="{StaticResource BotonSecundario}" Click="btnJuicio_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="../resources/img/correcto.png" Width="30" Height="30" Margin="0,0,45,0"/>
+                                        <TextBlock Text="{x:Static res:Resources.textCorrecto}" Foreground="#28A745" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Name="btnIncorrecto" Height="70" Width="300" Style="{StaticResource BotonSecundario}" Click="btnJuicio_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="../resources/img/incorrecto.png" Width="30" Height="30" Margin="0,0,30,0"/>
+                                        <TextBlock Text="{x:Static res:Resources.textIncorrecto}" Foreground="#DC3545" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
 
-                            <Button Grid.Column="1" Width="50" Margin="5,0,0,0" Style="{x:Null}" Background="#807D7D" Cursor="Hand" Click="btnEnviarChat_Click">
-                                <Image Source="../resources/img/enviar.png" Width="25" Height="25"/>
-                            </Button>
+                            <Border Grid.Column="1" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" CornerRadius="15" Padding="20">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{x:Static res:Resources.textLetraElegida}" Style="{StaticResource texto}" FontSize="24" Foreground="#807D7D"/>
+                                    <TextBlock Grid.Row="1" Name="txtLetraJuez" Text="-" FontSize="90" FontWeight="Bold" FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" 
+                                               HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#1E1E1E"/>
+                                </Grid>
+                            </Border>
                         </Grid>
+
                     </Grid>
-                </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="1" CornerRadius="15" Padding="20" Margin="0,0,0,25">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                                <Image Source="../resources/img/idea.png" Width="30" Height="30" Margin="0,0,10,0"/>
+                                <TextBlock Text="{x:Static res:Resources.textPista}" Style="{StaticResource titulos}" FontSize="24"/>
+                            </StackPanel>
+                            <TextBlock Name="txtPista" Text="..." 
+                                       Style="{StaticResource texto}" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="0" Padding="15">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="Chat" Style="{StaticResource titulos}" FontSize="24" Margin="0,0,0,10"/>
+
+                            <TextBox Grid.Row="1" Name="txtChatHistorial" IsReadOnly="True" Style="{StaticResource EstiloChatTextBox}"
+                                     Margin="0,0,0,15" TextChanged="txtChatHistorial_TextChanged"/>
+
+                            <Grid Grid.Row="2" Height="50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Grid.Column="0" Name="txtChatMensaje" Style="{StaticResource EstiloChatTextBox}"/>
+
+                                <Button Grid.Column="1" Width="50" Margin="5,0,0,0" Style="{x:Null}" Background="#807D7D" Cursor="Hand" Click="btnEnviarChat_Click">
+                                    <Image Source="../resources/img/enviar.png" Width="25" Height="25"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

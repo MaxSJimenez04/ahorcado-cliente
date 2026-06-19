@@ -9,56 +9,59 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wConfiguracion">
 
-    <Grid Background="Transparent">
+    <Viewbox Stretch="Uniform">
 
-        <Grid Margin="50,25">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.60*"/>
-                <RowDefinition Height="0.20*"/>
-            </Grid.RowDefinitions>
+        <Grid Background="Transparent" Width="1250" Height="800">
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <Grid Margin="50,25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.20*"/>
+                    <RowDefinition Height="0.60*"/>
+                    <RowDefinition Height="0.20*"/>
+                </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" 
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Left" 
-                        Name="btnRegresar" 
-                        Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
-                    <Path Data="{StaticResource IconoRegresar}" 
-                          Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
-                </Button>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="txtTituloOpciones"
-                           Grid.Column="1" 
-                           Text="{x:Static res:Resources.btnOpciones}" 
-                           VerticalAlignment="Center" 
-                           HorizontalAlignment="Left" 
-                           Margin="50,0,0,0"
-                           Style="{StaticResource titulos}"/>
+                    <Button Grid.Column="0" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Left" 
+                            Name="btnRegresar" 
+                            Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+                        <Path Data="{StaticResource IconoRegresar}" 
+                              Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
+                    </Button>
+
+                    <TextBlock x:Name="txtTituloOpciones"
+                               Grid.Column="1" 
+                               Text="{x:Static res:Resources.btnOpciones}" 
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Left" 
+                               Margin="50,0,0,0"
+                               Style="{StaticResource titulos}"/>
+                </Grid>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+
+                    <TextBlock x:Name="txtEtiquetaIdioma"
+                               Text="{x:Static res:Resources.textIdioma}" 
+                               Style="{StaticResource texto}" 
+                               Margin="0,0,0,5"/>
+
+                    <ComboBox Name="cbIdioma" Style="{StaticResource ComboBoxOpciones}" Width="500" SelectionChanged="cbIdioma_SelectionChanged">
+                        <ComboBoxItem Content="Español"/>
+                        <ComboBoxItem Content="English"/>
+                    </ComboBox>
+
+                </StackPanel>
+
+                <Grid Grid.Row="2">
+                </Grid>
+
             </Grid>
-
-            <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
-
-                <TextBlock x:Name="txtEtiquetaIdioma"
-                           Text="{x:Static res:Resources.textIdioma}" 
-                           Style="{StaticResource texto}" 
-                           Margin="0,0,0,5"/>
-
-                <ComboBox Name="cbIdioma" Style="{StaticResource ComboBoxOpciones}" Width="500" SelectionChanged="cbIdioma_SelectionChanged">
-                    <ComboBoxItem Content="Español"/>
-                    <ComboBoxItem Content="English"/>
-                </ComboBox>
-
-            </StackPanel>
-
-            <Grid Grid.Row="2">
-            </Grid>
-
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

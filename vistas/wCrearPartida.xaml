@@ -9,100 +9,103 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wCrearPartida">
 
-    <Grid Background="Transparent">
-        <Grid Margin="50,25">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.60*"/>
-                <RowDefinition Height="0.20*"/>
-            </Grid.RowDefinitions>
+    <Viewbox Stretch="Uniform">
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <Grid Background="Transparent" Width="1250" Height="800">
+            <Grid Margin="50,25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.20*"/>
+                    <RowDefinition Height="0.60*"/>
+                    <RowDefinition Height="0.20*"/>
+                </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                        Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
-                    <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
-                </Button>
-
-                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.titNuevaPartida}" VerticalAlignment="Center" 
-                        HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
-            </Grid>
-
-            <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="15" Padding="40,30">
-                <Grid>
+                <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Margin="0,0,30,0">
+                    <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                            Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+                        <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
+                    </Button>
 
-                        <TextBlock Text="{x:Static res:Resources.textConfiguraciónPartida}" Style="{StaticResource titulos}" FontSize="32" 
-                                   Margin="0,0,0,20" HorizontalAlignment="Left"/>
-
-                        <TextBlock Text="{x:Static res:Resources.textNombrePartida}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-
-                        <Grid Margin="0,0,0,20">
-                            <TextBox Name="txtNombrePartida" Height="60" MaxLength="255"/>
-                            <TextBlock Text="{x:Static res:Resources.textEjemploPartida}" VerticalAlignment="Center" Margin="15,0,0,0" 
-                                    Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=txtNombrePartida}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-
-                        <TextBlock Text="{x:Static res:Resources.textSeleccionarCategoría}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-
-                        <ComboBox Name="cbCategoria" SelectionChanged="cbCategoria_SelectionChanged">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Nombre}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-
-                    </StackPanel>
-
-                    <Grid Grid.Column="1" Margin="30,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Grid.Row="0" Text="{x:Static res:Resources.textSeleccionarPalabra}" Style="{StaticResource texto}" Margin="0,55,0,5"/>
-
-                        <ListBox Name="lbPalabras" Grid.Row="1" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2"
-                                 FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" FontSize="20" Foreground="#1E1E1E" Margin="0,0,0,30">
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
-                                    <Setter Property="Padding" Value="15,10"/>
-                                    <Setter Property="Cursor" Value="Hand"/>
-                                    <Setter Property="BorderBrush" Value="#E0E0E0"/>
-                                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                        </ListBox>
-                    </Grid>
+                    <TextBlock Grid.Column="1" Text="{x:Static res:Resources.titNuevaPartida}" VerticalAlignment="Center" 
+                            HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
                 </Grid>
-            </Border>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button Name="btnCancelar" Content="{x:Static res:Resources.btnCancelarMuys}" Style="{StaticResource BotonSecundario}" Margin="0,0,25,0" Click="btnCancelar_Click"/>
-                <Button Name="btnCrear" Content="{x:Static res:Resources.btnCrear}" Click="btnCrear_Click"/>
-            </StackPanel>
+                <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="15" Padding="40,30">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <StackPanel Grid.Column="0" Margin="0,0,30,0">
+
+                            <TextBlock Text="{x:Static res:Resources.textConfiguraciónPartida}" Style="{StaticResource titulos}" FontSize="32" 
+                                       Margin="0,0,0,20" HorizontalAlignment="Left"/>
+
+                            <TextBlock Text="{x:Static res:Resources.textNombrePartida}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+
+                            <Grid Margin="0,0,0,20">
+                                <TextBox Name="txtNombrePartida" Height="60" MaxLength="255"/>
+                                <TextBlock Text="{x:Static res:Resources.textEjemploPartida}" VerticalAlignment="Center" Margin="15,0,0,0" 
+                                        Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=txtNombrePartida}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+
+                            <TextBlock Text="{x:Static res:Resources.textSeleccionarCategoría}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+
+                            <ComboBox Name="cbCategoria" SelectionChanged="cbCategoria_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Nombre}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                        </StackPanel>
+
+                        <Grid Grid.Column="1" Margin="30,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{x:Static res:Resources.textSeleccionarPalabra}" Style="{StaticResource texto}" Margin="0,55,0,5"/>
+
+                            <ListBox Name="lbPalabras" Grid.Row="1" Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2"
+                                     FontFamily="/resources/fonts/Elms_Sans/#Elms Sans" FontSize="20" Foreground="#1E1E1E" Margin="0,0,0,30">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="15,10"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="BorderBrush" Value="#E0E0E0"/>
+                                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                            </ListBox>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button Name="btnCancelar" Content="{x:Static res:Resources.btnCancelarMuys}" Style="{StaticResource BotonSecundario}" Margin="0,0,25,0" Click="btnCancelar_Click"/>
+                    <Button Name="btnCrear" Content="{x:Static res:Resources.btnCrear}" Click="btnCrear_Click"/>
+                </StackPanel>
+
+            </Grid>
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

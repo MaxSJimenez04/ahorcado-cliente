@@ -9,169 +9,172 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wEditarPerfil">
 
-    <Grid Background="Transparent">
-        <Grid Margin="50,25">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.60*"/>
-                <RowDefinition Height="0.20*"/>
-            </Grid.RowDefinitions>
+    <Viewbox Stretch="Uniform">
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <Grid Background="Transparent" Width="1250" Height="800">
+            <Grid Margin="50,25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.20*"/>
+                    <RowDefinition Height="0.60*"/>
+                    <RowDefinition Height="0.20*"/>
+                </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                        Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
-                    <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
-                </Button>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnEditarPerfil}" VerticalAlignment="Center" 
-                           HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
-            </Grid>
+                    <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                            Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+                        <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
+                    </Button>
 
-            <Grid Grid.Row="1" VerticalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" Text="{x:Static res:Resources.btnEditarPerfil}" VerticalAlignment="Center" 
+                               HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
+                </Grid>
 
-                <StackPanel Grid.Column="0" Margin="60,0,45,0">
+                <Grid Grid.Row="1" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="{x:Static res:Resources.textNombres}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtNombre" Height="60" MaxLength="255" Text="Juan Carlos"/>
-                        <TextBlock Text="Ej: Juan Carlos" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=txtNombre}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
+                    <StackPanel Grid.Column="0" Margin="60,0,45,0">
 
-                    <TextBlock Text="{x:Static res:Resources.textPrimerApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtPrimerApellido" Height="60" MaxLength="255" Text="Pérez"/>
-                        <TextBlock Text="Ej: Pérez" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=txtPrimerApellido}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
+                        <TextBlock Text="{x:Static res:Resources.textNombres}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <TextBox Name="txtNombre" Height="60" MaxLength="255" Text="Juan Carlos"/>
+                            <TextBlock Text="Ej: Juan Carlos" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=txtNombre}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
 
-                    <TextBlock Text="{x:Static res:Resources.textSegundoApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtSegundoApellido" Height="60" MaxLength="255" Text="Gómez"/>
-                        <TextBlock Text="Ej: Gómez" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=txtSegundoApellido}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
+                        <TextBlock Text="{x:Static res:Resources.textPrimerApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <TextBox Name="txtPrimerApellido" Height="60" MaxLength="255" Text="Pérez"/>
+                            <TextBlock Text="Ej: Pérez" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=txtPrimerApellido}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
 
-                    <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20"/>
+                        <TextBlock Text="{x:Static res:Resources.textSegundoApellido}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <TextBox Name="txtSegundoApellido" Height="60" MaxLength="255" Text="Gómez"/>
+                            <TextBlock Text="Ej: Gómez" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=txtSegundoApellido}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+
+                        <TextBlock Text="{x:Static res:Resources.textFechaNacimiento}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <DatePicker Name="dpFechaNacimiento" Height="60" Margin="0,0,0,20"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="45,0,60,0">
+
+                        <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <TextBox Name="txtNombreUsuario" Height="60" MaxLength="255" Text="JugadorPro"/>
+                            <TextBlock Text="Ej: JugadorPro123" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=txtNombreUsuario}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+
+                        <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <TextBox Name="txtCorreo" Height="60" MaxLength="255" IsEnabled="False" Background="LightGray" Text="jugadorpro@correo.com"/>
+                        </Grid>
+
+                        <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <TextBox Name="txtTelefono" Height="60" MaxLength="15" Text="2281234567"/>
+                            <TextBlock Text="Ej: 2281234567" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=txtTelefono}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+
+                        <TextBlock Text="{x:Static res:Resources.textNuevaContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" Height="60" HorizontalAlignment="Stretch" MaxLength="255" Password="PasswordPrueba123"/>
+                            <TextBox Name="txtContraseniaVisible" Grid.Column="0" Height="60" Visibility="Collapsed" HorizontalAlignment="Stretch" MaxLength="255"/>
+
+                            <Button Name="btnMostrarContrasenia" Grid.Column="1" Width="60" Height="60" Margin="-8,0,0,0"
+                                    Background="#807D7D" Cursor="Hand" Click="btnMostrarContrasenia_Click">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="Borde" Background="{TemplateBinding Background}" CornerRadius="0,8,8,0">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Borde" Property="Background" Value="#A09D9D"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <TextBlock Text="👁" FontSize="20" Foreground="#F4F3F2"/>
+                            </Button>
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="60,0">
+                    <Button Name="btnCancelar" Content="{x:Static res:Resources.btnCancelar}" Style="{StaticResource BotonSecundario}"  Width="Auto" Padding="35,0" Margin="0,0,25,0" Click="btnCancelar_Click"/>
+                    <Button Name="btnGuardarCambios" Content="{x:Static res:Resources.btnGuardarCambios}" Click="btnGuardarCambios_Click"/>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1" Margin="45,0,60,0">
-
-                    <TextBlock Text="{x:Static res:Resources.textNombreUsuario}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtNombreUsuario" Height="60" MaxLength="255" Text="JugadorPro"/>
-                        <TextBlock Text="Ej: JugadorPro123" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=txtNombreUsuario}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
-
-                    <TextBlock Text="{x:Static res:Resources.textCorreo}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtCorreo" Height="60" MaxLength="255" IsEnabled="False" Background="LightGray" Text="jugadorpro@correo.com"/>
-                    </Grid>
-
-                    <TextBlock Text="{x:Static res:Resources.textTelefono}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <TextBox Name="txtTelefono" Height="60" MaxLength="15" Text="2281234567"/>
-                        <TextBlock Text="Ej: 2281234567" VerticalAlignment="Center" Margin="15,0,0,0" Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=txtTelefono}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
-
-                    <TextBlock Text="{x:Static res:Resources.textNuevaContraseña}" Style="{StaticResource texto}" Margin="0,0,0,5"/>
-                    <Grid Margin="0,0,0,20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <PasswordBox Name="pbContraseniaOculta" Grid.Column="0" Height="60" HorizontalAlignment="Stretch" MaxLength="255" Password="PasswordPrueba123"/>
-                        <TextBox Name="txtContraseniaVisible" Grid.Column="0" Height="60" Visibility="Collapsed" HorizontalAlignment="Stretch" MaxLength="255"/>
-
-                        <Button Name="btnMostrarContrasenia" Grid.Column="1" Width="60" Height="60" Margin="-8,0,0,0"
-                                Background="#807D7D" Cursor="Hand" Click="btnMostrarContrasenia_Click">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border x:Name="Borde" Background="{TemplateBinding Background}" CornerRadius="0,8,8,0">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="Borde" Property="Background" Value="#A09D9D"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Button.Template>
-                            <TextBlock Text="👁" FontSize="20" Foreground="#F4F3F2"/>
-                        </Button>
-                    </Grid>
-
-                </StackPanel>
             </Grid>
-
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="60,0">
-                <Button Name="btnCancelar" Content="{x:Static res:Resources.btnCancelar}" Style="{StaticResource BotonSecundario}"  Width="Auto" Padding="35,0" Margin="0,0,25,0" Click="btnCancelar_Click"/>
-                <Button Name="btnGuardarCambios" Content="{x:Static res:Resources.btnGuardarCambios}" Click="btnGuardarCambios_Click"/>
-            </StackPanel>
-
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

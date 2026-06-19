@@ -8,91 +8,94 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wClasificacion">
 
-    <Grid Background="Transparent">
-        <Grid Margin="50,25">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.65*"/>
-                <RowDefinition Height="0.15*"/>
-            </Grid.RowDefinitions>
+    <Viewbox Stretch="Uniform">
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <Grid Background="Transparent" Width="1250" Height="800">
+            <Grid Margin="50,25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.20*"/>
+                    <RowDefinition Height="0.65*"/>
+                    <RowDefinition Height="0.15*"/>
+                </Grid.RowDefinitions>
 
-                <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                        Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
-                    <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
-                </Button>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.titClasificacion}" 
-                       VerticalAlignment="Center" HorizontalAlignment="Left" 
-                       Margin="50,0,0,0" Style="{StaticResource titulos}"/>
-            </Grid>
+                    <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                            Name="btnRegresar" Style="{StaticResource BotonRegresar}" Click="btnRegresar_Click">
+                        <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
+                    </Button>
 
-            <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="15" Padding="30" Margin="0,0,0,15">
-                <ListBox Name="lbClasificacion" Background="Transparent" BorderThickness="0" 
-                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <TextBlock Grid.Column="1" Text="{x:Static res:Resources.titClasificacion}" 
+                           VerticalAlignment="Center" HorizontalAlignment="Left" 
+                           Margin="50,0,0,0" Style="{StaticResource titulos}"/>
+                </Grid>
 
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            <Setter Property="Margin" Value="0,0,0,12"/>
-                            <Setter Property="IsHitTestVisible" Value="False"/>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="15" Padding="30" Margin="0,0,0,15">
+                    <ListBox Name="lbClasificacion" Background="Transparent" BorderThickness="0" 
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Background="#FFFFFF" CornerRadius="8">
-                                <Grid Height="60">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="2"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Margin" Value="0,0,0,12"/>
+                                <Setter Property="IsHitTestVisible" Value="False"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
 
-                                    <Border Grid.Column="0" Background="{Binding ColorMedalla}" CornerRadius="8,0,0,8">
-                                        <TextBlock Text="{Binding PosicionStr}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
-                                    </Border>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="#FFFFFF" CornerRadius="8">
+                                    <Grid Height="60">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="2"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
 
-                                    <Border Grid.Column="1" Background="#D5CFCF"/>
+                                        <Border Grid.Column="0" Background="{Binding ColorMedalla}" CornerRadius="8,0,0,8">
+                                            <TextBlock Text="{Binding PosicionStr}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
+                                        </Border>
 
-                                    <TextBlock Grid.Column="2" Text="{Binding Usuario}" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
-                                    <TextBlock Grid.Column="3" Text="{Binding PuntosStr}" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
+                                        <Border Grid.Column="1" Background="#D5CFCF"/>
 
-                </ListBox>
-            </Border>
+                                        <TextBlock Grid.Column="2" Text="{Binding Usuario}" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold"/>
+                                        <TextBlock Grid.Column="3" Text="{Binding PuntosStr}" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" Foreground="#807D7D"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
 
-            <Grid Grid.Row="2" VerticalAlignment="Center">
-                <Border Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" CornerRadius="8" Padding="0">
-                    <Grid Height="60">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="2"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border Grid.Column="0" CornerRadius="6,0,0,6">
-                            <TextBlock Name="txtMiPosicion" Text="-°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
-                        </Border>
-
-                        <Border Grid.Column="1" Background="#D5CFCF"/>
-
-                        <TextBlock Grid.Column="2" Name="txtMiUsuario" Text="{x:Static res:Resources.textCargando}" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold" Foreground="#28A745"/>
-                        <TextBlock Grid.Column="3" Name="txtMisPuntos" Text="0 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" FontWeight="Bold"/>
-                    </Grid>
+                    </ListBox>
                 </Border>
-            </Grid>
 
+                <Grid Grid.Row="2" VerticalAlignment="Center">
+                    <Border Background="#FFFFFF" BorderBrush="#807D7D" BorderThickness="2" CornerRadius="8" Padding="0">
+                        <Grid Height="60">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="2"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" CornerRadius="6,0,0,6">
+                                <TextBlock Name="txtMiPosicion" Text="-°" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource texto}" FontWeight="Bold" Foreground="#1E1E1E"/>
+                            </Border>
+
+                            <Border Grid.Column="1" Background="#D5CFCF"/>
+
+                            <TextBlock Grid.Column="2" Name="txtMiUsuario" Text="{x:Static res:Resources.textCargando}" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold" Foreground="#28A745"/>
+                            <TextBlock Grid.Column="3" Name="txtMisPuntos" Text="0 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+            </Grid>
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>
