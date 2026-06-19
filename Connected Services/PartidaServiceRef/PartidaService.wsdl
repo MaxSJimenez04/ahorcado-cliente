@@ -264,53 +264,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IPartidaService_ProponerLetra_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_IPartidaService_JuzgarLetra_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IPartidaService_JuzgarLetra_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -523,14 +477,8 @@
   <wsdl:message name="IPartidaService_ProponerLetra_InputMessage">
     <wsdl:part name="parameters" element="tns:ProponerLetra" />
   </wsdl:message>
-  <wsdl:message name="IPartidaService_ProponerLetra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ProponerLetraResponse" />
-  </wsdl:message>
   <wsdl:message name="IPartidaService_JuzgarLetra_InputMessage">
     <wsdl:part name="parameters" element="tns:JuzgarLetra" />
-  </wsdl:message>
-  <wsdl:message name="IPartidaService_JuzgarLetra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:JuzgarLetraResponse" />
   </wsdl:message>
   <wsdl:message name="IPartidaService_AbandonarPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:AbandonarPartida" />
@@ -568,11 +516,9 @@
     </wsdl:operation>
     <wsdl:operation name="ProponerLetra">
       <wsdl:input wsaw:Action="http://tempuri.org/IPartidaService/ProponerLetra" message="tns:IPartidaService_ProponerLetra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPartidaService/ProponerLetraResponse" message="tns:IPartidaService_ProponerLetra_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="JuzgarLetra">
       <wsdl:input wsaw:Action="http://tempuri.org/IPartidaService/JuzgarLetra" message="tns:IPartidaService_JuzgarLetra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPartidaService/JuzgarLetraResponse" message="tns:IPartidaService_JuzgarLetra_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AbandonarPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IPartidaService/AbandonarPartida" message="tns:IPartidaService_AbandonarPartida_InputMessage" />
@@ -636,10 +582,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IPartidaService_ProponerLetra_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IPartidaService_ProponerLetra_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="JuzgarLetra">
       <soap12:operation soapAction="http://tempuri.org/IPartidaService/JuzgarLetra" style="document" />
@@ -647,10 +589,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IPartidaService_JuzgarLetra_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IPartidaService_JuzgarLetra_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AbandonarPartida">
       <soap12:operation soapAction="http://tempuri.org/IPartidaService/AbandonarPartida" style="document" />
@@ -705,7 +643,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:54669/Servicios/PartidaService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>TUF15_MAX\Maxim</Upn>
+          <Upn>DESKTOP-L5B2H3D\Usuario</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

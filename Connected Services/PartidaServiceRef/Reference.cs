@@ -429,16 +429,16 @@ namespace ClienteAhorcado.PartidaServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/UnirseAPartida", ReplyAction="http://tempuri.org/IPartidaService/UnirseAPartidaResponse")]
         System.Threading.Tasks.Task<ClienteAhorcado.PartidaServiceRef.PartidaDTO> UnirseAPartidaAsync(int idPartida, int idJugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/ProponerLetra", ReplyAction="http://tempuri.org/IPartidaService/ProponerLetraResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/ProponerLetra")]
         void ProponerLetra(int idPartida, int idJugador, char letra);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/ProponerLetra", ReplyAction="http://tempuri.org/IPartidaService/ProponerLetraResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/ProponerLetra")]
         System.Threading.Tasks.Task ProponerLetraAsync(int idPartida, int idJugador, char letra);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/JuzgarLetra", ReplyAction="http://tempuri.org/IPartidaService/JuzgarLetraResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/JuzgarLetra")]
         void JuzgarLetra(int idPartida, int idJugador, bool decisionEsCorrecta);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/JuzgarLetra", ReplyAction="http://tempuri.org/IPartidaService/JuzgarLetraResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPartidaService/JuzgarLetra")]
         System.Threading.Tasks.Task JuzgarLetraAsync(int idPartida, int idJugador, bool decisionEsCorrecta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPartidaService/AbandonarPartida", ReplyAction="http://tempuri.org/IPartidaService/AbandonarPartidaResponse")]

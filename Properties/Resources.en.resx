@@ -501,8 +501,7 @@ The game is about to start.</value>
     <value>Victories:</value>
   </data>
   <data name="textYoChat" xml:space="preserve">
-    <value>
-Me: {0}</value>
+    <value>Me: {0}</value>
   </data>
   <data name="titAbandonar" xml:space="preserve">
     <value>Leave</value>

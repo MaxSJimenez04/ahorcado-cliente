@@ -114,31 +114,6 @@ namespace ClienteAhorcado.vistas
             imgAhorcado.Source = new BitmapImage(new Uri(rutaImagen, UriKind.Relative));
         }
 
-        private async void ConectarChat()
-        {
-            _chat = new utils.ChatCliente();
-            _chat.MensajeRecibido += OnMensajeChatRecibido;
-
-            try
-            {
-                // ⚠️ Cambia "127.0.0.1" por la IP de la máquina servidor para la prueba en red.
-                await _chat.ConectarAsync("127.0.0.1", 9000, _partidaActual.idPartida, utils.Sesion.Instancia.Usuario);
-            }
-            catch (Exception)
-            {
-                // Si el servidor de chat no está corriendo, el juego sigue funcionando sin chat.
-            }
-        }
-
-        private void OnMensajeChatRecibido(string usuario, string texto)
-        {
-            // Llega desde un hilo de fondo: saltar al hilo de UI para tocar el TextBox.
-            Dispatcher.Invoke(() =>
-            {
-                txtChatHistorial.Text += $"{usuario}: {texto}{Environment.NewLine}";
-            });
-        }
-
         // ==========================================
         // ACCIONES DEL JUGADOR
         // ==========================================
@@ -155,7 +130,9 @@ namespace ClienteAhorcado.vistas
                 int idJugadorActual = utils.Sesion.Instancia.IdJugador;
                 _conexion.Cliente.ProponerLetra(_partidaActual.idPartida, idJugadorActual, letraSeleccionada);
 
-                btn.IsEnabled = false;
+                DesactivarBotonTeclado(letraSeleccionada);
+
+                panelAdivinador.IsEnabled = false;
             }
             catch (Exception ex)
             {
@@ -193,6 +170,9 @@ namespace ClienteAhorcado.vistas
                     if (btn.Content.ToString() == letra.ToString())
                     {
                         btn.IsEnabled = false;
+
+                        btn.Background = new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4A4A4A"));
+
                         return;
                     }
                 }
@@ -251,6 +231,10 @@ namespace ClienteAhorcado.vistas
                 ActualizarAhorcado(intentosFallidos);
                 DesactivarBotonTeclado(letra);
 
+                // Desbloqueamos el teclado para el siguiente turno.
+                // WPF mantendrá deshabilitados los botones que pasaron por DesactivarBotonTeclado()
+                panelAdivinador.IsEnabled = true;
+
                 if (_esJuez)
                 {
                     txtLetraJuez.Foreground = esCorrecta
@@ -278,8 +262,11 @@ namespace ClienteAhorcado.vistas
 
         private void OnFinPartida(int estadoFinal)
         {
-            Dispatcher.Invoke(() =>
+            // Cambiamos a InvokeAsync para permitir pausas sin congelar la pantalla
+            Dispatcher.InvokeAsync(async () =>
             {
+                // LA LÍNEA CLAVE: Le damos a WPF 500 milisegundos para dibujar la última jugada
+                await Task.Delay(500);
                 string mensaje = "";
                 string titulo = Properties.Resources.titPartidaFinalizada;
 
@@ -313,16 +300,45 @@ namespace ClienteAhorcado.vistas
         // ==========================================
         // LÓGICA DEL CHAT (sigue local por ahora; el socket se conecta aparte)
         // ==========================================
+
+        private async void ConectarChat()
+        {
+            _chat = new utils.ChatCliente();
+            _chat.MensajeRecibido += OnMensajeChatRecibido;
+
+            try
+            {
+                // ⚠️ Cambia "127.0.0.1" por la IP de la máquina servidor para la prueba en red.
+                await _chat.ConectarAsync("127.0.0.1", 9000, _partidaActual.idPartida, utils.Sesion.Instancia.Usuario);
+            }
+            catch (Exception)
+            {
+                // Si el servidor de chat no está corriendo, el juego sigue funcionando sin chat.
+            }
+        }
+
+        private void OnMensajeChatRecibido(string usuario, string texto)
+        {
+            // Llega desde un hilo de fondo: saltar al hilo de UI para tocar el TextBox.
+            Dispatcher.Invoke(() =>
+            {
+                // 3. Usamos AppendText también al recibir
+                txtChatHistorial.AppendText($"{usuario}: {texto}{Environment.NewLine}");
+            });
+        }
+
         private async void btnEnviarChat_Click(object sender, RoutedEventArgs e)
         {
             string mensaje = txtChatMensaje.Text;
             if (!string.IsNullOrWhiteSpace(mensaje))
             {
-                // Muestro mi propio mensaje en mi pantalla
-                txtChatHistorial.Text += string.Format(Properties.Resources.textYoChat, mensaje);
+                // 1. Formateamos directamente con el texto limpio del recurso
+                string textoLocal = string.Format(Properties.Resources.textYoChat, mensaje);
+
+                // 2. Usamos AppendText agregando el salto de línea universal de .NET
+                txtChatHistorial.AppendText(textoLocal + Environment.NewLine);
                 txtChatMensaje.Clear();
 
-                // Y lo mando al otro jugador por el socket
                 if (_chat != null)
                 {
                     await _chat.EnviarMensajeAsync(mensaje);

@@ -1206,8 +1206,7 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a 
-        ///Yo: {0}.
+        ///   Busca una cadena traducida similar a Yo: {0}.
         /// </summary>
         public static string textYoChat {
             get {
