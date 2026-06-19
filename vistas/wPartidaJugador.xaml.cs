@@ -346,6 +346,16 @@ namespace ClienteAhorcado.vistas
             }
         }
 
+        private void txtChatMensaje_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Verificamos si la tecla presionada fue 'Enter'
+            if (e.Key == Key.Enter)
+            {
+                // Llamamos al mismo método que ya hace todo el trabajo de enviar el chat
+                btnEnviarChat_Click(null, null);
+            }
+        }
+
         private void txtChatHistorial_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtChatHistorial.ScrollToEnd();

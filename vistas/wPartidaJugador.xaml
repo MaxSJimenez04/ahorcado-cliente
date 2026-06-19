@@ -185,7 +185,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox Grid.Column="0" Name="txtChatMensaje" Style="{StaticResource EstiloChatTextBox}"/>
+                                <TextBox Grid.Column="0" Name="txtChatMensaje" Style="{StaticResource EstiloChatTextBox}" KeyDown="txtChatMensaje_KeyDown"/>
 
                                 <Button Grid.Column="1" Width="50" Margin="5,0,0,0" Style="{x:Null}" Background="#807D7D" Cursor="Hand" Click="btnEnviarChat_Click">
                                     <Image Source="../resources/img/enviar.png" Width="25" Height="25"/>
