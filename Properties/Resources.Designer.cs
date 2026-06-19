@@ -313,6 +313,51 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Abandonaste.
+        /// </summary>
+        public static string filtroAbandonaste {
+            get {
+                return ResourceManager.GetString("filtroAbandonaste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Abandonó.
+        /// </summary>
+        public static string filtroAbandono {
+            get {
+                return ResourceManager.GetString("filtroAbandono", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Derrota.
+        /// </summary>
+        public static string filtroDerrota {
+            get {
+                return ResourceManager.GetString("filtroDerrota", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Todos.
+        /// </summary>
+        public static string filtroTodos {
+            get {
+                return ResourceManager.GetString("filtroTodos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Victoria.
+        /// </summary>
+        public static string filtroVictoria {
+            get {
+                return ResourceManager.GetString("filtroVictoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Abandonaste la partida. Se aplicará penalización..
         /// </summary>
         public static string msgAbandonoPropio {
@@ -511,6 +556,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error al cargar el historial: {0}.
+        /// </summary>
+        public static string msgErrorCargarHistorial {
+            get {
+                return ResourceManager.GetString("msgErrorCargarHistorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error al cargar palabras: {0}.
         /// </summary>
         public static string msgErrorCargarPalabras {
@@ -525,6 +579,15 @@ namespace ClienteAhorcado.Properties {
         public static string msgErrorCargarPartidas {
             get {
                 return ResourceManager.GetString("msgErrorCargarPartidas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al cargar la clasificación global: {0}.
+        /// </summary>
+        public static string msgErrorClasificacion {
+            get {
+                return ResourceManager.GetString("msgErrorClasificacion", resourceCulture);
             }
         }
         
@@ -864,6 +927,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cargando....
+        /// </summary>
+        public static string textCargando {
+            get {
+                return ResourceManager.GetString("textCargando", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Categoría: {0}.
         /// </summary>
         public static string textCategoria {
@@ -914,6 +986,24 @@ namespace ClienteAhorcado.Properties {
         public static string textDerrotas {
             get {
                 return ResourceManager.GetString("textDerrotas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ej: Gran Partida.
+        /// </summary>
+        public static string textEjemploPartida {
+            get {
+                return ResourceManager.GetString("textEjemploPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a JugadorPro123.
+        /// </summary>
+        public static string textEjemploUsuario {
+            get {
+                return ResourceManager.GetString("textEjemploUsuario", resourceCulture);
             }
         }
         
@@ -1162,6 +1252,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Clasificación.
+        /// </summary>
+        public static string titClasificacion {
+            get {
+                return ResourceManager.GetString("titClasificacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Conflicto.
         /// </summary>
         public static string titConflicto {
@@ -1315,6 +1414,15 @@ namespace ClienteAhorcado.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a AHORCADO.
+        /// </summary>
+        public static string titJuego {
+            get {
+                return ResourceManager.GetString("titJuego", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Juicio.
         /// </summary>
         public static string titJuicio {
@@ -1329,6 +1437,15 @@ namespace ClienteAhorcado.Properties {
         public static string titNombreOcupado {
             get {
                 return ResourceManager.GetString("titNombreOcupado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nueva Partida.
+        /// </summary>
+        public static string titNuevaPartida {
+            get {
+                return ResourceManager.GetString("titNuevaPartida", resourceCulture);
             }
         }
         
@@ -1401,6 +1518,15 @@ namespace ClienteAhorcado.Properties {
         public static string titTiempoAgotado {
             get {
                 return ResourceManager.GetString("titTiempoAgotado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Unirse a Partida.
+        /// </summary>
+        public static string titUnirsePartida {
+            get {
+                return ResourceManager.GetString("titUnirsePartida", resourceCulture);
             }
         }
         

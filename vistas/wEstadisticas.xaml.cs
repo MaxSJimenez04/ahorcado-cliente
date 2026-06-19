@@ -49,41 +49,42 @@ namespace ClienteAhorcado.vistas
 
                     foreach (var h in historialDTO)
                     {
-                        // Transformamos el DTO en un formato amigable para la interfaz
+                        bool esEspanol = utils.Sesion.Instancia.IdIdioma == 1;
+                        string formatoFecha = esEspanol ? "dd/MM/yyyy hh:mm tt" : "MM/dd/yyyy hh:mm tt";
+
                         HistorialUI item = new HistorialUI
                         {
                             PalabraObjetivo = h.palabra,
                             NombreContrincante = h.usuarioContrincante,
-                            FechaPartida = h.fechaPartida
+                            FechaPartida = h.fechaPartida,
+                            FechaPartidaStr = h.fechaPartida.ToString(formatoFecha) // Asignamos la cadena limpia
                         };
 
-                        // Determinamos el resultado basado en los puntos y el estado
                         if (h.puntos > 0)
                         {
-                            item.EstadoResultado = "Victoria";
+                            item.EstadoResultado = Properties.Resources.filtroVictoria;
                             item.PuntosObtenidos = $"+{h.puntos}";
                             item.ColorResultado = "Green";
                             contadorVictorias++;
                         }
                         else if (h.puntos < 0)
                         {
-                            item.EstadoResultado = "Abandonaste";
+                            item.EstadoResultado = Properties.Resources.filtroAbandonaste;
                             item.PuntosObtenidos = $"{h.puntos}";
                             item.ColorResultado = "Red";
                             contadorDerrotas++;
                         }
                         else
                         {
-                            // Si los puntos son 0, verificamos si fue una derrota legítima o el rival huyó
                             if (h.estadoPartida == 5 || h.estadoPartida == 6)
                             {
-                                item.EstadoResultado = "Abandonó";
+                                item.EstadoResultado = Properties.Resources.filtroAbandono;
                                 item.PuntosObtenidos = "0";
                                 item.ColorResultado = "Gray";
                             }
                             else
                             {
-                                item.EstadoResultado = "Derrota";
+                                item.EstadoResultado = Properties.Resources.filtroDerrota;
                                 item.PuntosObtenidos = "0";
                                 item.ColorResultado = "Orange";
                                 contadorDerrotas++;
@@ -105,7 +106,9 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 estSrv.Abort();
-                MessageBox.Show($"Error al cargar el historial: {ex.Message}", "Fallo de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorCargarHistorial, ex.Message),
+                                Properties.Resources.titFalloConexion,
+                                MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -118,19 +121,19 @@ namespace ClienteAhorcado.vistas
 
         private void AplicarFiltro()
         {
-            // Verificamos que la lista y el combobox ya estén inicializados
             if (_historialCompleto == null || cbFiltroHistorial.SelectedItem == null) return;
 
             string filtroSeleccionado = (cbFiltroHistorial.SelectedItem as ComboBoxItem).Content.ToString();
 
-            if (filtroSeleccionado == "Todos")
+            // COMPARAMOS USANDO LA LLAVE DE RECURSO, NO LA PALABRA "Todos"
+            if (filtroSeleccionado == Properties.Resources.filtroTodos)
             {
-                // Mostramos todos, ordenados de los más recientes a los más antiguos
                 lbHistorial.ItemsSource = _historialCompleto.OrderByDescending(h => h.FechaPartida).ToList();
             }
             else
             {
-                // Filtramos por la palabra exacta
+                // La lista se filtra automáticamente porque item.EstadoResultado 
+                // y filtroSeleccionado ahora provienen exactamente del mismo archivo de recursos.
                 var listaFiltrada = _historialCompleto
                                     .Where(h => h.EstadoResultado == filtroSeleccionado)
                                     .OrderByDescending(h => h.FechaPartida)
@@ -161,7 +164,8 @@ namespace ClienteAhorcado.vistas
         public string EstadoResultado { get; set; }
         public string PuntosObtenidos { get; set; }
         public string NombreContrincante { get; set; }
-        public DateTime FechaPartida { get; set; }
+        public DateTime FechaPartida { get; set; } // Se queda intacta para ordenar
+        public string FechaPartidaStr { get; set; } // NUEVA: Se usa para mostrar en pantalla
         public string ColorResultado { get; set; }
     }
 }

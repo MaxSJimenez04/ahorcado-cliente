@@ -201,6 +201,21 @@
   <data name="columResultado" xml:space="preserve">
     <value>Result</value>
   </data>
+  <data name="filtroAbandonaste" xml:space="preserve">
+    <value>You left</value>
+  </data>
+  <data name="filtroAbandono" xml:space="preserve">
+    <value>Opponent left</value>
+  </data>
+  <data name="filtroDerrota" xml:space="preserve">
+    <value>Defeat</value>
+  </data>
+  <data name="filtroTodos" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="filtroVictoria" xml:space="preserve">
+    <value>Victory</value>
+  </data>
   <data name="msgAbandonoPropio" xml:space="preserve">
     <value>You abandoned the game. A penalty will be applied.</value>
   </data>
@@ -267,11 +282,17 @@
   <data name="msgErrorCargarCategorias" xml:space="preserve">
     <value>Error loading categories: {0}</value>
   </data>
+  <data name="msgErrorCargarHistorial" xml:space="preserve">
+    <value>Error loading the game history: {0}</value>
+  </data>
   <data name="msgErrorCargarPalabras" xml:space="preserve">
     <value>Error loading words: {0}</value>
   </data>
   <data name="msgErrorCargarPartidas" xml:space="preserve">
     <value>Error loading the list of games: {0}</value>
+  </data>
+  <data name="msgErrorClasificacion" xml:space="preserve">
+    <value>Error loading the global leaderboard: {0}</value>
   </data>
   <data name="msgErrorComunicacion" xml:space="preserve">
     <value>Communication error with the server, please try again later.</value>
@@ -386,6 +407,9 @@ The game is about to start.</value>
   <data name="textBuscarpor" xml:space="preserve">
     <value>Search by:</value>
   </data>
+  <data name="textCargando" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="textCategoria" xml:space="preserve">
     <value>Category: {0}</value>
   </data>
@@ -403,6 +427,12 @@ The game is about to start.</value>
   </data>
   <data name="textDerrotas" xml:space="preserve">
     <value>Defeats:</value>
+  </data>
+  <data name="textEjemploPartida" xml:space="preserve">
+    <value>Ex: Great Game</value>
+  </data>
+  <data name="textEjemploUsuario" xml:space="preserve">
+    <value>Ex: ProPlayer123</value>
   </data>
   <data name="textEsperaContrincante" xml:space="preserve">
     <value>Please wait while an opponent connects...</value>
@@ -447,7 +477,7 @@ The game is about to start.</value>
     <value>First Last Name:</value>
   </data>
   <data name="textPuntajeGlobal" xml:space="preserve">
-    <value>Puntaje Global</value>
+    <value>Global Score</value>
   </data>
   <data name="textRegistro" xml:space="preserve">
     <value>Registration</value>
@@ -485,6 +515,9 @@ Me: {0}</value>
   </data>
   <data name="titCancelarPartida" xml:space="preserve">
     <value>Cancel Game</value>
+  </data>
+  <data name="titClasificacion" xml:space="preserve">
+    <value>Leaderboard</value>
   </data>
   <data name="titConflicto" xml:space="preserve">
     <value>Conflict</value>
@@ -537,11 +570,17 @@ Me: {0}</value>
   <data name="titFechaInvalida" xml:space="preserve">
     <value>Invalid date</value>
   </data>
+  <data name="titJuego" xml:space="preserve">
+    <value>HANGMAN</value>
+  </data>
   <data name="titJuicio" xml:space="preserve">
     <value>Judgment</value>
   </data>
   <data name="titNombreOcupado" xml:space="preserve">
     <value>Name taken</value>
+  </data>
+  <data name="titNuevaPartida" xml:space="preserve">
+    <value>New Game</value>
   </data>
   <data name="titPartidaFinalizada" xml:space="preserve">
     <value>Game Over</value>
@@ -566,6 +605,9 @@ Me: {0}</value>
   </data>
   <data name="titTiempoAgotado" xml:space="preserve">
     <value>Timeout</value>
+  </data>
+  <data name="titUnirsePartida" xml:space="preserve">
+    <value>Join Game</value>
   </data>
   <data name="titUsuarioExistente" xml:space="preserve">
     <value>Existing User</value>

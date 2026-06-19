@@ -66,13 +66,13 @@ namespace ClienteAhorcado.vistas
             string nombreUsuario = txtNombreUsuario.Text;
             string correo = txtCorreo.Text;
             string telefono = txtTelefono.Text;
-            string fechaNacimiento = dpFechaNacimiento.Text;
+            DateTime? fechaNacimiento = dpFechaNacimiento.SelectedDate;
             string contrasenia = _contraseniaVisible ? txtContraseniaVisible.Text : pbContraseniaOculta.Password;
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(primerApellido) ||
                 string.IsNullOrWhiteSpace(segundoApellido) || string.IsNullOrWhiteSpace(nombreUsuario) ||
                 string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasenia) ||
-                string.IsNullOrWhiteSpace(fechaNacimiento) || string.IsNullOrWhiteSpace(telefono))
+                fechaNacimiento == null || string.IsNullOrWhiteSpace(telefono))
             {
                 MessageBox.Show(Properties.Resources.msgLlenarCampos, Properties.Resources.TitDatosIncompletos, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -98,14 +98,6 @@ namespace ClienteAhorcado.vistas
 
             MessageBox.Show(Properties.Resources.msgRegistrandoCuenta, Properties.Resources.titRegistro, MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Conversión segura de la Fecha de Nacimiento
-            DateTime fechaNacimientoParsed;
-            if (!DateTime.TryParse(fechaNacimiento, out fechaNacimientoParsed))
-            {
-                MessageBox.Show(Properties.Resources.msgFechaInvalida, Properties.Resources.titFechaInvalida, MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
             var nuevoJugador = new UsuarioServiceRef.JugadorDTO
             {
                 nombre = nombre,
@@ -114,7 +106,7 @@ namespace ClienteAhorcado.vistas
                 usuario = nombreUsuario,
                 correo = correo,
                 telefono = telefono,
-                fechaNacimiento = fechaNacimientoParsed,
+                fechaNacimiento = fechaNacimiento.Value,
                 contrasena = contrasenia
             };
 

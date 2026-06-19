@@ -51,7 +51,7 @@
 
                 <ComboBox Name="cbIdioma" Style="{StaticResource ComboBoxOpciones}" Width="500" SelectionChanged="cbIdioma_SelectionChanged">
                     <ComboBoxItem Content="Español"/>
-                    <ComboBoxItem Content="Inglés"/>
+                    <ComboBoxItem Content="English"/>
                 </ComboBox>
 
             </StackPanel>

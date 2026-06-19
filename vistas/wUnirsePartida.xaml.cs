@@ -34,7 +34,24 @@ namespace ClienteAhorcado.vistas
             try
             {
                 var listaPartidas = partidaSrv.ObtenerPartidasDisponibles();
-                lbPartidas.ItemsSource = listaPartidas;
+
+                // 1. Verificamos el idioma actual
+                bool esEspanol = utils.Sesion.Instancia.IdIdioma == 1;
+
+                // 2. Transformamos la lista y aplicamos el formato de fecha exacto
+                var listaUI = listaPartidas.Select(p => new
+                {
+                    p.idPartida,
+                    p.nombrePartida,
+                    p.usuarioJugadorA,
+                    p.correoJugadorA,
+                    // Aquí ocurre la magia: Si es español dd/MM/yyyy, si es inglés MM/dd/yyyy
+                    fechaCreacion = esEspanol ? p.fechaCreacion.ToString("dd/MM/yyyy")
+                                              : p.fechaCreacion.ToString("MM/dd/yyyy")
+                }).ToList();
+
+                // 3. Asignamos la nueva lista ya formateada
+                lbPartidas.ItemsSource = listaUI;
             }
             catch (Exception ex)
             {

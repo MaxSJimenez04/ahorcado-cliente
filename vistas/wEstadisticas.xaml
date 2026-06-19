@@ -98,11 +98,11 @@
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <TextBlock Text="{x:Static res:Resources.textBuscarpor}" Style="{StaticResource texto}" VerticalAlignment="Center" Margin="0,0,10,0"/>
                                 <ComboBox Name="cbFiltroHistorial" SelectedIndex="0" Width="180" Height="45" FontSize="16" SelectionChanged="cbFiltroHistorial_SelectionChanged">
-                                    <ComboBoxItem Content="Todos"/>
-                                    <ComboBoxItem Content="Victoria"/>
-                                    <ComboBoxItem Content="Derrota"/>
-                                    <ComboBoxItem Content="Abandonaste"/>
-                                    <ComboBoxItem Content="Abandonó"/>
+                                    <ComboBoxItem Content="{x:Static res:Resources.filtroTodos}"/>
+                                    <ComboBoxItem Content="{x:Static res:Resources.filtroVictoria}"/>
+                                    <ComboBoxItem Content="{x:Static res:Resources.filtroDerrota}"/>
+                                    <ComboBoxItem Content="{x:Static res:Resources.filtroAbandonaste}"/>
+                                    <ComboBoxItem Content="{x:Static res:Resources.filtroAbandono}"/>
                                 </ComboBox>
                             </StackPanel>
                         </Grid>
@@ -150,7 +150,7 @@
                                         <TextBlock Grid.Column="2" Text="{Binding PuntosObtenidos}" Style="{StaticResource texto}" Foreground="{Binding ColorResultado}"/>
 
                                         <TextBlock Grid.Column="3" Text="{Binding NombreContrincante}" Style="{StaticResource texto}"/>
-                                        <TextBlock Grid.Column="4" Text="{Binding FechaPartida, StringFormat=\{0:dd/MM/yyyy hh:mm tt\}}" Style="{StaticResource texto}" FontSize="16"/>
+                                        <TextBlock Grid.Column="4" Text="{Binding FechaPartidaStr}" Style="{StaticResource texto}" FontSize="16"/>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

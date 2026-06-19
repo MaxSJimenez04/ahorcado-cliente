@@ -46,7 +46,7 @@
                     <Grid Margin="0,0,0,20" Width="360">
                         <TextBox Name="txtNombreUsuario" Height="60" HorizontalAlignment="Stretch" MaxLength="255"/>
 
-                        <TextBlock Text="Ej: JugadorPro123" VerticalAlignment="Center" Margin="15,0,0,0" 
+                        <TextBlock Text="{x:Static res:Resources.textEjemploUsuario}" VerticalAlignment="Center" Margin="15,0,0,0" 
                                    Foreground="#A09D9D" FontSize="20" IsHitTestVisible="False">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource texto}">

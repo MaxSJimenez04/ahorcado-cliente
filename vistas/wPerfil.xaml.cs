@@ -64,7 +64,8 @@ namespace ClienteAhorcado.vistas
                     txtCorreo.Text = datosPerfil.correo;
                     txtTelefono.Text = datosPerfil.telefono;
 
-                    txtFechaNacimiento.Text = datosPerfil.fechaNacimiento.ToString("dd/MM/yyyy");
+                    bool esEspanol = sesionLocal.IdIdioma == 1;
+                    txtFechaNacimiento.Text = datosPerfil.fechaNacimiento.ToString(esEspanol ? "dd/MM/yyyy" : "MM/dd/yyyy");
                 }
                 else
                 {
@@ -100,7 +101,8 @@ namespace ClienteAhorcado.vistas
                 // Verificar fecha válida antes de formatear
                 if (sesionLocal.FechaNacimiento != DateTime.MinValue)
                 {
-                    txtFechaNacimiento.Text = sesionLocal.FechaNacimiento.ToString("dd/MM/yyyy");
+                    bool esEspanol = sesionLocal.IdIdioma == 1;
+                    txtFechaNacimiento.Text = sesionLocal.FechaNacimiento.ToString(esEspanol ? "dd/MM/yyyy" : "MM/dd/yyyy");
                 }
             }
         }

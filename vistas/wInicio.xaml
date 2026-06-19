@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" 
-                 Text="AHORCADO"
+                 Text="{x:Static res:Resources.titJuego}"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
                  FontSize="100"

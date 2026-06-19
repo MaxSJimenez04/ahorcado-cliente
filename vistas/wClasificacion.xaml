@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClienteAhorcado.vistas"
-      mc:Ignorable="d" 
+      xmlns:res="clr-namespace:ClienteAhorcado.Properties" mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="wClasificacion">
 
@@ -27,8 +27,9 @@
                     <Path Data="{StaticResource IconoRegresar}" Fill="#F4F3F2" Width="30" Height="30" Stretch="Fill"/>
                 </Button>
 
-                <TextBlock Grid.Column="1" Text="Clasificación" VerticalAlignment="Center" 
-                           HorizontalAlignment="Left" Margin="50,0,0,0" Style="{StaticResource titulos}"/>
+                <TextBlock Grid.Column="1" Text="{x:Static res:Resources.titClasificacion}" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" 
+                       Margin="50,0,0,0" Style="{StaticResource titulos}"/>
             </Grid>
 
             <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="15" Padding="30" Margin="0,0,0,15">
@@ -86,7 +87,7 @@
 
                         <Border Grid.Column="1" Background="#D5CFCF"/>
 
-                        <TextBlock Grid.Column="2" Name="txtMiUsuario" Text="Cargando..." VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold" Foreground="#28A745"/>
+                        <TextBlock Grid.Column="2" Name="txtMiUsuario" Text="{x:Static res:Resources.textCargando}" VerticalAlignment="Center" Margin="20,0,0,0" Style="{StaticResource texto}" FontWeight="DemiBold" Foreground="#28A745"/>
                         <TextBlock Grid.Column="3" Name="txtMisPuntos" Text="0 pts" VerticalAlignment="Center" Margin="0,0,60,0" Style="{StaticResource texto}" FontWeight="Bold"/>
                     </Grid>
                 </Border>

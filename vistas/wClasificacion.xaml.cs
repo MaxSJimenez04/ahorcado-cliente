@@ -65,7 +65,10 @@ namespace ClienteAhorcado.vistas
             catch (Exception ex)
             {
                 estSrv.Abort();
-                MessageBox.Show($"Error al cargar la clasificación global: {ex.Message}", "Fallo de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                MessageBox.Show(string.Format(Properties.Resources.msgErrorClasificacion, ex.Message),
+                                Properties.Resources.titFalloConexion,
+                                MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
