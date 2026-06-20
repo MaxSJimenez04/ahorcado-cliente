@@ -21,7 +21,6 @@ namespace ClienteAhorcado.vistas
         {
             InitializeComponent();
             CargarClasificacionGlobal();
-            CargarPosicionPersonal();
         }
 
         private void CargarClasificacionGlobal()
@@ -31,10 +30,12 @@ namespace ClienteAhorcado.vistas
             try
             {
                 var top25 = estSrv.ObtenerClasificacionPuntos();
+                bool encontradoEnTop = false;
 
                 if (top25 != null)
                 {
                     List<ClasificacionUI> listaGrafica = new List<ClasificacionUI>();
+                    string miUsuario = utils.Sesion.Instancia.Usuario;
 
                     foreach (var jugador in top25)
                     {
@@ -54,9 +55,22 @@ namespace ClienteAhorcado.vistas
                         }
 
                         listaGrafica.Add(itemUI);
+
+                        if (jugador.usuario == miUsuario)
+                        {
+                            encontradoEnTop = true;
+                            txtMiPosicion.Text = itemUI.PosicionStr;
+                            txtMiUsuario.Text = itemUI.Usuario;
+                            txtMisPuntos.Text = itemUI.PuntosStr;
+                        }
                     }
 
                     lbClasificacion.ItemsSource = listaGrafica;
+                }
+
+                if (!encontradoEnTop)
+                {
+                    CargarPosicionPersonal();
                 }
 
                 estSrv.Close();
@@ -68,6 +82,10 @@ namespace ClienteAhorcado.vistas
                 MessageBox.Show(string.Format(Properties.Resources.msgErrorClasificacion, ex.Message),
                                 Properties.Resources.titFalloConexion,
                                 MessageBoxButton.OK, MessageBoxImage.Error);
+
+                txtMiPosicion.Text = "-°";
+                txtMiUsuario.Text = utils.Sesion.Instancia.Usuario;
+                txtMisPuntos.Text = $"{utils.Sesion.Instancia.Puntos} pts";
             }
         }
 
