@@ -23,6 +23,7 @@ namespace ClienteAhorcado.vistas
         public wRegistro()
         {
             InitializeComponent();
+            dpFechaNacimiento.DisplayDateEnd = DateTime.Today;
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)

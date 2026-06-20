@@ -23,6 +23,7 @@ namespace ClienteAhorcado.vistas
         public wEditarPerfil()
         {
             InitializeComponent();
+            dpFechaNacimiento.DisplayDateEnd = DateTime.Today;
             CargarDatosDesdeSesion();
         }
 
