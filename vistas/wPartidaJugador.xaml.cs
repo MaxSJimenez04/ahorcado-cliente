@@ -293,7 +293,7 @@ namespace ClienteAhorcado.vistas
 
             try
             {
-                await _chat.ConectarAsync("127.0.0.1", 9000, _partidaActual.idPartida, utils.Sesion.Instancia.Usuario);
+                await _chat.ConectarAsync("192.168.1.68", 9000, _partidaActual.idPartida, utils.Sesion.Instancia.Usuario);
             }
             catch (Exception)
             {
